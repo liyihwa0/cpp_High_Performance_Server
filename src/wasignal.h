@@ -1,6 +1,6 @@
 #ifndef WASIGNAL_H
 #define WASIGNAL_H
-#include<global_def.h>
+#include"global_def.h"
 #include<signal.h>
 #include<cstring>
 

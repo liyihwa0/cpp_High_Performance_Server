@@ -5,6 +5,7 @@
 #include <sys/ucontext.h>
 #include "functional"
 #include <chrono>
+#include <memory> // 引入智能指针
 
 typedef std::function<void()> Task;
 using Timestamp = std::chrono::steady_clock::time_point;

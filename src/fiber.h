@@ -26,14 +26,6 @@ public:
         FINISHED        // 协程执行完毕,无事可做
     };
 
-    static Fiber* This(){
-        return thisFiber_;
-    }
-
-    static Fiber* Main(){
-        return mainFiber_;
-    }
-
     static Void CreateMainFiber(){
         Fiber* fiber=new Fiber();
         fiber->id_=0;
@@ -99,14 +91,6 @@ public:
 
     static Size Id(){
         return thisFiber_->id_;
-    }
-
-    Size id() const{
-        return id_;
-    }
-
-    State state() const{
-        return state_;
     }
 
     static State State(){
@@ -238,4 +222,3 @@ thread_local std::vector<Fiber*> Fiber::subFibers_;
 
 
 #endif //LEARNING_FIBER_H
-

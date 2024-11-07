@@ -1,6 +1,6 @@
 #ifndef THREAD_POOL_H
 #define THREAD_POOL_H
-#include <global_def.h>
+#include "global_def.h"
 #include <pthread.h>  // 用于 pthread_t 和 pthread_create 等
 #include <exception>  // 用于 std::exception
 #include "locker.h"
