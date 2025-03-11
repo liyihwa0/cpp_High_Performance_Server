@@ -1,0 +1,10 @@
+syntax = "proto3";
+package wa.rpc;
+
+message HelloRequest{
+  bytes msg=1;
+}
+
+message HelloResponse{
+  bytes msg=1;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package wa.rpc;
+
+message FrameworkRequestHeader
+{
+  bytes serviceName = 1;
+  bytes methodName = 2;
+  uint32 argsSize = 3;
+}
+
+message FrameworkResponseHeader{
+  uint32 code=1;
+  uint32 responseSize=2;
+}

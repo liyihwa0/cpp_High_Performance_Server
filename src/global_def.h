@@ -6,9 +6,10 @@
 #include "functional"
 #include <chrono>
 #include <memory> // 引入智能指针
-
+#include "fstream"
 typedef std::function<void()> Task;
-using Timestamp = std::chrono::steady_clock::time_point;
+typedef std::ofstream OFStream;
+
 
 typedef int FileDescriptor;
 typedef struct sockaddr_in  SockAddrV4;
@@ -19,13 +20,13 @@ typedef pthread_t PThread;
 typedef pthread_mutex_t PMutex;
 typedef ucontext_t  UContext;
 
-typedef pid_t Tid;
-typedef pid_t Pid;
 
 
 typedef void (*SignalHandler)(int);
 typedef struct sigaction SignalAction;
 
+typedef std::string String;
+typedef std::ostream OStream;
 
 typedef void Void;
 
@@ -33,7 +34,6 @@ typedef uint8_t U8;
 typedef uint16_t U16;
 typedef uint32_t U32;
 typedef uint64_t U64;
-
 
 
 typedef size_t Size;
@@ -46,10 +46,12 @@ typedef int64_t I64;
 
 typedef float F32;
 typedef double F64;
+typedef U32 RWEvent;
 
 
 
 typedef bool Bool;
+typedef char Char;
 
 #define UNDEFINED_STRING "undefined"
 
@@ -72,4 +74,5 @@ typedef bool Bool;
     typedef U32 UInt;
 #endif
 
+typedef Int ID;
 
