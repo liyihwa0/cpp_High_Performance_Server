@@ -33,10 +33,6 @@ namespace wa {
             String headerKey_;
             String headerVal_;
             HttpParseState currentState_;
-            SP<Channel<UP<HttpRequest>> > httpRequestChannel_;  // output 用于输出解析后的http request
-            SP<Channel<UP<Buffer>> > contentBufferChannel_;     // input  用于输入有内容的buffer
-            SP<Channel<UP<Buffer>> > recycleBufferChannel_;     // output 用于回收空buffer
-
             void parseMethod(const UP<Buffer>& buffer);
             void parseURI(const UP<Buffer>& buffer);
             void parseVersion(const UP<Buffer>& buffer);
@@ -45,13 +41,10 @@ namespace wa {
             void parseHeaderValue(const UP<Buffer>& buffer);
             void parseEmptyLine(const UP <Buffer> &buffer);
             void parseBody(const UP<Buffer>& buffer);
-            HttpParseState input(const UP<Buffer>& buffer);
 
         public:
-            HttpRequestParser(SP<Channel<UP<Buffer>> > contentChannel,
-                              SP<Channel<UP<Buffer>> > emptyChannel,
-                              SP<Channel<UP<HttpRequest> > > output);
-            void run();
+            HttpParseState input(const UP<Buffer>& buffer);
+            UP<HttpRequest> getRequest();
         };
 
     }

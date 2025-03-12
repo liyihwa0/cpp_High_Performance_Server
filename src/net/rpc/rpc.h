@@ -3,7 +3,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 #include "../../global_def.h"
-#include "../../fiber/worker/socket_worker.h"
+#include "../../net/worker/socket_worker.h"
 #include "./rpc_framework.pb.h"
 #include "functional"
 #pragma once
@@ -20,6 +20,10 @@ namespace wa{
             RESPONSE_DATA_PARSE_ERROR
         };
 
+        inline Bool rpcSuccess(RpcCode code){
+            return code==RpcCode::SUCCESS;
+        }
+
         struct RpcRequest{
             String service;
             String method;
@@ -31,67 +35,80 @@ namespace wa{
             String args;
         };
 
-        class RpcMethod{
+        class RpcMethodBase{
+        public:
+            virtual RpcCode _call(google::protobuf::Message* request, google::protobuf::Message* response) const = 0;
+            virtual const String& methodName() const = 0;
+            virtual const String& serviceName() const = 0;
+            virtual google::protobuf::Message* requestInstance()const=0;
+            virtual google::protobuf::Message* responseInstance() const=0;
+            virtual ~RpcMethodBase() = default;
+        };
+
+        template<typename REQ,typename RSP>
+        class RpcMethod :public RpcMethodBase{
         protected:
-            google::protobuf::Message* request_;
-            google::protobuf::Message* response_;
-            String name_;
+            REQ* request_;
+            RSP* response_;
+            String methodName_;
             String serviceName_;
 
-            RpcMethod(google::protobuf::Message* request,google::protobuf::Message* response,
-                                          const String& name,const String & serviceName):
-                    request_(request),response_(response),name_(name),serviceName_(serviceName){}
-            RpcMethod(google::protobuf::Message* request,google::protobuf::Message* response,
-                      const String& name):
-                    request_(request),response_(response),name_(name),serviceName_(){}
-        private:
+            RpcMethod(const String& methodName_,const String & serviceName=""):
+                    request_(new REQ()), response_(new RSP()), methodName_(methodName_), serviceName_(serviceName){}
 
         public:
-            //todo
-
-
-            google::protobuf::Message* requestInstance()const{
+            virtual ~RpcMethod(){
+                delete request_;
+                delete response_;
+            }
+            REQ* requestInstance()const override{
                 return request_->New();
             }
-            google::protobuf::Message* responseInstance() const {
+            RSP* responseInstance() const override{
                 return response_->New();
             }
-            const String& name()const {
-                return name_;
+            const String& methodName()const override{
+                return methodName_;
             }
 
-            const String& serviceName()const {
+            const String& serviceName()const override{
                 return serviceName_;
             }
 
-            virtual RpcCode call(google::protobuf::Message* , google::protobuf::Message*) const = 0;
+            RpcCode _call(google::protobuf::Message* request, google::protobuf::Message* response)const final {
+                REQ* castedReq=dynamic_cast<REQ*>(request);
+                LOG_ASSERT(gl,castedReq!= nullptr);
+                RSP* castedRsp=dynamic_cast<RSP*>(response);
+                LOG_ASSERT(gl,castedRsp!= nullptr);
+                return call(castedReq,castedRsp);
+            }
+
+            virtual RpcCode call(REQ* , RSP*) const = 0;
         };
 
 
-
         // 客户端类
-        class RpcMethodCaller : RpcMethod{
+        template<typename REQ,typename RSP>
+        class RpcMethodCaller:RpcMethod<REQ,RSP>{
         private:
             UP<ConnectionSocket> connectionSocket_;  // 用于网络通信
+
         public:
             // 构造函数
             RpcMethodCaller(UP<ConnectionSocket> connectionSocket,
-                            google::protobuf::Message* request,
-                            google::protobuf::Message* response,
-                            const String& name,
+                            const String& methodName,
                             const String& serviceName)
-                    : RpcMethod(request, response, name, serviceName), connectionSocket_(connectionSocket) {
+                    : connectionSocket_(connectionSocket), RpcMethod<REQ, RSP>(methodName,serviceName) {
+
             }
 
-            // 实现 call 方法
-            // call方法返回的Message类型是
-            // call方法不能处理粘包情况
-            //todo
-            RpcCode call(google::protobuf::Message* request, google::protobuf::Message* response) const override {
+
+            // call方法可以被同时调用,可以保证call方法是按序执行的
+            RpcCode call(REQ* request, RSP* response) const override {
                 // 序列化请求数据
                 FrameworkRequestHeader requestHeader;
-                requestHeader.set_servicename(serviceName());
-                requestHeader.set_methodname(name());
+                requestHeader.set_servicename(RpcMethod<REQ,RSP>::serviceName());
+                requestHeader.set_methodname(RpcMethod<REQ,RSP>::methodName());
                 requestHeader.set_argssize(request->ByteSizeLong());
                 //todo buffer大小目前被固定到了1024字节
                 Buffer buffer(1024);
@@ -133,7 +150,6 @@ namespace wa{
 
                 return RpcCode::SUCCESS;
             }
-
         };
 
 
@@ -142,19 +158,18 @@ namespace wa{
         class RpcService{
 
             // RpcMethodWithCallback 继承自 RpcMethod，封装了回调逻辑
-            class RpcMethodWithCallback : public RpcMethod {
+            template<typename REQ,typename RSP>
+            class RpcMethodWithCallback : public RpcMethod<REQ,RSP> {
             private:
-                std::function<RpcCode(google::protobuf::Message*, google::protobuf::Message*)> callback_;
+                std::function<RpcCode(REQ*, RSP*)> callback_;
 
             public:
-                RpcMethodWithCallback(google::protobuf::Message* request,
-                                      google::protobuf::Message* response,
-                                      const String& name,
-                                      std::function<RpcCode(google::protobuf::Message*, google::protobuf::Message*)> callback)
-                        : RpcMethod(request, response, name), callback_(callback) {}
+                RpcMethodWithCallback(const String& name,
+                                      std::function<RpcCode(REQ*, RSP*)> callback)
+                        : RpcMethod<REQ,RSP>(name), callback_(callback) {}
 
                 // 调用回调函数处理请求和响应
-                RpcCode call(google::protobuf::Message* req, google::protobuf::Message* res) const override {
+                RpcCode call(REQ* req, RSP* res) const override {
                     return callback_(req, res);
                 }
             };
@@ -164,24 +179,28 @@ namespace wa{
         protected:
             RpcService(const String&name):name_(name){}
 
-            void addMethod(UP<RpcMethod> method){
-                String methodName=method->name();
-                methods_[methodName]=SP<RpcMethod>(method);
-            }
+//            template<typename REQ,typename RSP>
+//            void addMethod(UP<RpcMethod<REQ, RSP>> method){
+//                String methodName=method->methodName();
+//                methods_[methodName]=SP<RpcMethod<google::protobuf::Message, google::protobuf::Message>>(method);
+//            }
 
+            template<typename REQ,typename RSP>
             void addMethod(const String& methodName,
-                           google::protobuf::Message* request,
-                           google::protobuf::Message* response,
-                           std::function<RpcCode(google::protobuf::Message*, google::protobuf::Message*)> callback) {
+                           std::function<RpcCode(REQ*, RSP*)> callback) {
 
                 // 创建一个新的 RpcMethod 实例，使用回调函数
-                auto method = SP<RpcMethod>(new RpcMethodWithCallback(request, response, methodName, callback));
+                auto method = UP<RpcMethodBase>(new RpcMethodWithCallback<REQ, RSP>(methodName, callback));
 
                 // 将方法添加到 methods_ 映射中
                 methods_[methodName] = method;
             }
-            std::unordered_map<String,SP<RpcMethod>> methods_;
+            std::unordered_map<String,UP<RpcMethodBase>> methods_;
         public:
+
+
+            RpcService() = default;
+
             const String& name()const {
                 return name_;
             }
@@ -391,7 +410,7 @@ namespace wa{
                             }
 
                             SP<RpcService> service = it->second;       // 获取service对象  new UserService
-                            SP<RpcMethod> method=mit->second;
+                            auto method=mit->second;
 
                             // 生成rpc方法调用的请求request和响应response参数,由于是rpc的请求，因此请求需要通过request来序列化
                             serviceReq = method->requestInstance();
@@ -401,7 +420,7 @@ namespace wa{
                             }
 
                             google::protobuf::Message* serviceRes = method->responseInstance();
-                            RpcCode code= method->call(serviceReq, serviceRes);
+                            RpcCode code= method->_call(serviceReq, serviceRes);
                             responseHeader.set_code(code);
                             responseHeader.set_responsesize(serviceRes->ByteSizeLong());
 

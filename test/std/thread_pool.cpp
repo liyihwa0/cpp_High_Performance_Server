@@ -9,28 +9,31 @@ using namespace std;
 class ThreadPool{
 private:
     bool stop_;
-    vector<thread> threads_;
-    std::mutex queueMutex_;  // 保护任务队列的互斥量
-    std::queue<std::function<void()>> tasks_;  // 任务队列
-    std::condition_variable condition_;  // 条件变量，用于通知线程执行任务
+    std::queue<function<void()>> tasks_;
+    std::mutex lock_;
+    std::vector<std::thread> threads_;
+    std::condition_variable conditionVariable_;
 public:
     explicit ThreadPool(int threadCount):stop_(false){
         for(int i=0;i<threadCount;i++){
-            threads_.emplace_back([this]{
+            threads_.emplace_back( [this]{
                 while(true){
-                    std::function<void()> task;
-                    {
-                        std::unique_lock<mutex> lock(queueMutex_);
-                        condition_.wait(lock,[this]{
-                            return this->stop_||!this->tasks_.empty();
-                        });
+                    std::unique_lock<std::mutex> uniqueLock(lock_);
 
-                        if(this->stop_&&this->tasks_.empty()){
-                            break;
-                        }
-                        task = std::move(this->tasks_.front());
-                        this->tasks_.pop();
+                    while(!stop_&& tasks_.empty()){
+                        conditionVariable_.wait(uniqueLock);
                     }
+
+                    if(stop_){
+                        return ;
+                    }
+                    function<void()> task;
+                    if(!tasks_.empty()){
+                        task=std::move(tasks_.front());
+                        tasks_.pop();
+                        uniqueLock.unlock();
+                    }
+
                     task();
                 }
             });
@@ -38,23 +41,25 @@ public:
     }
 
     void addTask(const function<void()>& task){
-        {
-            std::unique_lock<std::mutex> lock(queueMutex_);
-            tasks_.push(task);
-            condition_.notify_one();
+        std::unique_lock<std::mutex> uniqueLock(lock_);
+        if(stop_){
+            return;
         }
+        tasks_.push(task);
+        conditionVariable_.notify_one();
+    }
+
+    void stop(){
+        std::unique_lock<std::mutex> uniqueLock(lock_);
+        stop_= true;
+        conditionVariable_.notify_all();
     }
 
     ~ThreadPool() {
-        {
-            std::unique_lock<std::mutex> lock(queueMutex_);
-            stop_ = true;
-        }
-        condition_.notify_all();
-        for (std::thread& worker : threads_) {
-            if (worker.joinable()) {
-                worker.join();
-            }
+        stop();
+        for(auto &it:threads_){
+            if(it.joinable())
+                it.join();
         }
     }
 };
@@ -68,6 +73,6 @@ int main(){
     t.addTask(task);
     t.addTask(task);
     t.addTask(task);
-   // sleep(5);
+    sleep(1);
 
 }

@@ -55,7 +55,7 @@ namespace wa {
         return spinlock_.tryLock();
     }
 
-    // Fiber init
+    // Fiber serverInit
 
     thread_local Fiber* Fiber::thisFiber_ = nullptr;
     thread_local Fiber* Fiber::mainFiber_ = nullptr;

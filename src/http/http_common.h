@@ -33,7 +33,8 @@ namespace wa {
             HTTP_STATUS_FOUND = 302,
             HTTP_STATUS_BAD_REQUEST = 400,
             HTTP_STATUS_NOT_FOUND = 404,
-            HTTP_STATUS_INTERNAL_SERVER_ERROR = 500
+            HTTP_STATUS_INTERNAL_SERVER_ERROR = 500,
+            HTTP_STATUS_BAD_GATEWAY=502
             // 可以继续添加其他状态码
         } HttpStatusCode;
 

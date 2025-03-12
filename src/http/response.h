@@ -15,6 +15,22 @@ namespace wa {
             String body_;
 
         public:
+            static UP<HttpResponse> make200Response(){
+                UP<HttpResponse> response(new HttpResponse);
+                return response;
+            }
+            static UP<HttpResponse> make502Response(){
+                UP<HttpResponse> response(new HttpResponse);
+                response->setStatus(HTTP_STATUS_BAD_GATEWAY); // 设置状态码为 502
+                response->setHeader("Connection", "close"); // 设置连接关闭
+                return response;
+            }
+            static UP<HttpResponse> makeConnectionEstablishedResponse(){
+                UP<HttpResponse> response(new HttpResponse);
+                response->setHeader("Connection", "Established");
+                response->setHeader("Proxy-Connection","keep-alive");
+                return response;
+            }
             HttpResponse() : version_("HTTP/1.1"), statusCode_(HTTP_STATUS_OK) {}
 
             void setVersion(const String& version){

@@ -22,6 +22,9 @@ namespace wa {
 
     public:
         explicit Channel(Size size) : channelQueue_(size),closed_(FALSE),lock_(),consumerFibers_(),producerFibers_() {}
+        ~Channel(){
+            close();
+        }
 
         // 读操作
         // 当channel被关闭后,依旧可以读,直到再也没有数据
@@ -40,6 +43,7 @@ namespace wa {
 
                 lock_.lock();  // 被唤醒后重新获取锁
             }
+
             Bool rt=FALSE;
             if(!channelQueue_.empty()) {
                 res = channelQueue_.popFront(); //读数据

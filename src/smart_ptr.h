@@ -11,14 +11,14 @@ namespace wa{
     template<typename  T>
     class PointerDeleter{
     public:
-        Void static DoDelete(T *ptr){
+        void static DoDelete(T *ptr){
             delete ptr;
         }
     };
     template<typename  T>
     class ArrayDeleter{
     public:
-        Void static DoDelete(T *ptr){
+        void static DoDelete(T *ptr){
             delete[] ptr;
         }
     };
@@ -81,12 +81,12 @@ namespace wa{
         T* ptr_; // 原始指针
     };
 
-    template<typename T>
+    template<typename T,typename Deleter>
     class SP;
 
-    template<typename T>
-    class UP:public UPBase<T,PointerDeleter<T> >{
-    friend SP<T>;
+    template<typename T,typename Deleter=PointerDeleter<T>>
+    class UP:public UPBase<T,Deleter >{
+    friend SP<T,PointerDeleter<T>>;
     public:
         explicit UP(T* ptr= nullptr) : UPBase<T, PointerDeleter<T>>(ptr){}
 
@@ -104,7 +104,7 @@ namespace wa{
     template<typename T>
     class UP<T[]>:public UPBase<T,ArrayDeleter<T> >{
     public:
-        friend SP<T[]>;
+        friend SP<T[],ArrayDeleter<T> >;
         explicit UP(T* ptr = nullptr) : UPBase<T, ArrayDeleter<T>>(ptr){}
 
         T& operator[](Size idx) const {
@@ -199,12 +199,12 @@ namespace wa{
         }
     };
 
+
     // 通用版本的 Shared Pointer
-    template <typename T>
-    class SP : public SPBase<T, PointerDeleter<T>> {
+    template <typename T,typename Deleter=PointerDeleter<T> >
+    class SP : public SPBase<T, Deleter> {
     public:
-        explicit SP(T* ptr = nullptr):
-        SPBase<T, PointerDeleter<T>>(ptr){}
+        explicit SP(T* ptr = nullptr):SPBase<T, Deleter>(ptr){}
 
         explicit SP(UP<T> up) noexcept {
             this->node_ = up.ptr_ ? new typename SPBase<T, PointerDeleter<T>>::SPNode{up.ptr_, 1} : nullptr;
@@ -221,9 +221,9 @@ namespace wa{
         }
     };
 
-// 数组特化版本的 Shared Pointer
+    // 数组特化版本的 Shared Pointer
     template <typename T>
-    class SP<T[]> : public SPBase<T, ArrayDeleter<T>> {
+    class SP<T[],ArrayDeleter<T>> : public SPBase<T, ArrayDeleter<T>> {
     public:
         explicit SP(T* ptr = nullptr)
                 : SPBase<T, ArrayDeleter<T>>(ptr) {}
@@ -238,6 +238,9 @@ namespace wa{
             return this->get()[index];
         }
     };
+
+
+
 }
 
 

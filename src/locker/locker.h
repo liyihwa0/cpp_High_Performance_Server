@@ -263,7 +263,7 @@ namespace wa {
         }
     }
     template<class T>
-    ScopedLock<T> AsScopedLock(T& lock){
+    inline ScopedLock<T> AsScopedLock(T& lock){
         return ScopedLock<T>(lock);
     }
 

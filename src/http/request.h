@@ -51,6 +51,9 @@ namespace wa {
             String methodString() const{
                 return  HttpHelper::MethodToString(method_);
             }
+            HttpMethod method()const{
+                return method_;
+            }
             void delHeader(const String& key){
                 headers_.erase(key);
             }

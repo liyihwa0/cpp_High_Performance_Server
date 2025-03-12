@@ -17,7 +17,7 @@ int main(){
     gl->setLevel(wa::LogLevel::INFO);
 
     DispatchServlet dispatchServlet;
-    dispatchServlet.scanDir("./static");
+    dispatchServlet.scanStaticDir("./static");
 
 
     SP<ListenerSocket> listenerSocket(new ListenerSocket);

@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 设置编译器
-set(CMAKE_C_COMPILER "/usr/local/bin/gcc")
-set(CMAKE_CXX_COMPILER "/usr/local/bin/g++")
+set(CMAKE_C_COMPILER "/usr/bin/gcc")
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 message(STATUS "c compiler ${CMAKE_C_COMPILER}")
 message(STATUS "cpp compiler ${CMAKE_CXX_COMPILER}")
@@ -38,6 +38,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 # 查找 Protobuf 库
 find_package(Protobuf REQUIRED)
+find_package(OpenSSL REQUIRED)  # 查找 OpenSSL
 
 
 #设置搜索的头文件的路径,包含 Protobuf 的头文件
@@ -138,6 +139,6 @@ endforeach()
 # 在创建目标之后，集中为所有目标链接 Protobuf 库
 foreach(target IN LISTS TEST_TARGET_FILES MAIN_TARGET_FILES EXAMPLE_TARGET_FILES)
     get_filename_component(target_name ${target} NAME_WE)
-    target_link_libraries(${target_name} ${Protobuf_LIBRARIES})
+    target_link_libraries(${target_name} ${Protobuf_LIBRARIES}  OpenSSL::SSL OpenSSL::Crypto)
     message(STATUS "Linked Protobuf to target: ${target_name}")
 endforeach()

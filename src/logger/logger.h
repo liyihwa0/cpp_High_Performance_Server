@@ -222,11 +222,11 @@ namespace wa {
     if(logger->judgeLevel(level)) \
         wa::LogEventWrapper(logger,level,0,__FILE__,__LINE__).stream()
 
-#define LOG_DEBUG(logger) LOG_LEVEL(logger,LogLevel::Level::DEBUG)
-#define LOG_INFO(logger) LOG_LEVEL(logger,LogLevel::Level::INFO)
-#define LOG_WARN(logger) LOG_LEVEL(logger,LogLevel::Level::WARN)
-#define LOG_ERROR(logger) LOG_LEVEL(logger,LogLevel::Level::ERROR)
-#define LOG_FATAL(logger) LOG_LEVEL(logger,LogLevel::Level::FATAL)
+#define LOG_DEBUG(logger) LOG_LEVEL(logger,wa::LogLevel::Level::DEBUG)
+#define LOG_INFO(logger) LOG_LEVEL(logger,wa::LogLevel::Level::INFO)
+#define LOG_WARN(logger) LOG_LEVEL(logger,wa::LogLevel::Level::WARN)
+#define LOG_ERROR(logger) LOG_LEVEL(logger,wa::LogLevel::Level::ERROR)
+#define LOG_FATAL(logger) LOG_LEVEL(logger,wa::LogLevel::Level::FATAL)
 #define LOG_ASSERT(logger,condition) \
     if (!(condition)) { LOG_ERROR(logger) << "Assertion failed: " #condition; }
 

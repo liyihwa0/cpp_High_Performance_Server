@@ -25,9 +25,12 @@ void test1(){
     },"reader");
     auto now=Timer::Now();
     Fiber::Start(1);
-    cout<<(Timer::Now()-now).format("%M:%S")<<endl;
+    cout<<20000000*2/((Timer::Now()-now).getMS()/1000)<<endl;
 }
+
 void test2(){
+    const int count=10000*10000;
+    auto now=Timer::Now();
     // 创建三个管道
     Channel<String> channel1(1);
     Channel<String> channel2(1);
@@ -35,7 +38,7 @@ void test2(){
 
     // 创建三个生产者协程，分别写入不同的管道
     Fiber::AddTask([&channel1] {
-        int i = 1000;
+        int i = count;
         while (i--) {
             channel1.write("Message from Producer 1: " + to_string(i));
         }
@@ -44,7 +47,7 @@ void test2(){
     }, "Producer 1");
 
     Fiber::AddTask([&channel2] {
-        int i = 1000;
+        int i = count;
         while (i--) {
             channel2.write("Message from Producer 2: " + to_string(i));
         }
@@ -52,7 +55,7 @@ void test2(){
     }, "Producer 2");
 
     Fiber::AddTask([&channel3] {
-        int i = 1000;
+        int i = count;
         while (i--) {
             channel3.write("Message from Producer 3: " + to_string(i));
         }
@@ -95,9 +98,12 @@ void test2(){
 
     // 启动协程
     Fiber::Start(3);
+
+    cout<<10000*10000*3*2/((Timer::Now()-now).getMS()/1000)<<endl;
+
 }
 int main(){
-    gl->setLevel(wa::LogLevel::INFO);
-    test1();
+    gl->setLevel(wa::LogLevel::WARN);
+    test2();
 
 }

@@ -36,7 +36,7 @@ namespace wa{
             return level;
         }
     public:
-        SkipList(F32 promote,Int maxHeight):promoteP_(promote*100), dataHeader_({0,0, nullptr}){
+        SkipList(F32 promote,Int maxHeight):promoteP_(promote*100), dataHeader_({K{},V{}, nullptr}){
             if(maxHeight<=1){
                 throw CODE_LOCATION_EXCEPTION("param error at maxHeight"+std::to_string(maxHeight));
             }else{
@@ -48,7 +48,7 @@ namespace wa{
             IndexNode* lastHeader=reinterpret_cast<IndexNode*>(&dataHeader_);
             indexHeaders_.reserve(maxHeight_-1);
             for(Int i=0;i<maxHeight_-1;i++){
-                indexHeaders_.push_back({0, nullptr,lastHeader});
+                indexHeaders_.push_back({K{}, nullptr,lastHeader});
                 lastHeader=& indexHeaders_[i];
             }
         }
@@ -155,7 +155,7 @@ namespace wa{
                 return TRUE;
             }
 
-            return FALSE;
+            return add(key, value);
         }
 
 

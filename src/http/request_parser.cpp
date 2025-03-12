@@ -14,20 +14,6 @@ namespace wa {
             headerVal_.clear();
         }
 
-        HttpRequestParser::HttpRequestParser(SP<Channel<UP<wa::Buffer>>> contentChannel,
-                                             SP<Channel<UP<wa::Buffer>>> emptyChannel,
-                                             SP<Channel<UP<wa::http::HttpRequest>>> output): contentBufferChannel_(std::move(contentChannel)),
-                                                                                             recycleBufferChannel_(std::move(emptyChannel)),
-                                                                                             httpRequestChannel_(std::move(output)),
-                                                                                             currentState_(HttpParseState::START),
-                                                                                             request_(),
-                                                                                             method_(),
-                                                                                             headerKey_(),
-                                                                                             headerVal_()
-        {}
-
-
-
         // HttpRequestParser 类的继续实现
         void HttpRequestParser::parseMethod(const UP<Buffer>& buffer) {
 
@@ -150,8 +136,6 @@ namespace wa {
                     return;
                 }
                 if(remainingContentLength_==0){
-
-                    httpRequestChannel_->write(std::move(request_));
                     currentState_=HttpParseState ::DONE;
                     return;
                 }else{
@@ -171,7 +155,6 @@ namespace wa {
                 remainingContentLength_--;
             }
             if(remainingContentLength_==0){
-                httpRequestChannel_->write(std::move(request_));
                 currentState_=HttpParseState ::DONE;
                 return;
             }
@@ -207,10 +190,10 @@ namespace wa {
                         break;
 
                     case HttpParseState::START:
-                    case HttpParseState::DONE:
                         init();
-                        input(buffer);
-                        break;
+                        return input(buffer);
+                    case HttpParseState::DONE:
+                        return HttpParseState::DONE;
                     default:
                         return currentState_;
                 }
@@ -218,20 +201,10 @@ namespace wa {
             return currentState_;
         }
 
-        void HttpRequestParser::run() {
-            while (TRUE){
-                UP<Buffer> buffer;
-
-                if(!contentBufferChannel_->read(buffer)){ // 没有内容可读了
-                    break;
-                }
-
-                input(buffer);
-                // 执行完input后,buffer一定空了
-
-                recycleBufferChannel_->write(buffer);
-            }
-            httpRequestChannel_->close();
+        UP<HttpRequest> HttpRequestParser::getRequest() {
+            currentState_=HttpParseState::START;
+            UP<HttpRequest> request=request_;
+            return request;
         }
 
     }

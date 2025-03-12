@@ -7,16 +7,11 @@
 namespace wa{
     class Buffer {
     private:
-        SP<U8[]> buffer_;
+        U8* buffer_;
         Size capacity_;
         Size startIndex_;  // 当前读取位置
         Size endIndex_;
     public:
-        Buffer(SP<U8[]> buffer,Size length):
-                buffer_(std::move(buffer)),
-                capacity_(length),
-                startIndex_(0),
-                endIndex_(0){}
         Buffer(Int capacity):
         capacity_(capacity),
         buffer_(new U8[capacity]),
@@ -25,7 +20,18 @@ namespace wa{
 
         Buffer(const String& string) {
             capacity_ = string.size();  // 设置缓冲区大小为字符串长度
-            buffer_ = SP<U8[]>(new U8[capacity_]);  // 创建一个新的缓冲区
+            buffer_ = new U8[capacity_];  // 创建一个新的缓冲区
+            startIndex_ = 0;
+            endIndex_ = capacity_;
+
+            // 拷贝字符串数据到缓冲区
+            for (Size i = 0; i < capacity_; ++i) {
+                buffer_[i] = static_cast<U8>(string[i]);
+            }
+        }
+        Buffer(String &string){
+            capacity_ = string.size();  // 设置缓冲区大小为字符串长度
+            buffer_ = new U8[capacity_];  // 创建一个新的缓冲区
             startIndex_ = 0;
             endIndex_ = capacity_;
 
@@ -69,11 +75,11 @@ namespace wa{
         }
 
         U8* readableAddr(){
-            return buffer_.get()+startIndex_;
+            return buffer_+startIndex_;
         }
 
         U8* writeableAddr(){
-            return buffer_.get()+endIndex_;
+            return buffer_+endIndex_;
         }
 
         void advanceRead(Int length){
@@ -173,6 +179,8 @@ namespace wa{
             return value;
         }
 
-        ~Buffer()=default;
+        ~Buffer(){
+            delete[] buffer_;
+        };
     };
 }

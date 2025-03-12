@@ -2,32 +2,16 @@
 #include "./rpc_test.pb.h"
 using namespace wa;
 
-class HelloMethod: public rpc::RpcMethod{
-public:
-    HelloMethod(): rpc::RpcMethod(
-            new rpc::HelloRequest(),     // 请求消息类型
-            new rpc::HelloResponse(),    // 响应消息类型
-            "HelloMethod"               // 方法名称
-            ){}
-
-    rpc::RpcCode call(google::protobuf::Message* req, google::protobuf::Message* res) const override {
-        auto* request=dynamic_cast<rpc::HelloRequest*>(req);
-        LOG_ASSERT(gl,request!= nullptr);
-        auto* response=dynamic_cast<rpc::HelloResponse*>(res);
-        LOG_ASSERT(gl,response!= nullptr);
-
-        // 以下为业务代码
-        response->set_msg("server recv : "+request->msg());
-
-        return rpc::RpcCode::SUCCESS;
-    };
-};
-
 class HelloService:public rpc::RpcService{
 public:
     HelloService(): rpc::RpcService("HelloService"){
-        rpc::RpcMethod* rpcMethod= new HelloMethod();
-        addMethod(UP<rpc::RpcMethod>(rpcMethod));
+        std::function<rpc::RpcCode(rpc::HelloRequest*, rpc::HelloResponse*)> callback =
+                [](rpc::HelloRequest* request, rpc::HelloResponse* response) {
+                    response->set_msg(request->msg()+" recved");
+                    return rpc::RpcCode::SUCCESS;
+                };
+
+        addMethod("HelloMethod",callback);// UP<rpc::RpcMethod<rpc::HelloRequest,rpc::HelloResponse>>(rpcMethod));
     }
     virtual ~HelloService()=default;
 };
@@ -44,7 +28,8 @@ int main(){
         UP<ConnectionSocket> connection=UP<ConnectionSocket>(new ConnectionSocket());
         connection->connect("127.0.0.1",8888);
 
-        rpc::RpcMethodCaller caller(connection,new rpc::HelloRequest(),new rpc::HelloResponse(),
+        rpc::RpcMethodCaller<rpc::HelloRequest,rpc::HelloResponse> caller(
+                connection,
                                "HelloMethod",
                                "HelloService"
                                );

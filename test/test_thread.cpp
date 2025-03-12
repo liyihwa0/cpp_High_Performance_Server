@@ -4,9 +4,11 @@
 #include <vector>
 
 using namespace wa;
-
+int a=0;
 void TestTask() {
-    std::cout << "Thread " << Thread::Id() << " is running!" << std::endl;
+    for(int i=0;i<100000;i++){
+        ++a;
+    }
 }
 
 void TestThread() {
@@ -36,12 +38,10 @@ void TestThread() {
     threads.clear();
 
 
-    std::cout << "All threads have finished!" << std::endl;
 }
 
 int main() {
     TestThread();  // 调用测试函数，创建并启动线程
-
-    std::cout << "111d!" << std::endl;
+    std::cout<<a;
     return 0;
 }

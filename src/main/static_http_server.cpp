@@ -2,21 +2,22 @@
 #include "src/fiber/fiber.h"
 #include "src/http/http_common.h"
 #include "src/net/socket.h"
-#include "src/fiber/worker/socket_worker.h"
+#include "src/net/worker/socket_worker.h"
 #include "src/http/request.h"
 #include "src/http/request_parser.h"
 #include "src/http/response.h"
+#include "src/http/worker/request_parse_worker.h"
 #include "src/http/servlet.h"
 #include <filesystem>
 using namespace std;
 using namespace wa;
 using namespace wa::http;
-#define PORT 8888
+#define PORT 8889
 #define min(a,b) (a)<(b)?(a):(b)
 
 // 定义的全局BufferPool
 #define GLOBAL_BUFFER_POOL_SIZE 2048        //2k个
-#define GLOBAL_BUFFER_POOL_BUFFER_SIZE 2048 //2kb
+#define GLOBAL_BUFFER_POOL_BUFFER_SIZE 10 //2kb
 SP<Channel<UP<Buffer>>> gBufferPool(new Channel<UP<Buffer>>(GLOBAL_BUFFER_POOL_SIZE));
 
 int main(){
@@ -29,7 +30,7 @@ int main(){
 
 
     DispatchServlet dispatchServlet;
-    dispatchServlet.scanDir("./static");
+    dispatchServlet.scanStaticDir("./static");
 
 
     SP<ListenerSocket> listenerSocket(new ListenerSocket);
@@ -59,10 +60,10 @@ int main(){
             SP<Channel<UP<HttpRequest>>> requestChannel(new Channel<UP<HttpRequest>>(10));
 
             Fiber::AddTask([reader,requestChannel]{
-                HttpRequestParser parser(reader->readableChannel(),
+                HttpRequestParseWorker parserWorker(reader->readableChannel(),
                                          gBufferPool,
                                          requestChannel);
-                parser.run();
+                parserWorker.run();
             },"parser");
 
             Fiber::AddTask([requestChannel,writer,reader, &dispatchServlet,spConnection]{
