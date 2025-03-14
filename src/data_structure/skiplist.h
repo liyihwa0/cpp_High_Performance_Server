@@ -24,7 +24,7 @@ namespace wa{
             IndexNode* downward;
         };
 
-        std::vector<IndexNode> indexHeaders_;
+        Vector<IndexNode> indexHeaders_;
         DataNode dataHeader_;
         Int randomLevel(){
             Int level = 1;
@@ -84,7 +84,7 @@ namespace wa{
         Bool add(K key,V value) {
             Int level=randomLevel();
 
-            std::vector<IndexNode*> location;
+            Vector <IndexNode*> location;
             IndexNode* indexPtr= nullptr;
             if(level>=2){
                 indexPtr=&indexHeaders_[maxHeight_ - 2];

@@ -6,9 +6,12 @@
 #include "functional"
 #include <chrono>
 #include <memory> // 引入智能指针
+#include <vector>
 #include "fstream"
 typedef std::function<void()> Task;
 typedef std::ofstream OFStream;
+template<typename T>
+using Vector = std::vector<T>; // 使用 using 创建别名
 
 
 typedef int FileDescriptor;

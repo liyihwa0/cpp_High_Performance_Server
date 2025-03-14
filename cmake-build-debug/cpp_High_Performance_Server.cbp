@@ -1,0 +1,2954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpp_High_Performance_Server"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/tmp.BZddQppPbV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_queue">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_queue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_queue"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_queue/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_queue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_queue/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_skiplist">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_skiplist" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_skiplist"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_skiplist/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_skiplist" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_skiplist/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll_close">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll_close" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll_close"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll_close/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll_close" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll_close/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll_wait">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll_wait" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll_wait"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epoll_wait/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epoll_wait" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epoll_wait/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epollet">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epollet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epollet"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_epollet/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_epollet" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_epollet/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_await_timer">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_await_timer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_await_timer"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_await_timer/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_await_timer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_await_timer/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_awaitfd">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_awaitfd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_awaitfd"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_awaitfd/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_awaitfd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_awaitfd/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_channel">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_channel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_channel"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_channel/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_channel" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_channel/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_bug">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_bug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_bug"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_bug/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_bug" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_bug/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_lock">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_lock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_lock"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_lock/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_lock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_lock/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_pressure">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_pressure" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_pressure"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_fiber_pressure/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_fiber_pressure" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_fiber_pressure/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_muduo">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_muduo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_muduo"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_muduo/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_muduo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_muduo/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_muduo_client">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_muduo_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_muduo_client"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_muduo_client/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_muduo_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_muduo_client/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_ab">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_ab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_ab"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_ab/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_ab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_ab/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_client">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_client"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_client/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_client" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_client/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_http_parser">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_http_parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_http_parser"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_http_parser/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_http_parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_http_parser/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_http_proxy">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_http_proxy" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_http_proxy"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_http_proxy/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_http_proxy" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_http_proxy/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socket">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socket" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socket"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socket/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socket" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socket/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socket_worker">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socket_worker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socket_worker"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socket_worker/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socket_worker" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socket_worker/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socks5">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socks5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socks5"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_socks5/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_socks5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_socks5/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_threadpool_server">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_threadpool_server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_threadpool_server"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_threadpool_server/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_threadpool_server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_threadpool_server/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_rpc">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_rpc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_rpc"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_rpc/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_rpc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_rpc/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fiber">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/fiber" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 fiber"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fiber/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/fiber" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 fiber/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="thread_pool">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/thread_pool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 thread_pool"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="thread_pool/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/thread_pool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 thread_pool/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_buffer">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_buffer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_buffer"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_buffer/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_buffer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_buffer/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_exception">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_exception" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_exception"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_exception/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_exception" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_exception/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_lock">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_lock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_lock"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_lock/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_lock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_lock/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_log_appender">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_log_appender" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_log_appender"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_log_appender/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_log_appender" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_log_appender/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_smart_ptr">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_smart_ptr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_smart_ptr"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_smart_ptr/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_smart_ptr" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_smart_ptr/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_thread">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_thread" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_thread"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_thread/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_thread" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_thread/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_threadpool">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_threadpool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_threadpool"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_threadpool/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_threadpool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_threadpool/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_timer">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_timer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_timer"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_timer/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_timer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_timer/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="static_http_server">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/static_http_server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 static_http_server"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="static_http_server/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/static_http_server" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 static_http_server/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_protobuf">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_protobuf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_protobuf"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_protobuf/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/test_protobuf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_protobuf/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_rpc">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/example_rpc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 example_rpc"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example_rpc/fast">
+				<Option output="/tmp/tmp.BZddQppPbV/bin/Debug/example_rpc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BZddQppPbV/bin/Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/tmp.BZddQppPbV"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 example_rpc/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/tmp/tmp.BZddQppPbV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/tmp/tmp.BZddQppPbV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/tmp/tmp.BZddQppPbV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/tmp.BZddQppPbV/example/rpc/example_rpc.cpp">
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/buffer.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/configer/config_parser.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/data_structure/queue.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/data_structure/skiplist.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/fiber/channel.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/fiber/fiber.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/fiber/fiber.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/fiber/worker/socket_worker.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/global_def.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/http_common.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/http_common.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/request.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/request_parser.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/request_parser.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/response.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/http/servlet.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/locker/locker.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/locker/locker.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/logger/logger.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/logger/logger.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/main/static_http_server.cpp">
+			<Option target="static_http_server"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/main/test_protobuf.cpp">
+			<Option target="test_protobuf"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/net/epoll.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/net/epoll.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/net/rpc/rpc.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/net/socket.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/smart_ptr.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/tester.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/thread/thread.cpp">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/thread/thread.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/thread/thread_pool.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/src/timer.h">
+			<Option target="test_queue"/>
+			<Option target="test_skiplist"/>
+			<Option target="test_epoll"/>
+			<Option target="test_epoll_close"/>
+			<Option target="test_epoll_wait"/>
+			<Option target="test_epollet"/>
+			<Option target="test_await_timer"/>
+			<Option target="test_awaitfd"/>
+			<Option target="test_channel"/>
+			<Option target="test_fiber"/>
+			<Option target="test_fiber_bug"/>
+			<Option target="test_fiber_lock"/>
+			<Option target="test_fiber_pressure"/>
+			<Option target="test_muduo"/>
+			<Option target="test_muduo_client"/>
+			<Option target="test_ab"/>
+			<Option target="test_client"/>
+			<Option target="test_http_parser"/>
+			<Option target="test_http_proxy"/>
+			<Option target="test_socket"/>
+			<Option target="test_socket_worker"/>
+			<Option target="test_socks5"/>
+			<Option target="test_threadpool_server"/>
+			<Option target="test_rpc"/>
+			<Option target="fiber"/>
+			<Option target="thread_pool"/>
+			<Option target="test_buffer"/>
+			<Option target="test_exception"/>
+			<Option target="test_lock"/>
+			<Option target="test_log_appender"/>
+			<Option target="test_smart_ptr"/>
+			<Option target="test_thread"/>
+			<Option target="test_threadpool"/>
+			<Option target="test_timer"/>
+			<Option target="static_http_server"/>
+			<Option target="test_protobuf"/>
+			<Option target="example_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/data_structure/test_queue.cpp">
+			<Option target="test_queue"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/data_structure/test_skiplist.cpp">
+			<Option target="test_skiplist"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/epoll/test_epoll.cpp">
+			<Option target="test_epoll"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/epoll/test_epoll_close.cpp">
+			<Option target="test_epoll_close"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/epoll/test_epoll_wait.cpp">
+			<Option target="test_epoll_wait"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/epoll/test_epollet.cpp">
+			<Option target="test_epollet"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_await_timer.cpp">
+			<Option target="test_await_timer"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_awaitfd.cpp">
+			<Option target="test_awaitfd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_channel.cpp">
+			<Option target="test_channel"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_fiber.cpp">
+			<Option target="test_fiber"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_fiber_bug.cpp">
+			<Option target="test_fiber_bug"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_fiber_lock.cpp">
+			<Option target="test_fiber_lock"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/fiber/test_fiber_pressure.cpp">
+			<Option target="test_fiber_pressure"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/muduo/test_muduo.cpp">
+			<Option target="test_muduo"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/muduo/test_muduo_client.cpp">
+			<Option target="test_muduo_client"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_ab.cpp">
+			<Option target="test_ab"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_client.cpp">
+			<Option target="test_client"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_http_parser.cpp">
+			<Option target="test_http_parser"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_http_proxy.cpp">
+			<Option target="test_http_proxy"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_socket.cpp">
+			<Option target="test_socket"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_socket_worker.cpp">
+			<Option target="test_socket_worker"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_socks5.cpp">
+			<Option target="test_socks5"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/net/test_threadpool_server.cpp">
+			<Option target="test_threadpool_server"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/rpc/test_rpc.cpp">
+			<Option target="test_rpc"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/std/fiber.cpp">
+			<Option target="fiber"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/std/thread_pool.cpp">
+			<Option target="thread_pool"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_buffer.cpp">
+			<Option target="test_buffer"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_exception.cpp">
+			<Option target="test_exception"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_lock.cpp">
+			<Option target="test_lock"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_log_appender.cpp">
+			<Option target="test_log_appender"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_smart_ptr.cpp">
+			<Option target="test_smart_ptr"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_thread.cpp">
+			<Option target="test_thread"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_threadpool.cpp">
+			<Option target="test_threadpool"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/test/test_timer.cpp">
+			<Option target="test_timer"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BZddQppPbV/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
