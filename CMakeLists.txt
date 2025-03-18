@@ -1,20 +1,15 @@
-cmake_minimum_required(VERSION 3.25)
-
 # 设置项目名称和语言标准
+cmake_minimum_required(VERSION 3.25)
 project(cpp_High_Performance_Server)
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 设置编译器
-set(CMAKE_C_COMPILER "/usr/bin/gcc")
-set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)  # 禁用编译器扩展
+
 
 message(STATUS "c compiler ${CMAKE_C_COMPILER}")
 message(STATUS "cpp compiler ${CMAKE_CXX_COMPILER}")
 
-
-# 设置编译后的可执行文件路径
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 # 设置构建类型
 if(NOT CMAKE_BUILD_TYPE)

@@ -7,11 +7,14 @@
 #include <chrono>
 #include <memory> // 引入智能指针
 #include <vector>
+#include <unordered_map>
 #include "fstream"
 typedef std::function<void()> Task;
 typedef std::ofstream OFStream;
 template<typename T>
 using Vector = std::vector<T>; // 使用 using 创建别名
+template<typename K,typename V>
+using HashMap=std::unordered_map<K,V>
 
 
 typedef int FileDescriptor;
