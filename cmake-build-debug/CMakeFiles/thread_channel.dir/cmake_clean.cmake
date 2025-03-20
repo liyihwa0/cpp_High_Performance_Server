@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/thread_channel"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/thread_channel.pdb"
   "CMakeFiles/thread_channel.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/thread_channel.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/thread_channel.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/thread_channel.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/thread_channel.dir/test/std/thread_channel.cpp.o"
   "CMakeFiles/thread_channel.dir/test/std/thread_channel.cpp.o.d"
+  "thread_channel"
+  "thread_channel.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

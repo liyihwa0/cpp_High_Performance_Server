@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_openssl"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_openssl.pdb"
   "CMakeFiles/test_openssl.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/test_openssl.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/test_openssl.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_openssl.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/test_openssl.dir/test/net/test_openssl.cpp.o"
   "CMakeFiles/test_openssl.dir/test/net/test_openssl.cpp.o.d"
+  "test_openssl"
+  "test_openssl.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

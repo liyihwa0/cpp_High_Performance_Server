@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_buffer"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_buffer.pdb"
   "CMakeFiles/test_buffer.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/test_buffer.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/test_buffer.dir/src/http/http_common.cpp.o"
@@ -15,10 +13,16 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_buffer.dir/src/net/epoll.cpp.o.d"
   "CMakeFiles/test_buffer.dir/src/net/rpc/rpc_framework.pb.cc.o"
   "CMakeFiles/test_buffer.dir/src/net/rpc/rpc_framework.pb.cc.o.d"
+  "CMakeFiles/test_buffer.dir/src/raft/raft_core.cpp.o"
+  "CMakeFiles/test_buffer.dir/src/raft/raft_core.cpp.o.d"
+  "CMakeFiles/test_buffer.dir/src/raft/raft_core_proto.pb.cc.o"
+  "CMakeFiles/test_buffer.dir/src/raft/raft_core_proto.pb.cc.o.d"
   "CMakeFiles/test_buffer.dir/src/thread/thread.cpp.o"
   "CMakeFiles/test_buffer.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/test_buffer.dir/test/test_buffer.cpp.o"
   "CMakeFiles/test_buffer.dir/test/test_buffer.cpp.o.d"
+  "test_buffer"
+  "test_buffer.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

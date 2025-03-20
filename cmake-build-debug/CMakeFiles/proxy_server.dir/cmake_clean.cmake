@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/proxy_server"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/proxy_server.pdb"
   "CMakeFiles/proxy_server.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/proxy_server.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/proxy_server.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/proxy_server.dir/src/raft/raft_core_proto.pb.cc.o.d"
   "CMakeFiles/proxy_server.dir/src/thread/thread.cpp.o"
   "CMakeFiles/proxy_server.dir/src/thread/thread.cpp.o.d"
+  "proxy_server"
+  "proxy_server.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,7 +1,6 @@
 #include <cstdint>
 #include <sys/socket.h> // 套接字 API，例如 socket(), bind(), connect(), listen(), accept() 等
 #include <climits>  // 包含系统相关的限制信息，比如 `CHAR_BIT`
-#include <barrier>
 #include <sys/ucontext.h>
 #include "functional"
 #include <chrono>
@@ -14,9 +13,10 @@ typedef std::ofstream OFStream;
 template<typename T>
 using Vector = std::vector<T>; // 使用 using 创建别名
 template<typename K,typename V>
-using HashMap=std::unordered_map<K,V>
+using HashMap=std::unordered_map<K,V>;
 
-
+#define NULLPTR nullptr
+typedef std::exception Exception;
 typedef int FileDescriptor;
 typedef struct sockaddr_in  SockAddrV4;
 typedef struct sockaddr SockAddr;

@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_socket"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test_socket.pdb"
   "CMakeFiles/test_socket.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/test_socket.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/test_socket.dir/src/http/http_common.cpp.o"
@@ -13,12 +11,18 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_socket.dir/src/logger/logger.cpp.o.d"
   "CMakeFiles/test_socket.dir/src/net/epoll.cpp.o"
   "CMakeFiles/test_socket.dir/src/net/epoll.cpp.o.d"
-  "CMakeFiles/test_socket.dir/src/protobuf/test_proto.pb.cc.o"
-  "CMakeFiles/test_socket.dir/src/protobuf/test_proto.pb.cc.o.d"
+  "CMakeFiles/test_socket.dir/src/net/rpc/rpc_framework.pb.cc.o"
+  "CMakeFiles/test_socket.dir/src/net/rpc/rpc_framework.pb.cc.o.d"
+  "CMakeFiles/test_socket.dir/src/raft/raft_core.cpp.o"
+  "CMakeFiles/test_socket.dir/src/raft/raft_core.cpp.o.d"
+  "CMakeFiles/test_socket.dir/src/raft/raft_core_proto.pb.cc.o"
+  "CMakeFiles/test_socket.dir/src/raft/raft_core_proto.pb.cc.o.d"
   "CMakeFiles/test_socket.dir/src/thread/thread.cpp.o"
   "CMakeFiles/test_socket.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/test_socket.dir/test/net/test_socket.cpp.o"
   "CMakeFiles/test_socket.dir/test/net/test_socket.cpp.o.d"
+  "test_socket"
+  "test_socket.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

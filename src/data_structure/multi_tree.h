@@ -34,10 +34,13 @@ namespace wa{
             virtual V value() const {
                 throw CODE_LOCATION_EXCEPTION("should not reach");
             }
+            virtual HashMap<K,SP<TreeNode>>& getChildren(){
+                throw CODE_LOCATION_EXCEPTION("should not reach");
+            }
             virtual ~TreeNode() = default;
         };
 
-        class LeafNode:TreeNode{
+        class LeafNode: public TreeNode{
             V value_;
         public:
             explicit LeafNode(V value): TreeNode(TRUE),value_(std::move(value)){}
@@ -47,10 +50,13 @@ namespace wa{
             void setValue(V value){
                 this->value_=std::move(value);
             }
+            ~LeafNode()= default;
         };
-        class NonLeafNode:TreeNode{
+        class NonLeafNode: public TreeNode{
         public:
+
             HashMap<K,SP<TreeNode>> children_;
+            explicit NonLeafNode(): TreeNode(FALSE),children_(){};
             void addChild(K key, SP<TreeNode> child) {       // 修正后的 addChild 函数
                 children_.emplace(key, std::move(child));
             }
@@ -75,20 +81,28 @@ namespace wa{
                     }
                 }
             }
+            HashMap<K,SP<TreeNode>>& getChildren(){
+                return children_;
+            }
+            ~NonLeafNode()= default;
         };
     private:
-        SP<TreeNode> getChild_(const Vector<K>& path){
-            if (path.empty()) {
-                return SP<TreeNode>(); // 如果路径为空，直接返回
+        SP<TreeNode> root_;
+        SP<TreeNode> searchPath(const Vector<K>& path,Int depth){
+            if (path.empty() || depth==0) {
+                return root_; // 如果路径为空
             }
-
+            if(depth<path.size()){
+                throw CODE_LOCATION_EXCEPTION("path.size() must >= depth");
+            }
             // 不断向下找到对应节点
             SP<TreeNode> current=this->root_;
-            for(Size i=0;i<path.size()-1;i++) {
+            for(Int i=0;i<depth-1;i++) {
                 K &k = path[i];
-                SP<TreeNode> foundChild = current->children_[path[i]];
+                auto children=current->getChildren();
+                SP<TreeNode> foundChild = children[k];
 
-                if (foundChild != current->children_.end()) {
+                if (foundChild != children.end()) {
                     if (foundChild->isLeaf()) {
                         throw CODE_LOCATION_EXCEPTION("error path");
                     }
@@ -99,41 +113,34 @@ namespace wa{
             }
 
             // 再向下搜索一层
-            SP<TreeNode> foundChild = current->children_[path.back()];
-            if(foundChild==current->children_.end()){
-                return MultiTree<K,V>();
+            SP<TreeNode> foundChild = current->getChildren()[path[depth-1]];
+            if(foundChild==current->getChildren().end()){
+                return SP<TreeNode>();
             }
-            current=std::move(foundChild);
-            // 创建新的 MultiTree 对象，并将找到的节点作为其根节点
-            MultiTree<K, V> childTree;
-            childTree.root_ = current;
-            return childTree;
+            return foundChild;
         }
 
-        SP<TreeNode> root_;
-        void merge(MultiTree<K,V>& otherTree){
-            root_->merge(otherTree.root_);
-        }
-
-        // 递归添加value
-        // 此操作会递归的创建树
-        void addValue(const Vector<K>& path,V value) {
-            if (path.empty()) {
-                return; // 如果路径为空，直接返回
+        SP<TreeNode> searchPathCreate(const Vector<K>& path,Int depth){
+            if (path.empty() || depth==0) {
+                return root_; // 如果路径为空
+            }
+            if(depth<path.size()){
+                throw CODE_LOCATION_EXCEPTION("path.size() must >= depth");
             }
 
             // 不断向下找到对应节点
             SP<TreeNode> current=this->root_;
-            for(Size i=0;i<path.size()-1;i++){
-                K& k=path[i];
-                SP<TreeNode> foundChild=current->children_[path[i]];
+            for(Int i=0;i<depth-1;i++) {
+                K &k = path[i];
+                auto children=current->getChildren();
+                SP<TreeNode> foundChild = children[k];
 
-                if(foundChild != current->children_.end()){
-                    if(foundChild->isLeaf()){
+                if (foundChild != children.end()) {
+                    if (foundChild->isLeaf()) {
                         throw CODE_LOCATION_EXCEPTION("error path");
                     }
-                    current=std::move(foundChild);
-                }else{
+                    current = std::move(foundChild);
+                } else {
                     // 创建子节点
                     SP<TreeNode> newChild(new NonLeafNode());
 
@@ -142,66 +149,77 @@ namespace wa{
                 }
             }
 
-            // 我们需要再向下一层,创建出valueNode
+            // 再向下搜索一层
+            SP<TreeNode> foundChild = current->getChildren()[path[depth-1]];
+            if(foundChild==current->getChildren().end()){
+                // 创建子节点
+                SP<TreeNode> newChild(new NonLeafNode());
 
-
-            current->setValue(value);
+                current->addChild(path.back(), newChild);
+                current=std::move(newChild);
+                return current;
+            }else{
+                return foundChild;
+            }
         }
 
-        Bool hasPath(const Vector<K>& path){ // 通过变长参数定义
-            SP<TreeNode> current = root_;
-            for(Size i=0;i<path.size()-1;i++){
-                K k=path[i];
-                SP<TreeNode> foundChild=current->children_[k];
-                if(foundChild!=current->children_.end()){
-                    if(foundChild->isLeaf()){
-                        return FALSE;
-                    }
-                    current=std::move(foundChild);
-                }else{
-                    return FALSE;
-                }
+    public:
+
+        MultiTree():root_((TreeNode*) new NonLeafNode()){}
+        explicit MultiTree(SP<TreeNode> root):root_(std::move(root)){}
+        ~MultiTree()= default;
+        void merge(MultiTree<K,V>& otherTree){
+            root_->merge(otherTree.root_);
+        }
+
+        // 递归添加value
+        // 此操作会递归的创建树
+        void addValue(const Vector<K>& path,V value) {
+            auto tree= searchPathCreate(path,path.size()-1);
+            if(!tree->isLeaf()){
+                SP<TreeNode> valueNode((TreeNode*) new LeafNode(value));
+                tree->addChild(path.back(),valueNode);
+            }else{
+                throw CODE_LOCATION_EXCEPTION("Leaf node can not addChild");
             }
-            // 我们还需要再向下一层todo
-            return current->children_[path[path.size()-1]];
+        }
+
+        Bool hasPath(const Vector<K>& path)const{ // 通过变长参数定义
+            try {
+                return searchPath(path,path.size()).get()!=NULLPTR;
+            }catch(const Exception &e) {
+                return FALSE;
+            }
+        }
+
+        Bool isLeaf(const Vector<K>& path)const{
+            try {
+                SP<TreeNode> node = searchPath(path, path.size());
+                return node.get() != NULLPTR && node->isLeaf();
+            }catch(const Exception &e) {
+                return FALSE;
+            }
+        }
+
+        Bool isNonLeaf(const Vector<K>& path)const{
+            try {
+                SP<TreeNode> node = searchPath(path, path.size());
+                return node.get() != NULLPTR && !node->isLeaf();
+            }catch(const Exception &e) {
+                return FALSE;
+            }
         }
 
         MultiTree<K,V> getChild(const Vector<K>& path){
-            if (path.empty()) {
-                return MultiTree<K,V>(); // 如果路径为空，直接返回
-            }
-
-            // 不断向下找到对应节点
-            SP<TreeNode> current=this->root_;
-            for(Size i=0;i<path.size()-1;i++) {
-                K &k = path[i];
-                SP<TreeNode> foundChild = current->children_[path[i]];
-
-                if (foundChild != current->children_.end()) {
-                    if (foundChild->isLeaf()) {
-                        throw CODE_LOCATION_EXCEPTION("error path");
-                    }
-                    current = std::move(foundChild);
-                } else {
-                    throw CODE_LOCATION_EXCEPTION("error path");
-                }
-            }
-
-            // 再向下搜索一层
-            SP<TreeNode> foundChild = current->children_[path.back()];
-            if(foundChild==current->children_.end()){
-                return MultiTree<K,V>();
-            }
-            current=std::move(foundChild);
-            // 创建新的 MultiTree 对象，并将找到的节点作为其根节点
-            MultiTree<K, V> childTree;
-            childTree.root_ = current;
-            return childTree;
+            return MultiTree<K,V> (searchPath(path,path.size()));
         }
 
         V getValue(const Vector<K>& path,V defaultValue) const{
-            MultiTree<K,V> child= getChild(path);
-
+            SP<TreeNode> child= searchPath(path,path.size());
+            if(child.get()==NULLPTR || !child->isLeaf()){
+                return defaultValue;
+            }
+            return child->value();
         }
     };
 }

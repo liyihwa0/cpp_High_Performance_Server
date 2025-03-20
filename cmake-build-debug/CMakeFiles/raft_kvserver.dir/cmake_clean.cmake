@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/raft_kvserver"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/raft_kvserver.pdb"
   "CMakeFiles/raft_kvserver.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/raft_kvserver.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/raft_kvserver.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/raft_kvserver.dir/src/raft/raft_core_proto.pb.cc.o.d"
   "CMakeFiles/raft_kvserver.dir/src/thread/thread.cpp.o"
   "CMakeFiles/raft_kvserver.dir/src/thread/thread.cpp.o.d"
+  "raft_kvserver"
+  "raft_kvserver.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/spin_lock"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/spin_lock.pdb"
   "CMakeFiles/spin_lock.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/spin_lock.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/spin_lock.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/spin_lock.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/spin_lock.dir/test/std/spin_lock.cpp.o"
   "CMakeFiles/spin_lock.dir/test/std/spin_lock.cpp.o.d"
+  "spin_lock"
+  "spin_lock.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

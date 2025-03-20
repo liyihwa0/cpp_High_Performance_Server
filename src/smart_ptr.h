@@ -5,6 +5,7 @@
 #pragma once
 #include "global_def.h"
 #include "atomic"
+#include "src/data_structure/multi_tree.h"
 
 namespace wa{
 

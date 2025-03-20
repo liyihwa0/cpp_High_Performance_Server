@@ -1,6 +1,4 @@
 .*
 !.gitignore
 
-cmake-build-remote-debug
-sylar
-NetServer
+cmake-build-*/

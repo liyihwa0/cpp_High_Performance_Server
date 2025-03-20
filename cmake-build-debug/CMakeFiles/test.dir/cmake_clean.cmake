@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/test.pdb"
   "CMakeFiles/test.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/test.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/test.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/test.dir/src/thread/thread.cpp.o.d"
   "CMakeFiles/test.dir/test/test.cpp.o"
   "CMakeFiles/test.dir/test/test.cpp.o.d"
+  "test"
+  "test.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

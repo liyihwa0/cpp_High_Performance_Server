@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "/root/build/cpp_High_Performance_Server/bin/Debug/rpc"
-  "/root/build/cpp_High_Performance_Server/bin/Debug/rpc.pdb"
   "CMakeFiles/rpc.dir/src/fiber/fiber.cpp.o"
   "CMakeFiles/rpc.dir/src/fiber/fiber.cpp.o.d"
   "CMakeFiles/rpc.dir/src/http/http_common.cpp.o"
@@ -23,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rpc.dir/src/raft/raft_core_proto.pb.cc.o.d"
   "CMakeFiles/rpc.dir/src/thread/thread.cpp.o"
   "CMakeFiles/rpc.dir/src/thread/thread.cpp.o.d"
+  "rpc"
+  "rpc.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
