@@ -87,10 +87,10 @@ namespace wa {
 
 // 宏定义
 #define CODE_LOCATION_EXCEPTION(...) \
-    wa::CodeLocationException(__FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+    wa::CodeLocationException(__FILE__, __LINE__, __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
 
 #define ERRNO_EXCEPTION(...) \
-    wa::ErrnoException( __FILE__, __LINE__, __FUNCTION__,errno, ##__VA_ARGS__)
+    wa::ErrnoException( __FILE__, __LINE__, __FUNCTION__,errno __VA_OPT__(,) __VA_ARGS__)
 
 
 

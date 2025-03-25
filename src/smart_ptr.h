@@ -5,7 +5,6 @@
 #pragma once
 #include "global_def.h"
 #include "atomic"
-#include "src/data_structure/multi_tree.h"
 
 namespace wa{
 
@@ -121,6 +120,7 @@ namespace wa{
         public:
             T* resource_;               // 资源指针
             std::atomic<Int> count_;   // 原子引用计数
+            SPNode(T* resource,Int count):resource_(resource), count_(count){}
         };
 
         SPNode* node_;  // 资源和计数器的节点

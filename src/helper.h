@@ -8,9 +8,21 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include "string"
+#include <sys/syscall.h> // 定义 SYS_gettid
+#include <unistd.h>       // 定义 syscall 函数
 class Helper{
 
 public:
+    static String Join(const Vector<String>& vec, const String& delimiter){
+        String result;
+        for (Int i = 0; i < vec.size(); i++) {
+            if (i > 0) {
+                result += delimiter; // 添加分隔符
+            }
+            result += vec[i]; // 添加当前字符串
+        }
+        return result;
+    }
     static ID GetThreadId() {
         return syscall(SYS_gettid);
     }

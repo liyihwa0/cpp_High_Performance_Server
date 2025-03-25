@@ -66,8 +66,6 @@ typedef char Char;
 #define FALSE false
 
 
-#define SizeOf(a) sizeof(a)
-
 
 #define TARGET_PLATFORM_BYTES_64
 // #define TARGET_PLATFORM_BYTES_32

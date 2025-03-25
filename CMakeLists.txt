@@ -2,13 +2,12 @@
 cmake_minimum_required(VERSION 3.25)
 project(cpp_High_Performance_Server)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)  # 禁用编译器扩展
-
-
 message(STATUS "c compiler ${CMAKE_C_COMPILER}")
 message(STATUS "cpp compiler ${CMAKE_CXX_COMPILER}")
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)  # 禁用编译器扩展
 
 
 # 设置构建类型
@@ -43,7 +42,6 @@ include_directories(/usr/include)
 # 设置项目库文件的搜索目录
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 link_directories(/usr/local/lib)
-link_libraries(muduo_net muduo_base)
 
 
 
@@ -134,6 +132,6 @@ endforeach()
 # 在创建目标之后，集中为所有目标链接 Protobuf 库
 foreach(target IN LISTS TEST_TARGET_FILES MAIN_TARGET_FILES EXAMPLE_TARGET_FILES)
     get_filename_component(target_name ${target} NAME_WE)
-    target_link_libraries(${target_name} ${Protobuf_LIBRARIES}  OpenSSL::SSL OpenSSL::Crypto)
+    target_link_libraries(${target_name} ${Protobuf_LIBRARIES}  OpenSSL::SSL OpenSSL::Crypto pthread)
     message(STATUS "Linked Protobuf to target: ${target_name}")
 endforeach()

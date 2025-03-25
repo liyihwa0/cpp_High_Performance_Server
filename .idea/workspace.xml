@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="cpp_High_Performance_Server" targetName="test_up" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_exception" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_epoll_close" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_client" />
+      <config projectName="cpp_High_Performance_Server" targetName="spin_lock" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_epoll_wait" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_connection_forward_worker" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_smart_ptr" />
+      <config projectName="cpp_High_Performance_Server" targetName="raft_kvserver" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_logger" />
+      <config projectName="cpp_High_Performance_Server" targetName="rpc" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_ab" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_fiber_lock" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_threadpool" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_await_timer" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_log_appender" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_socket_worker" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_thread" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_muduo_client" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_socks5" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_socket" />
+      <config projectName="cpp_High_Performance_Server" targetName="proxy_server" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_epoll" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_openssl" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_fiber_pressure" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_multi_tree" />
+      <config projectName="cpp_High_Performance_Server" targetName="thread_channel" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_muduo" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_threadpool_server" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_fiber" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_lock" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_heap" />
+      <config projectName="cpp_High_Performance_Server" targetName="example_rpc" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_awaitfd" />
+      <config projectName="cpp_High_Performance_Server" targetName="test" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_http_proxy" />
+      <config projectName="cpp_High_Performance_Server" targetName="thread_pool" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_fiber_bug" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_rpc" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_buffer" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_skiplist" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_channel" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_http_parser" />
+      <config projectName="cpp_High_Performance_Server" targetName="fiber" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_ssl_socket" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_epollet" />
+      <config projectName="cpp_High_Performance_Server" targetName="test_queue" />
+      <config projectName="cpp_High_Performance_Server" targetName="static_http_server" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" NO_GENERATOR="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83483d27-814f-40b3-a7eb-3443cbe04df0" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/cpp_High_Performance_Server" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="2" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2uYurQRomaEi4FpKDuchnLFHdAZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.test_multi_tree.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" show_stripe_button="false" side_tool="true" />
+      <window_info id="Merge Requests" show_stripe_button="false" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" show_stripe_button="false" />
+      <window_info id="Learn" show_stripe_button="false" />
+      <window_info id="DFA" show_stripe_button="false" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.50074625" visible="true" weight="0.12719727" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" sideWeight="0.49925375" side_tool="true" weight="0.10229492" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Packages" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Vcpkg" show_stripe_button="false" />
+      <window_info anchor="bottom" id="clangd" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.33016306" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.33016306" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.35371375" />
+      <window_info anchor="bottom" id="Services" order="4" weight="0.23958334" />
+      <window_info anchor="bottom" id="CMake" order="5" weight="0.35371375" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.23052537" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.14628622" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.151721" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.33016306" />
+      <window_info anchor="right" id="Remote Host" show_stripe_button="false" />
+      <window_info anchor="right" id="make" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Python Console" show_stripe_button="false" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info anchor="right" id="Meson" order="5" />
+    </layout>
+  </component>
+  <component name="RunManager" selected="CMake Application.test_multi_tree">
+    <configuration name="example_rpc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="example_rpc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="example_rpc">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fiber" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="fiber" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="fiber">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="proxy_server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="proxy_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="proxy_server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="raft_kvserver" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="raft_kvserver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="raft_kvserver">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rpc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="rpc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="rpc">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spin_lock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="spin_lock" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="spin_lock">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="static_http_server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="static_http_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="static_http_server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_ab" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_ab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_ab">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_await_timer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_await_timer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_await_timer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_awaitfd" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_awaitfd" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_awaitfd">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_buffer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_buffer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_buffer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_channel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_channel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_channel">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_client" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_client">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_connection_forward_worker" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_connection_forward_worker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_connection_forward_worker">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_epoll" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_epoll" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_epoll">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_epoll_close" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_epoll_close" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_epoll_close">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_epoll_wait" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_epoll_wait" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_epoll_wait">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_epollet" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_epollet" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_epollet">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_exception" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_exception" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_exception">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_fiber" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_fiber" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_fiber">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_fiber_bug" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_fiber_bug" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_fiber_bug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_fiber_lock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_fiber_lock" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_fiber_lock">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_fiber_pressure" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_fiber_pressure" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_fiber_pressure">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_heap" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_heap" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_heap">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_http_parser" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_http_parser" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_http_parser">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_http_proxy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_http_proxy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_http_proxy">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_lock" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_lock" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_lock">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_log_appender" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_log_appender" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_log_appender">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_logger" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_logger" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_logger">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_muduo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_muduo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_muduo">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_muduo_client" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_muduo_client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_muduo_client">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_multi_tree" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_multi_tree" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_multi_tree">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_openssl" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_openssl" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_openssl">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_queue" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_queue" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_queue">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_rpc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_rpc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_rpc">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_skiplist" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_skiplist" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_skiplist">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_smart_ptr" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_smart_ptr" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_smart_ptr">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_socket" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_socket" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_socket">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_socket_worker" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_socket_worker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_socket_worker">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_socks5" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_socks5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_socks5">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_ssl_socket" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_ssl_socket" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_ssl_socket">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_thread" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_thread" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_thread">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_threadpool" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_threadpool" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_threadpool">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_threadpool_server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_threadpool_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_threadpool_server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_up" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="test_up" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="test_up">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="thread_channel" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="thread_channel" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="thread_channel">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="thread_pool" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpp_High_Performance_Server" TARGET_NAME="thread_pool" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpp_High_Performance_Server" RUN_TARGET_NAME="thread_pool">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.example_rpc" />
+      <item itemvalue="CMake Application.fiber" />
+      <item itemvalue="CMake Application.proxy_server" />
+      <item itemvalue="CMake Application.raft_kvserver" />
+      <item itemvalue="CMake Application.rpc" />
+      <item itemvalue="CMake Application.spin_lock" />
+      <item itemvalue="CMake Application.static_http_server" />
+      <item itemvalue="CMake Application.test" />
+      <item itemvalue="CMake Application.test_ab" />
+      <item itemvalue="CMake Application.test_await_timer" />
+      <item itemvalue="CMake Application.test_awaitfd" />
+      <item itemvalue="CMake Application.test_buffer" />
+      <item itemvalue="CMake Application.test_channel" />
+      <item itemvalue="CMake Application.test_client" />
+      <item itemvalue="CMake Application.test_connection_forward_worker" />
+      <item itemvalue="CMake Application.test_epoll" />
+      <item itemvalue="CMake Application.test_epoll_close" />
+      <item itemvalue="CMake Application.test_epoll_wait" />
+      <item itemvalue="CMake Application.test_epollet" />
+      <item itemvalue="CMake Application.test_exception" />
+      <item itemvalue="CMake Application.test_fiber" />
+      <item itemvalue="CMake Application.test_fiber_bug" />
+      <item itemvalue="CMake Application.test_fiber_lock" />
+      <item itemvalue="CMake Application.test_fiber_pressure" />
+      <item itemvalue="CMake Application.test_heap" />
+      <item itemvalue="CMake Application.test_http_parser" />
+      <item itemvalue="CMake Application.test_http_proxy" />
+      <item itemvalue="CMake Application.test_lock" />
+      <item itemvalue="CMake Application.test_log_appender" />
+      <item itemvalue="CMake Application.test_logger" />
+      <item itemvalue="CMake Application.test_muduo" />
+      <item itemvalue="CMake Application.test_muduo_client" />
+      <item itemvalue="CMake Application.test_multi_tree" />
+      <item itemvalue="CMake Application.test_openssl" />
+      <item itemvalue="CMake Application.test_queue" />
+      <item itemvalue="CMake Application.test_rpc" />
+      <item itemvalue="CMake Application.test_skiplist" />
+      <item itemvalue="CMake Application.test_smart_ptr" />
+      <item itemvalue="CMake Application.test_socket" />
+      <item itemvalue="CMake Application.test_socket_worker" />
+      <item itemvalue="CMake Application.test_socks5" />
+      <item itemvalue="CMake Application.test_ssl_socket" />
+      <item itemvalue="CMake Application.test_thread" />
+      <item itemvalue="CMake Application.test_threadpool" />
+      <item itemvalue="CMake Application.test_threadpool_server" />
+      <item itemvalue="CMake Application.test_up" />
+      <item itemvalue="CMake Application.thread_channel" />
+      <item itemvalue="CMake Application.thread_pool" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83483d27-814f-40b3-a7eb-3443cbe04df0" name="Changes" comment="" />
+      <created>1742438026286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742438026286</updated>
+      <workItem from="1742438027339" duration="123000" />
+      <workItem from="1742438172763" duration="54000" />
+      <workItem from="1742438248237" duration="4984000" />
+      <workItem from="1742463455228" duration="4436000" />
+      <workItem from="1742549169167" duration="1076000" />
+      <workItem from="1742780897106" duration="9290000" />
+      <workItem from="1742803887224" duration="591000" />
+      <workItem from="1742867632329" duration="1113000" />
+      <workItem from="1742868754754" duration="2133000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

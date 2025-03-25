@@ -14,7 +14,6 @@
 #include "../timer.h"
 #include "../locker/locker.h"
 
-#include "shared_mutex"
 #define STACK_SIZE 131072 // 128KB
 
 namespace wa {

@@ -1,9 +1,10 @@
 #pragma once
+
 #include "../global_def.h"
 #include "../exception/exception.h"
 #include "../smart_ptr.h"
 
-namespace wa{
+namespace wa {
     // 多叉树类
     // 目前被用于存放日志
     /*
@@ -13,210 +14,269 @@ namespace wa{
      * 4. 叶子节点只存放数据
      * 5. 非叶子节点只存放其他节点的索引
      */
-    template<typename K,typename V>
-    class MultiTree{
-        class TreeNode{
-            Bool isLeaf_;
+    template<typename K, typename V>
+    class MultiTree {
+        class TreeNode {
         public:
-            explicit TreeNode(Bool isLeaf):isLeaf_(isLeaf){}
-            Bool isLeaf() const {
-                return isLeaf_;
-            }
-            virtual void merge(SP<TreeNode> other)const{
+            explicit TreeNode() {}
+
+            virtual HashMap<K, SP<TreeNode>> &getChildren() {
                 throw CODE_LOCATION_EXCEPTION("should not reach");
             }
-            virtual void addChild(K key, SP<TreeNode> child)const{
+
+            virtual Bool isLeaf() const {
                 throw CODE_LOCATION_EXCEPTION("should not reach");
             }
-            virtual void setValue(V value){
+
+            virtual void merge(SP<TreeNode> other) {
                 throw CODE_LOCATION_EXCEPTION("should not reach");
             }
+
+            virtual void addChild(const K &key, SP<TreeNode> child) {
+                throw CODE_LOCATION_EXCEPTION("should not reach");
+            }
+
+            virtual void setValue(V value) {
+                throw CODE_LOCATION_EXCEPTION("should not reach");
+            }
+
             virtual V value() const {
                 throw CODE_LOCATION_EXCEPTION("should not reach");
             }
-            virtual HashMap<K,SP<TreeNode>>& getChildren(){
-                throw CODE_LOCATION_EXCEPTION("should not reach");
+
+            virtual void forEach(){
+
             }
+
+            virtual void forEachLeaf(){
+
+            }
+
+            virtual void forEachNonLeaf(){
+
+            }
+
             virtual ~TreeNode() = default;
         };
 
-        class LeafNode: public TreeNode{
+        class LeafNode : public TreeNode {
             V value_;
         public:
-            explicit LeafNode(V value): TreeNode(TRUE),value_(std::move(value)){}
-            V value(){
+            explicit LeafNode(V value) : TreeNode(), value_(std::move(value)) {}
+
+            Bool isLeaf() const override {
+                return TRUE;
+            };
+
+            V value() const override {
                 return value_;
             }
-            void setValue(V value){
-                this->value_=std::move(value);
+
+            void setValue(V value) override {
+                this->value_ = std::move(value);
             }
-            ~LeafNode()= default;
+
+            void merge(SP<TreeNode> other) override {
+                if (!other.get() || !other->isLeaf()) {
+                    throw CODE_LOCATION_EXCEPTION("Cannot merge with null or leaf node");
+                }
+                // 值覆盖
+                this->value_ = std::move(other->value());
+            }
+
+            ~LeafNode() = default;
         };
-        class NonLeafNode: public TreeNode{
+
+        class NonLeafNode : public TreeNode {
         public:
 
-            HashMap<K,SP<TreeNode>> children_;
-            explicit NonLeafNode(): TreeNode(FALSE),children_(){};
-            void addChild(K key, SP<TreeNode> child) {       // 修正后的 addChild 函数
-                children_.emplace(key, std::move(child));
+            HashMap<K, SP<TreeNode>> children_;
+
+            explicit NonLeafNode() : TreeNode(), children_() {};
+
+            Bool isLeaf() const override {
+                return FALSE;
             }
-            void merge(SP<TreeNode> other){
-                for (auto otherChild : other->children_) {
-                    K key = otherChild.first;
-                    SP<TreeNode> child = std::move(otherChild.second);
-                    auto thisChild=children_.find(key);
-                    if (thisChild != children_.end()) { // 如果当前节点已经有这个键,则进行合并
-                        //判断otherChild的类型
-                        if(thisChild->second->isLeaf()!=child->isLeaf()){   //类型不同,合并出错
-                            throw CODE_LOCATION_EXCEPTION("type dismatch");
-                        }
-                        if(thisChild->second->isLeaf()){ //是叶子节点,则需要进行值覆盖
-                            thisChild->second->setValue(child->value());
-                        }else{  //是非叶节点,需要进行合并
-                            thisChild->second->merge(child);
-                        }
+
+            void merge(SP<TreeNode> other) override {
+                if (!other.get() || other->isLeaf()) {
+                    throw CODE_LOCATION_EXCEPTION("Cannot merge with null or leaf node");
+                }
+
+                // 获取当前节点和另一个节点的子节点
+                auto &thisChildren = this->getChildren();
+                auto &otherChildren = other->getChildren();
+
+                // 遍历另一个节点的子节点
+                for (const auto &otherChild: otherChildren) {
+                    const K &key = otherChild.first;
+                    SP<TreeNode> otherNode = otherChild.second;
+
+                    // 查找当前节点是否已经存在相同的 key
+                    auto thisChild = thisChildren.find(key);
+                    if (thisChild != thisChildren.end()) {
+                        thisChild->second->merge(otherNode);
                     } else {
-                        // 如果没有冲突，直接添加
-                        children_.emplace(key, child);
+                        // 如果不存在，直接插入
+                        thisChildren.emplace(key, std::move(otherNode));
                     }
                 }
             }
-            HashMap<K,SP<TreeNode>>& getChildren(){
+
+            void addChild(const K &key, SP<TreeNode> child) override {
+                children_.emplace(key, std::move(child));
+            }
+
+            HashMap<K, SP<TreeNode>> &getChildren() override {
                 return children_;
             }
-            ~NonLeafNode()= default;
+            void forEach(){
+
+            }
+            void forEachLeaf(){}
+            void forEachNonLeaf(){}
+            ~NonLeafNode() = default;
         };
+
     private:
         SP<TreeNode> root_;
-        SP<TreeNode> searchPath(const Vector<K>& path,Int depth){
-            if (path.empty() || depth==0) {
+
+
+        SP<TreeNode> searchPath(const Vector<K> &path, Int depth) const {
+            if (path.empty() || depth == 0) {
                 return root_; // 如果路径为空
             }
-            if(depth<path.size()){
+            if (depth < path.size()) {
                 throw CODE_LOCATION_EXCEPTION("path.size() must >= depth");
             }
             // 不断向下找到对应节点
-            SP<TreeNode> current=this->root_;
-            for(Int i=0;i<depth-1;i++) {
-                K &k = path[i];
-                auto children=current->getChildren();
-                SP<TreeNode> foundChild = children[k];
+            SP<TreeNode> current = this->root_;
+            for (Int i = 0; i < depth - 1; i++) {
+                const K &k = path[i];
+                auto children = current->getChildren();
+                auto foundChild = children.find(k);
 
                 if (foundChild != children.end()) {
-                    if (foundChild->isLeaf()) {
+                    if (foundChild->second->isLeaf()) {
                         throw CODE_LOCATION_EXCEPTION("error path");
                     }
-                    current = std::move(foundChild);
+                    current = foundChild->second;
                 } else {
                     throw CODE_LOCATION_EXCEPTION("error path");
                 }
             }
 
             // 再向下搜索一层
-            SP<TreeNode> foundChild = current->getChildren()[path[depth-1]];
-            if(foundChild==current->getChildren().end()){
+            auto foundChild = current->getChildren().find(path[depth - 1]);
+            if (foundChild == current->getChildren().end()) {
                 return SP<TreeNode>();
             }
-            return foundChild;
+            return foundChild->second;
         }
 
-        SP<TreeNode> searchPathCreate(const Vector<K>& path,Int depth){
-            if (path.empty() || depth==0) {
+        SP<TreeNode> searchPathCreate(const Vector<K> &path, Int depth) {
+            if (path.empty() || depth == 0) {
                 return root_; // 如果路径为空
             }
-            if(depth<path.size()){
+            if (depth > path.size()) {
                 throw CODE_LOCATION_EXCEPTION("path.size() must >= depth");
             }
 
             // 不断向下找到对应节点
-            SP<TreeNode> current=this->root_;
-            for(Int i=0;i<depth-1;i++) {
-                K &k = path[i];
-                auto children=current->getChildren();
-                SP<TreeNode> foundChild = children[k];
+            SP<TreeNode> current = this->root_;
+            for (Int i = 0; i < depth - 1; i++) {
+                const K &k = path[i]; // 使用 const 引用
+                auto children = current->getChildren();
+                auto foundChild = children.find(k);
 
                 if (foundChild != children.end()) {
-                    if (foundChild->isLeaf()) {
+                    if (foundChild->second->isLeaf()) {
                         throw CODE_LOCATION_EXCEPTION("error path");
                     }
-                    current = std::move(foundChild);
+                    current = foundChild->second;
                 } else {
                     // 创建子节点
                     SP<TreeNode> newChild(new NonLeafNode());
-
                     current->addChild(k, newChild);
-                    current=std::move(newChild);
+                    current = std::move(newChild);
                 }
             }
 
             // 再向下搜索一层
-            SP<TreeNode> foundChild = current->getChildren()[path[depth-1]];
-            if(foundChild==current->getChildren().end()){
+            auto foundChild = current->getChildren().find(path[depth - 1]);
+            if (foundChild == current->getChildren().end()) {
                 // 创建子节点
                 SP<TreeNode> newChild(new NonLeafNode());
 
-                current->addChild(path.back(), newChild);
-                current=std::move(newChild);
+                current->addChild(path[depth - 1], newChild);
+                current = std::move(newChild);
                 return current;
-            }else{
-                return foundChild;
+            } else {
+                return foundChild->second;
             }
         }
 
     public:
 
-        MultiTree():root_((TreeNode*) new NonLeafNode()){}
-        explicit MultiTree(SP<TreeNode> root):root_(std::move(root)){}
-        ~MultiTree()= default;
-        void merge(MultiTree<K,V>& otherTree){
-            root_->merge(otherTree.root_);
+        MultiTree() : root_((TreeNode *) new NonLeafNode()) {}
+
+        explicit MultiTree(SP<TreeNode> root) : root_(std::move(root)) {}
+
+        ~MultiTree() = default;
+
+        void merge(const Vector<String> &path, MultiTree<K, V> other) {
+            SP<TreeNode> node = searchPathCreate(path, path.size() - 1);
+            if (node->isLeaf()) {
+                throw CODE_LOCATION_EXCEPTION("error path");
+            }
+
+            node->merge(other.root_);
         }
 
         // 递归添加value
         // 此操作会递归的创建树
-        void addValue(const Vector<K>& path,V value) {
-            auto tree= searchPathCreate(path,path.size()-1);
-            if(!tree->isLeaf()){
-                SP<TreeNode> valueNode((TreeNode*) new LeafNode(value));
-                tree->addChild(path.back(),valueNode);
-            }else{
+        void setValue(const Vector<K> &path, V value) {
+            auto tree = searchPathCreate(path, path.size() - 1);
+            if (tree->isLeaf()) {
                 throw CODE_LOCATION_EXCEPTION("Leaf node can not addChild");
             }
+
+            tree->getChildren()[path.back()] = SP<TreeNode>(new LeafNode(value));
         }
 
-        Bool hasPath(const Vector<K>& path)const{ // 通过变长参数定义
+        Bool hasPath(const Vector<K> &path) const { // 通过变长参数定义
             try {
-                return searchPath(path,path.size()).get()!=NULLPTR;
-            }catch(const Exception &e) {
+                return searchPath(path, path.size()).get() != NULLPTR;
+            } catch (const Exception &e) {
                 return FALSE;
             }
         }
 
-        Bool isLeaf(const Vector<K>& path)const{
+        Bool isLeaf(const Vector<K> &path) const {
             try {
                 SP<TreeNode> node = searchPath(path, path.size());
                 return node.get() != NULLPTR && node->isLeaf();
-            }catch(const Exception &e) {
+            } catch (const Exception &e) {
                 return FALSE;
             }
         }
 
-        Bool isNonLeaf(const Vector<K>& path)const{
+        Bool isNonLeaf(const Vector<K> &path) const {
             try {
                 SP<TreeNode> node = searchPath(path, path.size());
                 return node.get() != NULLPTR && !node->isLeaf();
-            }catch(const Exception &e) {
+            } catch (const Exception &e) {
                 return FALSE;
             }
         }
 
-        MultiTree<K,V> getChild(const Vector<K>& path){
-            return MultiTree<K,V> (searchPath(path,path.size()));
+        MultiTree<K, V> getChild(const Vector<K> &path) {
+            return MultiTree<K, V>(searchPath(path, path.size()));
         }
 
-        V getValue(const Vector<K>& path,V defaultValue) const{
-            SP<TreeNode> child= searchPath(path,path.size());
-            if(child.get()==NULLPTR || !child->isLeaf()){
+        V getValue(const Vector<K> &path, V defaultValue) const {
+            SP<TreeNode> child = searchPath(path, path.size());
+            if (child.get() == NULLPTR || !child->isLeaf()) {
                 return defaultValue;
             }
             return child->value();

@@ -1,0 +1,3 @@
+# ninja log v6
+6	694	1742438725088254393	CMakeFiles/test_multi_tree.dir/src/net/rpc/rpc_framework.pb.cc.o	60a0ac2ef04ed087
+6	878	1742438725088254393	CMakeFiles/test_multi_tree.dir/src/raft/raft_core_proto.pb.cc.o	13110b718f764fa9

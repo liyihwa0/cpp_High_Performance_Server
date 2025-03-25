@@ -53,10 +53,10 @@ RM = /usr/local/cmake-3.26.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.hmUOgZAfsx
+CMAKE_SOURCE_DIR = /data/home/yihwali/project/chps
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.hmUOgZAfsx/cmake-build-debug
+CMAKE_BINARY_DIR = /data/home/yihwali/project/chps/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/static_http_server.dir/depend.make
@@ -70,158 +70,158 @@ include CMakeFiles/static_http_server.dir/progress.make
 include CMakeFiles/static_http_server.dir/flags.make
 
 CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o: /tmp/tmp.hmUOgZAfsx/src/main/static_http_server.cpp
+CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o: /data/home/yihwali/project/chps/src/main/static_http_server.cpp
 CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o -MF CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o.d -o CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/main/static_http_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o -MF CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o.d -o CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.o -c /data/home/yihwali/project/chps/src/main/static_http_server.cpp
 
 CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/main/static_http_server.cpp > CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/main/static_http_server.cpp > CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.i
 
 CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/main/static_http_server.cpp -o CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/main/static_http_server.cpp -o CMakeFiles/static_http_server.dir/src/main/static_http_server.cpp.s
 
 CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o: /tmp/tmp.hmUOgZAfsx/src/fiber/fiber.cpp
+CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o: /data/home/yihwali/project/chps/src/fiber/fiber.cpp
 CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o -MF CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o.d -o CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/fiber/fiber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o -MF CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o.d -o CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.o -c /data/home/yihwali/project/chps/src/fiber/fiber.cpp
 
 CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/fiber/fiber.cpp > CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/fiber/fiber.cpp > CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.i
 
 CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/fiber/fiber.cpp -o CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/fiber/fiber.cpp -o CMakeFiles/static_http_server.dir/src/fiber/fiber.cpp.s
 
 CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o: /tmp/tmp.hmUOgZAfsx/src/http/http_common.cpp
+CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o: /data/home/yihwali/project/chps/src/http/http_common.cpp
 CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o -MF CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o.d -o CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/http/http_common.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o -MF CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o.d -o CMakeFiles/static_http_server.dir/src/http/http_common.cpp.o -c /data/home/yihwali/project/chps/src/http/http_common.cpp
 
 CMakeFiles/static_http_server.dir/src/http/http_common.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/http/http_common.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/http/http_common.cpp > CMakeFiles/static_http_server.dir/src/http/http_common.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/http/http_common.cpp > CMakeFiles/static_http_server.dir/src/http/http_common.cpp.i
 
 CMakeFiles/static_http_server.dir/src/http/http_common.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/http/http_common.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/http/http_common.cpp -o CMakeFiles/static_http_server.dir/src/http/http_common.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/http/http_common.cpp -o CMakeFiles/static_http_server.dir/src/http/http_common.cpp.s
 
 CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o: /tmp/tmp.hmUOgZAfsx/src/http/request_parser.cpp
+CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o: /data/home/yihwali/project/chps/src/http/request_parser.cpp
 CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o -MF CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o.d -o CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/http/request_parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o -MF CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o.d -o CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.o -c /data/home/yihwali/project/chps/src/http/request_parser.cpp
 
 CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/http/request_parser.cpp > CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/http/request_parser.cpp > CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.i
 
 CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/http/request_parser.cpp -o CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/http/request_parser.cpp -o CMakeFiles/static_http_server.dir/src/http/request_parser.cpp.s
 
 CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o: /tmp/tmp.hmUOgZAfsx/src/locker/locker.cpp
+CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o: /data/home/yihwali/project/chps/src/locker/locker.cpp
 CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o -MF CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o.d -o CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/locker/locker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o -MF CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o.d -o CMakeFiles/static_http_server.dir/src/locker/locker.cpp.o -c /data/home/yihwali/project/chps/src/locker/locker.cpp
 
 CMakeFiles/static_http_server.dir/src/locker/locker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/locker/locker.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/locker/locker.cpp > CMakeFiles/static_http_server.dir/src/locker/locker.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/locker/locker.cpp > CMakeFiles/static_http_server.dir/src/locker/locker.cpp.i
 
 CMakeFiles/static_http_server.dir/src/locker/locker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/locker/locker.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/locker/locker.cpp -o CMakeFiles/static_http_server.dir/src/locker/locker.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/locker/locker.cpp -o CMakeFiles/static_http_server.dir/src/locker/locker.cpp.s
 
 CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o: /tmp/tmp.hmUOgZAfsx/src/logger/logger.cpp
+CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o: /data/home/yihwali/project/chps/src/logger/logger.cpp
 CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o -MF CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o.d -o CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/logger/logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o -MF CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o.d -o CMakeFiles/static_http_server.dir/src/logger/logger.cpp.o -c /data/home/yihwali/project/chps/src/logger/logger.cpp
 
 CMakeFiles/static_http_server.dir/src/logger/logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/logger/logger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/logger/logger.cpp > CMakeFiles/static_http_server.dir/src/logger/logger.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/logger/logger.cpp > CMakeFiles/static_http_server.dir/src/logger/logger.cpp.i
 
 CMakeFiles/static_http_server.dir/src/logger/logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/logger/logger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/logger/logger.cpp -o CMakeFiles/static_http_server.dir/src/logger/logger.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/logger/logger.cpp -o CMakeFiles/static_http_server.dir/src/logger/logger.cpp.s
 
 CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o: /tmp/tmp.hmUOgZAfsx/src/net/epoll.cpp
+CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o: /data/home/yihwali/project/chps/src/net/epoll.cpp
 CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o -MF CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o.d -o CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/net/epoll.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o -MF CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o.d -o CMakeFiles/static_http_server.dir/src/net/epoll.cpp.o -c /data/home/yihwali/project/chps/src/net/epoll.cpp
 
 CMakeFiles/static_http_server.dir/src/net/epoll.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/net/epoll.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/net/epoll.cpp > CMakeFiles/static_http_server.dir/src/net/epoll.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/net/epoll.cpp > CMakeFiles/static_http_server.dir/src/net/epoll.cpp.i
 
 CMakeFiles/static_http_server.dir/src/net/epoll.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/net/epoll.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/net/epoll.cpp -o CMakeFiles/static_http_server.dir/src/net/epoll.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/net/epoll.cpp -o CMakeFiles/static_http_server.dir/src/net/epoll.cpp.s
 
 CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o: /tmp/tmp.hmUOgZAfsx/src/net/rpc/rpc_framework.pb.cc
+CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o: /data/home/yihwali/project/chps/src/net/rpc/rpc_framework.pb.cc
 CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o -MF CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o.d -o CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o -c /tmp/tmp.hmUOgZAfsx/src/net/rpc/rpc_framework.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o -MF CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o.d -o CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.o -c /data/home/yihwali/project/chps/src/net/rpc/rpc_framework.pb.cc
 
 CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/net/rpc/rpc_framework.pb.cc > CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/net/rpc/rpc_framework.pb.cc > CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.i
 
 CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/net/rpc/rpc_framework.pb.cc -o CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/net/rpc/rpc_framework.pb.cc -o CMakeFiles/static_http_server.dir/src/net/rpc/rpc_framework.pb.cc.s
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o: /tmp/tmp.hmUOgZAfsx/src/raft/raft_core.cpp
+CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o: /data/home/yihwali/project/chps/src/raft/raft_core.cpp
 CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o -MF CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o.d -o CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/raft/raft_core.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o -MF CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o.d -o CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.o -c /data/home/yihwali/project/chps/src/raft/raft_core.cpp
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/raft/raft_core.cpp > CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/raft/raft_core.cpp > CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.i
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/raft/raft_core.cpp -o CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/raft/raft_core.cpp -o CMakeFiles/static_http_server.dir/src/raft/raft_core.cpp.s
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o: /tmp/tmp.hmUOgZAfsx/src/raft/raft_core_proto.pb.cc
+CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o: /data/home/yihwali/project/chps/src/raft/raft_core_proto.pb.cc
 CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o -MF CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o.d -o CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o -c /tmp/tmp.hmUOgZAfsx/src/raft/raft_core_proto.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o -MF CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o.d -o CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.o -c /data/home/yihwali/project/chps/src/raft/raft_core_proto.pb.cc
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/raft/raft_core_proto.pb.cc > CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/raft/raft_core_proto.pb.cc > CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.i
 
 CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/raft/raft_core_proto.pb.cc -o CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/raft/raft_core_proto.pb.cc -o CMakeFiles/static_http_server.dir/src/raft/raft_core_proto.pb.cc.s
 
 CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o: CMakeFiles/static_http_server.dir/flags.make
-CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o: /tmp/tmp.hmUOgZAfsx/src/thread/thread.cpp
+CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o: /data/home/yihwali/project/chps/src/thread/thread.cpp
 CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o: CMakeFiles/static_http_server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o -MF CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o.d -o CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o -c /tmp/tmp.hmUOgZAfsx/src/thread/thread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o"
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o -MF CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o.d -o CMakeFiles/static_http_server.dir/src/thread/thread.cpp.o -c /data/home/yihwali/project/chps/src/thread/thread.cpp
 
 CMakeFiles/static_http_server.dir/src/thread/thread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/static_http_server.dir/src/thread/thread.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.hmUOgZAfsx/src/thread/thread.cpp > CMakeFiles/static_http_server.dir/src/thread/thread.cpp.i
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/home/yihwali/project/chps/src/thread/thread.cpp > CMakeFiles/static_http_server.dir/src/thread/thread.cpp.i
 
 CMakeFiles/static_http_server.dir/src/thread/thread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/static_http_server.dir/src/thread/thread.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.hmUOgZAfsx/src/thread/thread.cpp -o CMakeFiles/static_http_server.dir/src/thread/thread.cpp.s
+	/opt/rh/devtoolset-11/root/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/home/yihwali/project/chps/src/thread/thread.cpp -o CMakeFiles/static_http_server.dir/src/thread/thread.cpp.s
 
 # Object files for target static_http_server
 static_http_server_OBJECTS = \
@@ -256,7 +256,7 @@ static_http_server: /usr/local/lib/libprotobuf.so
 static_http_server: /usr/lib64/libssl.so
 static_http_server: /usr/lib64/libcrypto.so
 static_http_server: CMakeFiles/static_http_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable static_http_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable static_http_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/static_http_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -268,6 +268,6 @@ CMakeFiles/static_http_server.dir/clean:
 .PHONY : CMakeFiles/static_http_server.dir/clean
 
 CMakeFiles/static_http_server.dir/depend:
-	cd /tmp/tmp.hmUOgZAfsx/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.hmUOgZAfsx /tmp/tmp.hmUOgZAfsx /tmp/tmp.hmUOgZAfsx/cmake-build-debug /tmp/tmp.hmUOgZAfsx/cmake-build-debug /tmp/tmp.hmUOgZAfsx/cmake-build-debug/CMakeFiles/static_http_server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /data/home/yihwali/project/chps/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/home/yihwali/project/chps /data/home/yihwali/project/chps /data/home/yihwali/project/chps/cmake-build-debug /data/home/yihwali/project/chps/cmake-build-debug /data/home/yihwali/project/chps/cmake-build-debug/CMakeFiles/static_http_server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/static_http_server.dir/depend
 

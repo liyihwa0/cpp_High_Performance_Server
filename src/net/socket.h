@@ -227,146 +227,147 @@ namespace wa {
         }
     };
 
-    class SslConnectionSocket : public ConnectionSocket {
-    private:
-        SSL* ssl_; // SSL 对象
-        SP<SSL_CTX,SslCtxDeleter<SSL_CTX>> ctx_;
-
-
-        // 重写关闭操作，处理 SSL 特有的关闭流程
-        void closeSSL() {
-            if (ssl_) {
-                SSL_shutdown(ssl_);
-                SSL_free(ssl_);
-                ssl_ = nullptr;
-            }
-        }
-
-    public:
-        SslConnectionSocket(SP<SSL_CTX,SslCtxDeleter<SSL_CTX>> ctx): ssl_(nullptr), ctx_(std::move(ctx)) {
-
-            SSL* now=SSL_new(ctx_.get());
-            if(now==NULL)
-            {
-                throw std::runtime_error("ssl new error");
-            }
-//            SSL_set_fd(now,cli);
-            SSL_accept(now);
-
-            // 初始化 OpenSSL
-            if (!SSL_library_init()) {
-                throw std::runtime_error("OpenSSL library initialization failed");
-            }
-
-            SSL_load_error_strings();
-            OpenSSL_add_all_algorithms();
-
-            ctx_.reset(SSL_CTX_new(TLS_client_method())); // 创建客户端上下文
-            if (!ctx_.get()) {
-                throw std::runtime_error("Failed to create SSL_CTX");
-            }
-        }
-
-        ~SslConnectionSocket() {
-            closeSSL();
-        }
-
-        Bool connect(SockAddrV4 addr){
-            if (!ConnectionSocket::connect(addr)) {
-                return FALSE;
-            }
-            if(ctx_.get()== nullptr){
-                return FALSE;
-            }
-            ssl_ = SSL_new(ctx_.get());
-            if (!ssl_) {
-                throw std::runtime_error("Failed to create SSL object");
-            }
-
-            SSL_set_fd(ssl_, fd()); // 将连接的文件描述符与 SSL 关联
-
-            int result = SSL_connect(ssl_); // 执行 SSL 握手
-            if (result != 1) {
-                int err = SSL_get_error(ssl_, result);
-                throw std::runtime_error("SSL handshake failed: " + std::to_string(err));
-            }
-
-            return TRUE;
-        }
-
-        Bool send(Buffer& buffer){
-            if (writeClosed()) {
-                return FALSE;
-            }
-
-            while (buffer.hasMore()) {
-                Int len = SSL_write(ssl_, buffer.readableAddr(), buffer.readableLength());
-                if (len > 0) {
-                    buffer.advanceRead(len);
-                } else if (len == 0) {
-                    closeWrite();
-                    return FALSE;
-                } else {
-                    int err = SSL_get_error(ssl_, len);
-                    if (err == SSL_ERROR_WANT_WRITE) {
-                        // 等待写操作
-                        Fiber::AwaitEvent(fd(), EPOLLOUT);
-                    } else {
-                        throw std::runtime_error("SSL write failed: " + std::to_string(err));
-                    }
-                }
-            }
-            return TRUE;
-        }
-
-        Bool recv(Buffer& buffer){
-            if (readClosed()) {
-                return FALSE;
-            }
-
-            while (true) {
-                Int len = SSL_read(ssl_, buffer.writeableAddr(), buffer.writeableLength());
-                if (len > 0) {
-                    buffer.advanceWrite(len);
-                    return TRUE;
-                } else if (len == 0) {
-                    closeRead();
-                    return FALSE;
-                } else {
-                    int err = SSL_get_error(ssl_, len);
-                    if (err == SSL_ERROR_WANT_READ) {
-                        // 等待读操作
-                        Fiber::AwaitEvent(fd(), EPOLLIN);
-                    } else {
-                        throw std::runtime_error("SSL read failed: " + std::to_string(err));
-                    }
-                }
-            }
-        }
-
-        void closeRead() {
-            ConnectionSocket::closeRead();
-        }
-
-        void closeWrite() {
-            ConnectionSocket::closeWrite();
-        }
-
-        void close(){
-            closeSSL();
-            ConnectionSocket::close();
-        }
-
-        Bool connected() {
-            return ssl_ != nullptr && ConnectionSocket::connected();
-        }
-
-        SSL* ssl() const {
-            return ssl_;
-        }
-
-    };
-
+//
+//    class SslConnectionSocket : public ConnectionSocket {
+//    private:
+//        SSL* ssl_; // SSL 对象
+//        SP<SSL_CTX,SslCtxDeleter<SSL_CTX>> ctx_;
+//
+//
+//        // 重写关闭操作，处理 SSL 特有的关闭流程
+//        void closeSSL() {
+//            if (ssl_) {
+//                SSL_shutdown(ssl_);
+//                SSL_free(ssl_);
+//                ssl_ = nullptr;
+//            }
+//        }
+//
+//    public:
+//        SslConnectionSocket(SP<SSL_CTX,SslCtxDeleter<SSL_CTX>> ctx): ssl_(nullptr), ctx_(std::move(ctx)) {
+//
+//            SSL* now=SSL_new(ctx_.get());
+//            if(now==NULL)
+//            {
+//                throw std::runtime_error("ssl new error");
+//            }
+////            SSL_set_fd(now,cli);
+//            SSL_accept(now);
+//
+//            // 初始化 OpenSSL
+//            if (!SSL_library_init()) {
+//                throw std::runtime_error("OpenSSL library initialization failed");
+//            }
+//
+//            SSL_load_error_strings();
+//            OpenSSL_add_all_algorithms();
+//
+//            ctx_.reset(SSL_CTX_new(TLS_client_method())); // 创建客户端上下文
+//            if (!ctx_.get()) {
+//                throw std::runtime_error("Failed to create SSL_CTX");
+//            }
+//        }
+//
+//        ~SslConnectionSocket() {
+//            closeSSL();
+//        }
+//
+//        Bool connect(SockAddrV4 addr){
+//            if (!ConnectionSocket::connect(addr)) {
+//                return FALSE;
+//            }
+//            if(ctx_.get()== nullptr){
+//                return FALSE;
+//            }
+//            ssl_ = SSL_new(ctx_.get());
+//            if (!ssl_) {
+//                throw std::runtime_error("Failed to create SSL object");
+//            }
+//
+//            SSL_set_fd(ssl_, fd()); // 将连接的文件描述符与 SSL 关联
+//
+//            int result = SSL_connect(ssl_); // 执行 SSL 握手
+//            if (result != 1) {
+//                int err = SSL_get_error(ssl_, result);
+//                throw std::runtime_error("SSL handshake failed: " + std::to_string(err));
+//            }
+//
+//            return TRUE;
+//        }
+//
+//        Bool send(Buffer& buffer){
+//            if (writeClosed()) {
+//                return FALSE;
+//            }
+//
+//            while (buffer.hasMore()) {
+//                Int len = SSL_write(ssl_, buffer.readableAddr(), buffer.readableLength());
+//                if (len > 0) {
+//                    buffer.advanceRead(len);
+//                } else if (len == 0) {
+//                    closeWrite();
+//                    return FALSE;
+//                } else {
+//                    int err = SSL_get_error(ssl_, len);
+//                    if (err == SSL_ERROR_WANT_WRITE) {
+//                        // 等待写操作
+//                        Fiber::AwaitEvent(fd(), EPOLLOUT);
+//                    } else {
+//                        throw std::runtime_error("SSL write failed: " + std::to_string(err));
+//                    }
+//                }
+//            }
+//            return TRUE;
+//        }
+//
+//        Bool recv(Buffer& buffer){
+//            if (readClosed()) {
+//                return FALSE;
+//            }
+//
+//            while (true) {
+//                Int len = SSL_read(ssl_, buffer.writeableAddr(), buffer.writeableLength());
+//                if (len > 0) {
+//                    buffer.advanceWrite(len);
+//                    return TRUE;
+//                } else if (len == 0) {
+//                    closeRead();
+//                    return FALSE;
+//                } else {
+//                    int err = SSL_get_error(ssl_, len);
+//                    if (err == SSL_ERROR_WANT_READ) {
+//                        // 等待读操作
+//                        Fiber::AwaitEvent(fd(), EPOLLIN);
+//                    } else {
+//                        throw std::runtime_error("SSL read failed: " + std::to_string(err));
+//                    }
+//                }
+//            }
+//        }
+//
+//        void closeRead() {
+//            ConnectionSocket::closeRead();
+//        }
+//
+//        void closeWrite() {
+//            ConnectionSocket::closeWrite();
+//        }
+//
+//        void close(){
+//            closeSSL();
+//            ConnectionSocket::close();
+//        }
+//
+//        Bool connected() {
+//            return ssl_ != nullptr && ConnectionSocket::connected();
+//        }
+//
+//        SSL* ssl() const {
+//            return ssl_;
+//        }
+//
+//    };
+//
 
     class ListenerSocket {
     private:
