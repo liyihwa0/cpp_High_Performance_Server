@@ -33,7 +33,7 @@ namespace wa{
 
         ConfigDefinitions(): definitions_(new MultiTree<String,SP<ConfigDefinitionItem>>()){}
 
-        void addDefinition(const Vector<String>& path,SP<ConfigDefinitionItem> value){
+        void setValue(const Vector<String>& path, SP<ConfigDefinitionItem> value){
             if(value->shortOpt_!='\0'){
                 if(value->shortOpt_>='a'&&value->shortOpt_<='z'){
                     shortOptDefinitions_[value->shortOpt_-'a']=value;
@@ -43,10 +43,10 @@ namespace wa{
                     throw CODE_LOCATION_EXCEPTION("invalid argument: "+value->shortOpt_);
                 }
             }
-            definitions_->setValue(path,std::move(value));
+            definitions_->setValue(path, std::move(value));
         }
 
-        void mergeDefinitions(const Vector<String>& path,const ConfigDefinitions& subDefinition){
+        void merge(const Vector<String>& path, const ConfigDefinitions& subDefinition){
             for(Int i=0;i<52;i++){
                 if(subDefinition.shortOptDefinitions_[i].get()){
                     shortOptDefinitions_[i]=subDefinition.shortOptDefinitions_[i];
@@ -87,7 +87,7 @@ namespace wa{
     public:
         Config()= default;
         void mergeConfig(const Vector<String>& path,const Config& other){
-            definitions_.mergeDefinitions(path,other.definitions_);
+            definitions_.merge(path, other.definitions_);
             values_.mergeValues(path,other.values_);
         }
         void parseCommand(){
