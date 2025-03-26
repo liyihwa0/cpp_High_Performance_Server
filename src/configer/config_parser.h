@@ -5,6 +5,7 @@
 #include "../smart_ptr.h"
 #include "../data_structure/multi_tree.h"
 #include "../helper.h"
+#include "./cast.h"
 namespace wa{
     // ConfigVar定义了配置文件的变量规范
     // DefinitionItem:
@@ -27,11 +28,11 @@ namespace wa{
 
     class ConfigDefinitions{
         friend Config;
-        SP<MultiTree<String,SP<ConfigDefinitionItem>>> definitions_;
+        MultiTree<String,SP<ConfigDefinitionItem>> definitions_;
         SP<ConfigDefinitionItem> shortOptDefinitions_[52];
     public:
 
-        ConfigDefinitions(): definitions_(new MultiTree<String,SP<ConfigDefinitionItem>>()){}
+        ConfigDefinitions(): definitions_(){}
 
         void setValue(const Vector<String>& path, SP<ConfigDefinitionItem> value){
             if(value->shortOpt_!='\0'){
@@ -43,40 +44,41 @@ namespace wa{
                     throw CODE_LOCATION_EXCEPTION("invalid argument: "+value->shortOpt_);
                 }
             }
-            definitions_->setValue(path, std::move(value));
+            definitions_.setValue(path, std::move(value));
         }
 
-        void merge(const Vector<String>& path, const ConfigDefinitions& subDefinition){
+        void merge(const Vector<String>& path,ConfigDefinitions& subDefinition){
             for(Int i=0;i<52;i++){
                 if(subDefinition.shortOptDefinitions_[i].get()){
                     shortOptDefinitions_[i]=subDefinition.shortOptDefinitions_[i];
                 }
             }
-            definitions_->merge(path,*subDefinition.definitions_);
+            definitions_.merge(path,subDefinition.definitions_);
         }
     };
 
     class ConfigValues{
         friend Config;
-        SP<MultiTree<String,String>> values_;
-        void addValue(const Vector<String>& path,const String& value){
-            values_->setValue(path, value);
+        MultiTree<String,String> values_;
+        void setValue(const Vector<String>& path,const String& value){
+            values_.setValue(path, value);
         }
-        void mergeValues(const Vector<String>& path,const ConfigValues& value){
-            values_->merge(path,*value.values_);
+        void merge(const Vector<String>& path,ConfigValues& value){
+            values_.merge(path,value.values_);
         }
     public:
-        ConfigValues(): values_(new MultiTree<String,String>()){}
+        ConfigValues(): values_(){}
         String getString(const Vector<String>& path,const String& defaultValue)const{
-            return values_->getValue(path,defaultValue);
+            return values_.getValue(path,defaultValue);
         }
-        Bool hasValue(const Vector<String>& path){
-            return values_->isLeaf(path);
+        Bool hasValue(const Vector<String>& path) const{
+            return values_.hasLeaf(path);
         }
 
         template<class T>
         T getValue(const Vector<String>& path,const String& defaultValue)const{
-            //todo
+            String value=values_.getValue(path,defaultValue);
+            return CastAsType<T>(value);
         }
     };
 
@@ -86,14 +88,21 @@ namespace wa{
         SP<ConfigValues> parsedValues_;
     public:
         Config()= default;
-        void mergeConfig(const Vector<String>& path,const Config& other){
-            definitions_.merge(path, other.definitions_);
-            values_.mergeValues(path,other.values_);
+        void mergeValues(const Vector<String>& path,ConfigValues& values){
+            parsedValues_.reset();
+            values_.merge(path,values);
         }
+        void mergeDefinitions(const Vector<String>& path,ConfigDefinitions& definitions){
+            parsedValues_.reset();
+            definitions_.merge(path,definitions);
+        }
+
         void parseCommand(){
+            parsedValues_.reset();
 
         }
         void parseFile(){
+            parsedValues_.reset();
 
         }
 
@@ -104,29 +113,23 @@ namespace wa{
 
             // 创建一个新的 ConfigValues 对象
             parsedValues_.reset(new ConfigValues());
-
+            // 遍历definitions_,找到不存在于values_中的,而存在于definitions_的defaultValue中的变量,将其添加到parsedValues设置为defaultValue
             // 遍历 definitions_ 中的所有路径
-            auto definitions=definitions_.definitions_->getChild({});
+            definitions_.definitions_.forEach([this](const Vector<String>& path, const MultiTree<String,SP<ConfigDefinitionItem>>& items) {
+                SP<ConfigDefinitionItem> item=items.getValue();
 
-            definitions.forEach([this](const Vector<String>& path, const SP<ConfigDefinitionItem>& item) {
-                // 检查 values_ 中是否存在该路径的值
-                if (values_.hasValue(path)) {
-                    // 如果存在值，直接添加到 parsedValues_
-                    parsedValues_->addValue(path, values_.getString(path, ""));
-                } else {
-                    // 如果不存在值，检查 couldEmpty_
-                    if (!item->couldEmpty_) {
-                        throw CODE_LOCATION_EXCEPTION("Missing required value for path: " + Helper::Join(path, "."));
+                if (!values_.hasValue(path)){
+                    if (!item->couldEmpty_){
+                        throw CODE_LOCATION_EXCEPTION(Helper::Join(path,".")+" can not be null");
                     }
-                    // 如果 couldEmpty_ 为 true,使用 defaultValue_
-                    parsedValues_->addValue(path, item->defaultValue_);
+                    values_.setValue(path,item->defaultValue_);
                 }
             });
 
-            // 遍历defaultValue,找到不存在于parsedValues中的,而存在于defaultValue中的变量
+            //合并 parsedValues_与values_
+            parsedValues_->merge({},values_);
+
             return parsedValues_;
         }
-
-
     };
 }

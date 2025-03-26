@@ -1,0 +1,70 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7tfqEc
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_da0fe/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_da0fe.dir/build.make CMakeFiles/cmTC_da0fe.dir/build
+gmake[1]: Entering directory '/root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7tfqEc'
+Building C object CMakeFiles/cmTC_da0fe.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fsanitize=address -fno-omit-frame-pointer -g  -fdiagnostics-color=always -o CMakeFiles/cmTC_da0fe.dir/src.c.o -c /root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7tfqEc/src.c
+Linking C executable cmTC_da0fe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da0fe.dir/link.txt --verbose=1
+/usr/bin/cc  -fsanitize=address -fno-omit-frame-pointer -g  CMakeFiles/cmTC_da0fe.dir/src.c.o -o cmTC_da0fe 
+gmake[1]: Leaving directory '/root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-7tfqEc'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-67hk5g
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ba63f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ba63f.dir/build.make CMakeFiles/cmTC_ba63f.dir/build
+gmake[1]: Entering directory '/root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-67hk5g'
+Building C object CMakeFiles/cmTC_ba63f.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fsanitize=address -fno-omit-frame-pointer -g  -fdiagnostics-color=always -o CMakeFiles/cmTC_ba63f.dir/src.c.o -c /root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-67hk5g/src.c
+Linking C executable cmTC_ba63f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba63f.dir/link.txt --verbose=1
+/usr/bin/cc  -fsanitize=address -fno-omit-frame-pointer -g  CMakeFiles/cmTC_ba63f.dir/src.c.o -o cmTC_ba63f 
+gmake[1]: Leaving directory '/root/source/cpp_High_Performance_Server/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-67hk5g'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
