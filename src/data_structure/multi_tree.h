@@ -14,8 +14,10 @@ namespace wa {
      * 4. 叶子节点只存放数据
      * 5. 非叶子节点只存放其他节点的索引
      */
+
     template<typename K, typename V>
     class MultiTree {
+        typedef std::function<void(const Vector<K>&, const MultiTree&)> ForEachFunc;
         struct TreeNode;
         struct LeafNode {
             V value_;
@@ -71,16 +73,23 @@ namespace wa {
                 throw CODE_LOCATION_EXCEPTION("node type mismatch");
             }
         }
-        // 辅助方法：遍历所有叶子节点
-        void forEachLeafHelper(SP<TreeNode> node, const std::function<void(const V&)>& func) const {
-            if (!node) return;
 
+        // 辅助方法：递归遍历所有节点
+        void forEachHelper(SP<TreeNode> node, Vector<K>& path, ForEachFunc func) const {
             if (node->isLeaf_) {
-                func(node->leaf_->value_);
+                // 如果是叶子节点，调用回调函数
+                func(path, MultiTree(node));
             } else {
+                // 如果是非叶子节点，递归遍历其子节点
                 SP<NonLeafNode> nonLeafNode = node->nonLeaf_;
-                for (const auto& child : nonLeafNode->children_) {
-                    forEachLeafHelper(child.second, func);
+                for (auto child : nonLeafNode->children_) {
+                    K key = child.first;
+
+                    // 创建新的路径
+                    path.push_back(key);
+                    // 递归调用
+                    forEachHelper(child.second, path, func);
+                    path.pop_back();
                 }
             }
         }
@@ -191,13 +200,13 @@ namespace wa {
             if (it != nonLeafNode->children_.end()) {
                 // 如果存在，更新现有叶子节点的值
                 if (it->second->isLeaf_) {
-                    it->second->leaf_->value_ = value; // 更新值
+                    it->second->leaf_->value_ = std::move(value); // 更新值
                 } else {
                     throw CODE_LOCATION_EXCEPTION("Cannot set value to a non-leaf node");
                 }
             } else {
                 // 如果不存在，创建新的叶子节点并添加
-                nonLeafNode->children_.emplace(lastKey,new TreeNode(value));
+                nonLeafNode->children_.emplace(lastKey,new TreeNode(std::move(value)));
             }
         }
 
@@ -227,7 +236,12 @@ namespace wa {
                 return FALSE; // 路径不存在
             }
         }
-
+        V getValue()const{
+            if (!isLeaf()){
+                    throw CODE_LOCATION_EXCEPTION("Cannot get value to a non-leaf node");
+            }
+            return root_->leaf_->value_;
+        }
         // 新增方法: getValue
         V getValue(const Vector<K> &path, const V &defaultValue) const {
             try {
@@ -242,14 +256,9 @@ namespace wa {
             }
         }
 
-        // 遍历所有叶子节点
-        void forEachLeaf(const std::function<void(const V&)>& func) const {
-            forEachLeafHelper(root_, func);
-        }
-
-        // 遍历所有节点
-        void forEach(const std::function<void(const K&, const V&)>& func) const {
-            forEachHelper(root_, func);
+        void forEach(const ForEachFunc& func) const {
+            Vector<K> vec;
+            forEachHelper(root_, vec, func);
         }
     };
 }

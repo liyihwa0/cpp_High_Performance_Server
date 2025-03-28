@@ -62,5 +62,16 @@ int main() {
     cout << "Value at path {B, B, F} after merge: " << tree.getValue({"B","B", "F"},-1) << endl; // 应该输出 1
     cout << "Value at path {B, A, C, G} after merge: " << tree.getValue({"B","A", "C", "G"},-1) << endl; // 应该输出 7
 
+    // 测试 forEach 方法
+    tree.forEach([](const Vector<string>& path,const MultiTree<string, int>& node) {
+        if (node.isLeaf()) {
+            cout << "Path: ";
+            for (const auto& key : path) {
+                cout << key << " ";
+            }
+            cout << "-> Value: " << node.getValue({}, -1) << endl;
+        }
+    });
+
     return 0;
 }

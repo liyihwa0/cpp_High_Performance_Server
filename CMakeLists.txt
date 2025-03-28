@@ -10,13 +10,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)  # 禁用编译器扩展
 
 
-# 设置构建类型
+# ----------------------------------- 设置构建类型
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
 
-# 根据构建类型设置编译选项
+# ----------------------------------- 根据构建类型设置编译选项
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(SANITIZER_FLAGS "-fsanitize=address -fno-omit-frame-pointer -g")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SANITIZER_FLAGS}")
@@ -26,13 +26,46 @@ else()
 endif()
 
 set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/build-${CMAKE_BUILD_TYPE}")
-
-
 include_directories(${CMAKE_SOURCE_DIR})
 
-# 查找 Protobuf 库
+# --------------------------------------- 查找 Protobuf 库
 find_package(Protobuf REQUIRED)
 find_package(OpenSSL REQUIRED)  # 查找 OpenSSL
+
+# protobuf 生成文件 -------------------------------------
+# 自动扫描所有 .proto 文件
+file(GLOB_RECURSE PROTOBUF_FILES RELATIVE "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/*.proto")
+message(STATUS "protobuf files: ${PROTOBUF_FILES}")
+
+# 遍历每个proto文件，生成对应的.pb.cc和.pb.h文件到该proto文件所在的目录
+foreach(PROTO_FILE ${PROTOBUF_FILES})
+    # 获取proto文件的绝对路径
+    set(ABS_PROTO_FILE "${CMAKE_SOURCE_DIR}/${PROTO_FILE}")
+    # 获取proto文件的目录
+    get_filename_component(PROTO_DIR ${ABS_PROTO_FILE} DIRECTORY)
+    # 获取proto文件的名称（不含扩展名）
+    get_filename_component(PROTO_FILE_NAME_WE ${PROTO_FILE} NAME_WE)
+
+    # 设置生成的pb.cc和pb.h文件的输出路径
+    set(GEN_PB_CC "${PROTO_DIR}/${PROTO_FILE_NAME_WE}.pb.cc")
+    set(GEN_PB_H "${PROTO_DIR}/${PROTO_FILE_NAME_WE}.pb.h")
+    message(STATUS "exec protoc --cpp_out=${PROTO_DIR}  -I=./${PROTO_DIR} ${ABS_PROTO_FILE}")
+
+    # 使用execute_process在CMake配置阶段执行protoc命令
+    execute_process(
+            COMMAND protoc --cpp_out=${PROTO_DIR} -I=${PROTO_DIR} ${ABS_PROTO_FILE}
+            OUTPUT_VARIABLE PROTOC_OUTPUT
+            ERROR_VARIABLE PROTOC_ERROR
+            RESULT_VARIABLE PROTOC_RESULT
+    )
+
+    # 检查protoc命令是否成功执行
+    if(PROTOC_RESULT EQUAL 0)
+        message(STATUS "Successfully generated ${ABS_PROTO_FILE}")
+    else()
+        message(FATAL_ERROR "Failed to generate ${ABS_PROTO_FILE} : ${PROTOC_ERROR}")
+    endif()
+endforeach()
 
 
 #设置搜索的头文件的路径,包含 Protobuf 的头文件
@@ -42,11 +75,6 @@ include_directories(/usr/include)
 # 设置项目库文件的搜索目录
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 link_directories(/usr/local/lib)
-
-
-
-
-
 
 # 搜集 src 目录下的所有 .cpp 文件
 file(GLOB_RECURSE SRC_CPP_FILES "src/*.cpp" "src/*.cc")
