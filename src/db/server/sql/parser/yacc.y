@@ -128,7 +128,6 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
     Expression *                                expression_;
     Vector<UP<Expression>> *                    expressionList_;
     enum CompareOperator                        compareOperator_;
-    String*                                     string_;
 
     FieldSqlNode*                               field_;
     Vector<UP<FieldSqlNode>>*                   fields_;
@@ -138,13 +137,10 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 
     Float                                       float_;
     Int                                         int_;
+    String*                                     string_;
 }
 
-/*
-以下的type,应该要包含我们的语法树中所有可能的节点的类型
-例如: select * from tablea as a where a.name like '123';
-类型为: ID
-*/
+
 
 //type union中的类型          变量名
 
@@ -184,8 +180,6 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %type   <parsedSqlNode_>                help_stmt
 %type   <parsedSqlNode_>                exit_stmt
 %type   <parsedSqlNode_>                command_wrapper
-// commands should be a list but I use a single command instead
-%type   <sql_node>                      commands
 
 %left ADD SUB MUL DIV
 %nonassoc UMINUS
@@ -509,45 +503,39 @@ expression:
     | SUB expression %prec UMINUS {
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::NEGATIVE, $2, NULLPTR, sql_string, &@$);
     }
-    | value {
-      $$ = new ValueExpr(*$1);
+    | ID {
+      FieldRefNode *node = $1;
+      $$ = new UnboundFieldExpression(node);
       $$->set_name(token_name(sql_string, &@$));
-      delete $1;
-    }
-    | field {
-      RelAttrSqlNode *node = $1;
-      $$ = new UnboundFieldExpr(node->relation_name, node->attribute_name);
-      $$->set_name(token_name(sql_string, &@$));
-      delete $1;
     }
     | MUL {
       $$ = new StarExpr();
     }
     ;
 
-rel_attr:
+fieldRef:
     ID {
-      $$ = new RelAttrSqlNode;
+      $$ = new FieldRefNode();
       $$->attribute_name = $1;
     }
     | ID DOT ID {
-      $$ = new RelAttrSqlNode;
+      $$ = new FieldRefNode();
       $$->relation_name  = $1;
       $$->attribute_name = $3;
     }
     ;
 
-relation:
+table:
     ID {
       $$ = $1;
     }
     ;
-rel_list:
+tables:
     relation {
       $$ = new vector<string>();
       $$->push_back($1);
     }
-    | relation COMMA rel_list {
+    | tables COMMA table {
       if ($3 != nullptr) {
         $$ = $3;
       } else {
