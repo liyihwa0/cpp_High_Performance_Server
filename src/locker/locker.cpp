@@ -4,7 +4,7 @@ namespace wa {
     // BlockingLock
     BlockingLock::BlockingLock() {
         if (pthread_mutex_init(&mutex_, nullptr) != 0) {
-            throw ERRNO_EXCEPTION();
+            throw OS_ERRNO_EXCEPTION();
         }
     }
 
@@ -28,7 +28,7 @@ namespace wa {
     // SpinLock
     SpinLock::SpinLock() {
         if (pthread_spin_init(&spinlock_, PTHREAD_PROCESS_PRIVATE) != 0) {
-            throw ERRNO_EXCEPTION();
+            throw OS_ERRNO_EXCEPTION();
         }
     }
 

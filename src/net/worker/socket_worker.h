@@ -1,4 +1,4 @@
-#include "src/buffer.h"
+#include "src/data_structure/buffer.h"
 #include "src/fiber/channel.h"
 #include "src/net/socket.h"
 
@@ -160,7 +160,7 @@ namespace wa{
                 }
             }
             close:
-            throw ERRNO_EXCEPTION();
+            throw OS_ERRNO_EXCEPTION();
             connectionChannel_.close();
         }
     };

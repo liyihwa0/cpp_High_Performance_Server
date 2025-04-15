@@ -4,9 +4,16 @@
 #include "../global_def.h"
 #include "../smart_ptr.h"
 #include "../data_structure/multi_tree.h"
-#include "../helper.h"
-#include "./cast.h"
+#include "../util/helper.h"
+#include "../util/caster.h"
 namespace wa{
+
+    enum ConfigFileType{
+        AUTO,
+        INI,
+        JSON
+    };
+
     // ConfigVar定义了配置文件的变量规范
     // DefinitionItem:
     // String defaultValue;
@@ -101,8 +108,11 @@ namespace wa{
             parsedValues_.reset();
 
         }
-        void parseFile(){
+
+        // 实现ini读取
+        void parseFile(String filename,ConfigFileType fileType){
             parsedValues_.reset();
+
 
         }
 
@@ -120,7 +130,7 @@ namespace wa{
 
                 if (!values_.hasValue(path)){
                     if (!item->couldEmpty_){
-                        throw CODE_LOCATION_EXCEPTION(Helper::Join(path,".")+" can not be null");
+                        throw INVALID_ARGUMENT_EXCEPTION(Helper::Join(path,".")+" can not be null");
                     }
                     values_.setValue(path,item->defaultValue_);
                 }

@@ -182,7 +182,7 @@ namespace wa {
     FileLogAppender::FileLogAppender(const std::string& filename) : filename_(filename) {
         fileStream_.open(filename_, std::ios::out | std::ios::app);
         if (!fileStream_.is_open()) {
-            throw ERRNO_EXCEPTION(errno,"open failed ",filename);
+            throw OS_ERRNO_EXCEPTION(errno, "open failed ", filename);
         }
     }
 

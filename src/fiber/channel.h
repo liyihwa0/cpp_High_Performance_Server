@@ -4,7 +4,7 @@
 #include "../data_structure/queue.h"
 #include "../locker/locker.h"
 #include "../logger/logger.h"
-#include "../buffer.h"
+#include "src/data_structure/buffer.h"
 // Channel类的用法同go
 
 /*

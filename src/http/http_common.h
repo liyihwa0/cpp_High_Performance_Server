@@ -6,7 +6,7 @@
 #include "map"
 #include "../smart_ptr.h"
 #include "../fiber/channel.h"
-#include "../buffer.h"
+#include "src/data_structure/buffer.h"
 
 namespace wa {
     namespace http {

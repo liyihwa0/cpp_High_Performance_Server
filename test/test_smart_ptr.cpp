@@ -15,7 +15,7 @@ public:
     ~TestClass(){
         std::cout << "TestClass: x = " << x_ << "destroy" <<std::endl;
     }
-private:
+
     int x_;
     std::string str_;
 };
@@ -81,6 +81,11 @@ int main() {
 
     auto up=UP<TestClass>(new TestClass(1,"up"));
     processUP(std::move(up));
+
+    SP<TestClass> sp1=sp.clone();
+    sp1->x_=-1;
+    sp->print();
+    sp1->print();
     return 0;
 }
 

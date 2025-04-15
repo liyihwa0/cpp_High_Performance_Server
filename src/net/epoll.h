@@ -3,7 +3,7 @@
 #include "../global_def.h"
 #include <vector>
 #include "../locker/locker.h"
-#include "src/timer.h"
+#include "src/util/timer.h"
 
 inline Int max(Int a, Int b) {
     return a > b ? a : b;

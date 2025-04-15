@@ -8,7 +8,7 @@
 #include "../locker/locker.h"
 #include "../smart_ptr.h"
 #include "../exception/exception.h"
-#include "../helper.h"
+#include "../util/helper.h"
 
 
 namespace wa {

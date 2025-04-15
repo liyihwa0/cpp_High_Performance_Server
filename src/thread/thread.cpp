@@ -7,7 +7,7 @@ namespace wa {
             task_(std::move(task)), name_(std::move(name)), isRunning_(FALSE), id_(0), sem_(0) {
         Int rt = pthread_create(&thread_, nullptr, &Thread::run, this);
         if (rt) {
-            throw ERRNO_EXCEPTION(rt);
+            throw OS_ERRNO_EXCEPTION(rt);
         }
         // 等待 run 中设置好 thisThread 的信息
         sem_.wait();

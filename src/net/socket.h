@@ -47,7 +47,7 @@ namespace wa {
 
             connectionFd_ = socket(AF_INET, SOCK_STREAM, 0);
             if (connectionFd_ == -1) {
-                throw ERRNO_EXCEPTION(); // 创建套接字失败
+                throw OS_ERRNO_EXCEPTION(); // 创建套接字失败
             }
 
             addr_ = addr;
@@ -62,7 +62,7 @@ namespace wa {
                     // 连接失败
                     ::close(connectionFd_);
                     connectionFd_ = -1;
-                    throw ERRNO_EXCEPTION();
+                    throw OS_ERRNO_EXCEPTION();
                 }
             }
 
@@ -112,7 +112,7 @@ namespace wa {
                     }else if(errno==EPIPE){ //fd已关闭
                         goto writeClose;
                     }else{
-                        throw ERRNO_EXCEPTION(); //其他错误情况
+                        throw OS_ERRNO_EXCEPTION(); //其他错误情况
                     }
                 }
             }
@@ -141,7 +141,7 @@ namespace wa {
                     }else if(errno==EPIPE || errno==ECONNRESET){ //fd已关闭
                         goto closeRead;
                     }else{
-                        throw ERRNO_EXCEPTION(); //其他错误情况
+                        throw OS_ERRNO_EXCEPTION(); //其他错误情况
                     }
                 }
             }
@@ -379,7 +379,7 @@ namespace wa {
             serverFd_ = socket(AF_INET, SOCK_STREAM, 0); // 创建 TCP 套接字
             if (serverFd_ < 0) {
                 LOG_ERROR(gl)<<"TcpServer create error with errno"<<errno;
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
         }
 
@@ -406,7 +406,7 @@ namespace wa {
             int opt = 1;
             if (setsockopt(serverFd_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
                 LOG_ERROR(gl)<<"TcpServer setReuseAddr error with errno"<<errno;
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
         }
 
@@ -420,11 +420,11 @@ namespace wa {
         void setNonblocking() const {
             int flags = fcntl(serverFd_, F_GETFL, 0);
             if (flags == -1) {
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
 
             if (fcntl(serverFd_, F_SETFL, flags | O_NONBLOCK) == -1) {
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
         }
 
@@ -436,21 +436,21 @@ namespace wa {
 
             // 将字符串 IP 地址转换为网络字节序的二进制形式
             if (inet_pton(AF_INET, ip.c_str(), &serveraddr.sin_addr) <= 0) {
-                throw ERRNO_EXCEPTION(errno,String("Invalid IP:")+ip);
+                throw OS_ERRNO_EXCEPTION(errno, String("Invalid IP:") + ip);
             }
 
             serveraddr.sin_port = htons(port); // 绑定端口号
 
             // 绑定地址和端口
             if (::bind(serverFd_, (struct sockaddr*)&serveraddr, sizeof(serveraddr)) < 0) {
-                throw ERRNO_EXCEPTION(errno,"Failed to bind address and port");
+                throw OS_ERRNO_EXCEPTION(errno, "Failed to bind address and port");
             }
         }
 
         virtual // 开始监听
         void listen() const {
             if (::listen(serverFd_, SOMAXCONN) < 0) {
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
         }
 
@@ -458,7 +458,7 @@ namespace wa {
         void close() {
             Fiber::DeleteEvent(serverFd_,EPOLLIN);
             if (::close(serverFd_) < 0) {
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
             serverFd_ = -1;
         }

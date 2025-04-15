@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "global_def.h"
+#include "./global_def.h"
 #include "atomic"
 
 namespace wa{
@@ -88,7 +88,12 @@ namespace wa{
     class UP:public UPBase<T,Deleter >{
     friend SP<T,PointerDeleter<T>>;
     public:
-        explicit UP(T* ptr= nullptr) : UPBase<T, PointerDeleter<T>>(ptr){}
+        UP(T* ptr= nullptr) : UPBase<T, PointerDeleter<T>>(ptr){}
+
+        // 克隆方法
+        UP clone() const {
+            return UP(this->ptr_ ? new T(*this->ptr_) : nullptr); // 深拷贝
+        }
 
         // 解引用运算符
         T& operator*() const {
@@ -212,6 +217,15 @@ namespace wa{
             up.ptr_= nullptr;
         }
 
+        // 克隆方法
+        SP clone() const {
+            if (this->node_) {
+                T* newResource = new T(*this->node_->resource_);
+                return SP(newResource); // 返回新的 SP
+            }
+            return SP(); // 返回一个空的 SP
+        }
+
         T& operator*() const {
             return *(this->get());
         }
@@ -228,7 +242,6 @@ namespace wa{
     public:
         explicit SP(T* ptr = nullptr)
                 : SPBase<T, ArrayDeleter<T>>(ptr) {}
-
         explicit SP(UP<T[]> up) noexcept {
             this->node_ = up.ptr_ ? new typename SPBase<T, ArrayDeleter<T>>::SPNode{up.ptr_, 1} : nullptr;
             up.ptr_ = nullptr;  // 释放 UP 中的指针资源

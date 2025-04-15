@@ -1,7 +1,7 @@
 #pragma once
-#include"./global_def.h"
-#include "./exception/exception.h"
-#include "./smart_ptr.h"
+#include"src/global_def.h"
+#include "src/exception/exception.h"
+#include "src/smart_ptr.h"
 #include<iostream>
 
 namespace wa{

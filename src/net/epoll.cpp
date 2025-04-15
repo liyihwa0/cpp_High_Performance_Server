@@ -9,7 +9,7 @@ namespace wa {
     OneEventEpoll::OneEventEpoll() : rwLock_(), contains_(), epollFd_(-1), watchingCount_(0) {
         epollFd_ = epoll_create(1);  // 创建 epoll_ 实例
         if (epollFd_ == -1) {
-            throw ERRNO_EXCEPTION(errno, "Failed to create epoll_ instance");
+            throw OS_ERRNO_EXCEPTION(errno, "Failed to create epoll_ instance");
         }
     }
 
@@ -42,7 +42,7 @@ namespace wa {
         Int op = node->contain_ ? EPOLL_CTL_MOD : EPOLL_CTL_ADD;
         Int ret = epoll_ctl(epollFd_, op, fd, &event);
         if (ret == -1) {
-            throw ERRNO_EXCEPTION(op == EPOLL_CTL_MOD ? "mod" : "add", (event.events & EPOLLIN) ? "in" : "out");
+            throw OS_ERRNO_EXCEPTION(op == EPOLL_CTL_MOD ? "mod" : "add", (event.events & EPOLLIN) ? "in" : "out");
         }
         node->contain_ = TRUE;
         watchingCount_+= op==EPOLL_CTL_ADD;
@@ -64,7 +64,7 @@ namespace wa {
         if (node->contain_) {
             Int ret = epoll_ctl(epollFd_, EPOLL_CTL_DEL, fd, nullptr);
             if (ret == -1) {
-                throw ERRNO_EXCEPTION(errno);
+                throw OS_ERRNO_EXCEPTION(errno);
             }
             node->contain_ = FALSE;
             watchingCount_--;
@@ -75,7 +75,7 @@ namespace wa {
         Int ret = epoll_wait(epollFd_, events.data(), events.size(), timeout.getMS());
         if (ret == -1) {
             if(errno==EINTR) return 0;
-            throw ERRNO_EXCEPTION(errno, "epoll_wait failed");
+            throw OS_ERRNO_EXCEPTION(errno, "epoll_wait failed");
         }
         return ret;
     }
