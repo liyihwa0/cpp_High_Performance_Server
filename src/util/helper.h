@@ -42,6 +42,26 @@ namespace wa{
 
             return tokens;
         }
+
+        static String Trim(const String& string) {
+            // 获取字符串的长度
+            Size length = string.length(); // 假设 String 类有 length() 方法
+
+            // 找到第一个非空白字符的索引
+            Size start = 0;
+            while (start < length && (string.at(start) == ' ' || string.at(start) == '\t')) {
+                start++;
+            }
+
+            // 找到最后一个非空白字符的索引
+            Size end = length;
+            while (end > start && (string.at(end - 1) == ' ' || string.at(end - 1) == '\t')) {
+                end--;
+            }
+
+            // 截取字符串并返回
+            return string.substr(start, end - start); // 假设 String 类有 substr 方法
+        }
         
         static ID GetThreadId() {
             return syscall(SYS_gettid);

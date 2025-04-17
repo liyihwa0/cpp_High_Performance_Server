@@ -6,29 +6,35 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
 #include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
+// This is a temporary google only hack
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+#include "third_party/protobuf/version.h"
+#endif
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
 namespace wa {
 namespace rpc {
 class FrameworkRequestHeaderDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<FrameworkRequestHeader> _instance;
+  ::google::protobuf::internal::ExplicitlyConstructed<FrameworkRequestHeader>
+      _instance;
 } _FrameworkRequestHeader_default_instance_;
 class FrameworkResponseHeaderDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<FrameworkResponseHeader> _instance;
+  ::google::protobuf::internal::ExplicitlyConstructed<FrameworkResponseHeader>
+      _instance;
 } _FrameworkResponseHeader_default_instance_;
 }  // namespace rpc
 }  // namespace wa
-static void InitDefaultsFrameworkRequestHeader_rpc_5fframework_2eproto() {
+namespace protobuf_rpc_5fframework_2eproto {
+static void InitDefaultsFrameworkRequestHeader() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
@@ -39,10 +45,10 @@ static void InitDefaultsFrameworkRequestHeader_rpc_5fframework_2eproto() {
   ::wa::rpc::FrameworkRequestHeader::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_FrameworkRequestHeader_rpc_5fframework_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFrameworkRequestHeader_rpc_5fframework_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_FrameworkRequestHeader =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFrameworkRequestHeader}, {}};
 
-static void InitDefaultsFrameworkResponseHeader_rpc_5fframework_2eproto() {
+static void InitDefaultsFrameworkResponseHeader() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
@@ -53,36 +59,34 @@ static void InitDefaultsFrameworkResponseHeader_rpc_5fframework_2eproto() {
   ::wa::rpc::FrameworkResponseHeader::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_FrameworkResponseHeader_rpc_5fframework_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFrameworkResponseHeader_rpc_5fframework_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_FrameworkResponseHeader =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFrameworkResponseHeader}, {}};
 
-void InitDefaults_rpc_5fframework_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_FrameworkRequestHeader_rpc_5fframework_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_FrameworkResponseHeader_rpc_5fframework_2eproto.base);
+void InitDefaults() {
+  ::google::protobuf::internal::InitSCC(&scc_info_FrameworkRequestHeader.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_FrameworkResponseHeader.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_rpc_5fframework_2eproto[2];
-constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_rpc_5fframework_2eproto = nullptr;
-constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_rpc_5fframework_2eproto = nullptr;
+::google::protobuf::Metadata file_level_metadata[2];
 
-const ::google::protobuf::uint32 TableStruct_rpc_5fframework_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, servicename_),
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, methodname_),
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, argssize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, servicename_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, methodname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkRequestHeader, argssize_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, code_),
-  PROTOBUF_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, responsesize_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, code_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::wa::rpc::FrameworkResponseHeader, responsesize_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::wa::rpc::FrameworkRequestHeader)},
   { 8, -1, sizeof(::wa::rpc::FrameworkResponseHeader)},
 };
@@ -92,34 +96,50 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::wa::rpc::_FrameworkResponseHeader_default_instance_),
 };
 
-::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_rpc_5fframework_2eproto = {
-  {}, AddDescriptors_rpc_5fframework_2eproto, "rpc_framework.proto", schemas,
-  file_default_instances, TableStruct_rpc_5fframework_2eproto::offsets,
-  file_level_metadata_rpc_5fframework_2eproto, 2, file_level_enum_descriptors_rpc_5fframework_2eproto, file_level_service_descriptors_rpc_5fframework_2eproto,
-};
-
-const char descriptor_table_protodef_rpc_5fframework_2eproto[] =
-  "\n\023rpc_framework.proto\022\006wa.rpc\"S\n\026Framewo"
-  "rkRequestHeader\022\023\n\013serviceName\030\001 \001(\014\022\022\n\n"
-  "methodName\030\002 \001(\014\022\020\n\010argsSize\030\003 \001(\r\"=\n\027Fr"
-  "ameworkResponseHeader\022\014\n\004code\030\001 \001(\r\022\024\n\014r"
-  "esponseSize\030\002 \001(\rb\006proto3"
-  ;
-::google::protobuf::internal::DescriptorTable descriptor_table_rpc_5fframework_2eproto = {
-  false, InitDefaults_rpc_5fframework_2eproto, 
-  descriptor_table_protodef_rpc_5fframework_2eproto,
-  "rpc_framework.proto", &assign_descriptors_table_rpc_5fframework_2eproto, 185,
-};
-
-void AddDescriptors_rpc_5fframework_2eproto() {
-  static constexpr ::google::protobuf::internal::InitFunc deps[1] =
-  {
-  };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_rpc_5fframework_2eproto, deps, 0);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  AssignDescriptors(
+      "rpc_framework.proto", schemas, file_default_instances, TableStruct::offsets,
+      file_level_metadata, NULL, NULL);
 }
 
-// Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_rpc_5fframework_2eproto = []() { AddDescriptors_rpc_5fframework_2eproto(); return true; }();
+void protobuf_AssignDescriptorsOnce() {
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
+}
+
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+      "\n\023rpc_framework.proto\022\006wa.rpc\"S\n\026Framewo"
+      "rkRequestHeader\022\023\n\013serviceName\030\001 \001(\014\022\022\n\n"
+      "methodName\030\002 \001(\014\022\020\n\010argsSize\030\003 \001(\r\"=\n\027Fr"
+      "ameworkResponseHeader\022\014\n\004code\030\001 \001(\r\022\024\n\014r"
+      "esponseSize\030\002 \001(\rb\006proto3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 185);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "rpc_framework.proto", &protobuf_RegisterTypes);
+}
+
+void AddDescriptors() {
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
+}
+// Force AddDescriptors() to be called at dynamic initialization time.
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
+  }
+} static_descriptor_initializer;
+}  // namespace protobuf_rpc_5fframework_2eproto
 namespace wa {
 namespace rpc {
 
@@ -127,10 +147,6 @@ namespace rpc {
 
 void FrameworkRequestHeader::InitAsDefaultInstance() {
 }
-class FrameworkRequestHeader::HasBitSetters {
- public:
-};
-
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FrameworkRequestHeader::kServiceNameFieldNumber;
 const int FrameworkRequestHeader::kMethodNameFieldNumber;
@@ -138,13 +154,15 @@ const int FrameworkRequestHeader::kArgsSizeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FrameworkRequestHeader::FrameworkRequestHeader()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_rpc_5fframework_2eproto::scc_info_FrameworkRequestHeader.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:wa.rpc.FrameworkRequestHeader)
 }
 FrameworkRequestHeader::FrameworkRequestHeader(const FrameworkRequestHeader& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   servicename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.servicename().size() > 0) {
@@ -159,8 +177,6 @@ FrameworkRequestHeader::FrameworkRequestHeader(const FrameworkRequestHeader& fro
 }
 
 void FrameworkRequestHeader::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_FrameworkRequestHeader_rpc_5fframework_2eproto.base);
   servicename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   methodname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   argssize_ = 0u;
@@ -179,8 +195,13 @@ void FrameworkRequestHeader::SharedDtor() {
 void FrameworkRequestHeader::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* FrameworkRequestHeader::descriptor() {
+  ::protobuf_rpc_5fframework_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_rpc_5fframework_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
 const FrameworkRequestHeader& FrameworkRequestHeader::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_FrameworkRequestHeader_rpc_5fframework_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&protobuf_rpc_5fframework_2eproto::scc_info_FrameworkRequestHeader.base);
   return *internal_default_instance();
 }
 
@@ -197,83 +218,9 @@ void FrameworkRequestHeader::Clear() {
   _internal_metadata_.Clear();
 }
 
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* FrameworkRequestHeader::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<FrameworkRequestHeader*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // bytes serviceName = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        object = msg->mutable_servicename();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // bytes methodName = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        object = msg->mutable_methodname();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // uint32 argsSize = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
-        msg->set_argssize(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool FrameworkRequestHeader::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:wa.rpc.FrameworkRequestHeader)
   for (;;) {
@@ -283,7 +230,8 @@ bool FrameworkRequestHeader::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // bytes serviceName = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_servicename()));
         } else {
@@ -294,7 +242,8 @@ bool FrameworkRequestHeader::MergePartialFromCodedStream(
 
       // bytes methodName = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_methodname()));
         } else {
@@ -305,7 +254,8 @@ bool FrameworkRequestHeader::MergePartialFromCodedStream(
 
       // uint32 argsSize = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -335,7 +285,6 @@ failure:
   return false;
 #undef DO_
 }
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void FrameworkRequestHeader::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
@@ -360,15 +309,16 @@ void FrameworkRequestHeader::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->argssize(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
   // @@protoc_insertion_point(serialize_end:wa.rpc.FrameworkRequestHeader)
 }
 
 ::google::protobuf::uint8* FrameworkRequestHeader::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:wa.rpc.FrameworkRequestHeader)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -392,9 +342,9 @@ void FrameworkRequestHeader::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->argssize(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:wa.rpc.FrameworkRequestHeader)
   return target;
@@ -404,15 +354,11 @@ size_t FrameworkRequestHeader::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:wa.rpc.FrameworkRequestHeader)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
   // bytes serviceName = 1;
   if (this->servicename().size() > 0) {
     total_size += 1 +
@@ -443,9 +389,9 @@ void FrameworkRequestHeader::MergeFrom(const ::google::protobuf::Message& from) 
 // @@protoc_insertion_point(generalized_merge_from_start:wa.rpc.FrameworkRequestHeader)
   GOOGLE_DCHECK_NE(&from, this);
   const FrameworkRequestHeader* source =
-      ::google::protobuf::DynamicCastToGenerated<FrameworkRequestHeader>(
+      ::google::protobuf::internal::DynamicCastToGenerated<const FrameworkRequestHeader>(
           &from);
-  if (source == nullptr) {
+  if (source == NULL) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:wa.rpc.FrameworkRequestHeader)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
@@ -498,17 +444,17 @@ void FrameworkRequestHeader::Swap(FrameworkRequestHeader* other) {
 }
 void FrameworkRequestHeader::InternalSwap(FrameworkRequestHeader* other) {
   using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   servicename_.Swap(&other->servicename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   methodname_.Swap(&other->methodname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(argssize_, other->argssize_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
 ::google::protobuf::Metadata FrameworkRequestHeader::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_rpc_5fframework_2eproto);
-  return ::file_level_metadata_rpc_5fframework_2eproto[kIndexInFileMessages];
+  protobuf_rpc_5fframework_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_rpc_5fframework_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 
@@ -516,23 +462,21 @@ void FrameworkRequestHeader::InternalSwap(FrameworkRequestHeader* other) {
 
 void FrameworkResponseHeader::InitAsDefaultInstance() {
 }
-class FrameworkResponseHeader::HasBitSetters {
- public:
-};
-
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FrameworkResponseHeader::kCodeFieldNumber;
 const int FrameworkResponseHeader::kResponseSizeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FrameworkResponseHeader::FrameworkResponseHeader()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_rpc_5fframework_2eproto::scc_info_FrameworkResponseHeader.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:wa.rpc.FrameworkResponseHeader)
 }
 FrameworkResponseHeader::FrameworkResponseHeader(const FrameworkResponseHeader& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&code_, &from.code_,
     static_cast<size_t>(reinterpret_cast<char*>(&responsesize_) -
@@ -557,8 +501,13 @@ void FrameworkResponseHeader::SharedDtor() {
 void FrameworkResponseHeader::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* FrameworkResponseHeader::descriptor() {
+  ::protobuf_rpc_5fframework_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_rpc_5fframework_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
 const FrameworkResponseHeader& FrameworkResponseHeader::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_FrameworkResponseHeader_rpc_5fframework_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&protobuf_rpc_5fframework_2eproto::scc_info_FrameworkResponseHeader.base);
   return *internal_default_instance();
 }
 
@@ -575,53 +524,9 @@ void FrameworkResponseHeader::Clear() {
   _internal_metadata_.Clear();
 }
 
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* FrameworkResponseHeader::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<FrameworkResponseHeader*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // uint32 code = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
-        msg->set_code(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      // uint32 responseSize = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
-        msg->set_responsesize(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool FrameworkResponseHeader::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:wa.rpc.FrameworkResponseHeader)
   for (;;) {
@@ -631,7 +536,8 @@ bool FrameworkResponseHeader::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // uint32 code = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -644,7 +550,8 @@ bool FrameworkResponseHeader::MergePartialFromCodedStream(
 
       // uint32 responseSize = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -674,7 +581,6 @@ failure:
   return false;
 #undef DO_
 }
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void FrameworkResponseHeader::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
@@ -692,15 +598,16 @@ void FrameworkResponseHeader::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->responsesize(), output);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
   // @@protoc_insertion_point(serialize_end:wa.rpc.FrameworkResponseHeader)
 }
 
 ::google::protobuf::uint8* FrameworkResponseHeader::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:wa.rpc.FrameworkResponseHeader)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -715,9 +622,9 @@ void FrameworkResponseHeader::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->responsesize(), target);
   }
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:wa.rpc.FrameworkResponseHeader)
   return target;
@@ -727,15 +634,11 @@ size_t FrameworkResponseHeader::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:wa.rpc.FrameworkResponseHeader)
   size_t total_size = 0;
 
-  if (_internal_metadata_.have_unknown_fields()) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
   // uint32 code = 1;
   if (this->code() != 0) {
     total_size += 1 +
@@ -759,9 +662,9 @@ void FrameworkResponseHeader::MergeFrom(const ::google::protobuf::Message& from)
 // @@protoc_insertion_point(generalized_merge_from_start:wa.rpc.FrameworkResponseHeader)
   GOOGLE_DCHECK_NE(&from, this);
   const FrameworkResponseHeader* source =
-      ::google::protobuf::DynamicCastToGenerated<FrameworkResponseHeader>(
+      ::google::protobuf::internal::DynamicCastToGenerated<const FrameworkResponseHeader>(
           &from);
-  if (source == nullptr) {
+  if (source == NULL) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:wa.rpc.FrameworkResponseHeader)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
@@ -809,14 +712,14 @@ void FrameworkResponseHeader::Swap(FrameworkResponseHeader* other) {
 }
 void FrameworkResponseHeader::InternalSwap(FrameworkResponseHeader* other) {
   using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(code_, other->code_);
   swap(responsesize_, other->responsesize_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
 ::google::protobuf::Metadata FrameworkResponseHeader::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_rpc_5fframework_2eproto);
-  return ::file_level_metadata_rpc_5fframework_2eproto[kIndexInFileMessages];
+  protobuf_rpc_5fframework_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_rpc_5fframework_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 
@@ -825,14 +728,13 @@ void FrameworkResponseHeader::InternalSwap(FrameworkResponseHeader* other) {
 }  // namespace wa
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::wa::rpc::FrameworkRequestHeader* Arena::CreateMaybeMessage< ::wa::rpc::FrameworkRequestHeader >(Arena* arena) {
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::wa::rpc::FrameworkRequestHeader* Arena::CreateMaybeMessage< ::wa::rpc::FrameworkRequestHeader >(Arena* arena) {
   return Arena::CreateInternal< ::wa::rpc::FrameworkRequestHeader >(arena);
 }
-template<> PROTOBUF_NOINLINE ::wa::rpc::FrameworkResponseHeader* Arena::CreateMaybeMessage< ::wa::rpc::FrameworkResponseHeader >(Arena* arena) {
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::wa::rpc::FrameworkResponseHeader* Arena::CreateMaybeMessage< ::wa::rpc::FrameworkResponseHeader >(Arena* arena) {
   return Arena::CreateInternal< ::wa::rpc::FrameworkResponseHeader >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
 
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>

@@ -67,14 +67,15 @@ namespace wa{
     class ConfigValues{
         friend Config;
         MultiTree<String,String> values_;
-        void setValue(const Vector<String>& path,const String& value){
-            values_.setValue(path, value);
-        }
+       
         void merge(const Vector<String>& path,ConfigValues& value){
             values_.merge(path,value.values_);
         }
     public:
-        ConfigValues(): values_(){}
+        ConfigValues(): values_(){} 
+        void setValue(const Vector<String>& path,const String& value){
+             values_.setValue(path, value);
+        }
         String getString(const Vector<String>& path,const String& defaultValue)const{
             return values_.getValue(path,defaultValue);
         }

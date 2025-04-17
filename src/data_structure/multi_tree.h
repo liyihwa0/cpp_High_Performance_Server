@@ -14,7 +14,6 @@ namespace wa {
      * 4. 叶子节点只存放数据
      * 5. 非叶子节点只存放其他节点的索引
      */
-
     template<typename K, typename V>
     class MultiTree {
         typedef std::function<void(const Vector<K>&, const MultiTree&)> ForEachFunc;
@@ -70,7 +69,7 @@ namespace wa {
                     }
                 }
             } else {
-                throw CODE_LOCATION_EXCEPTION("node type mismatch");
+                throw INVALID_ARGUMENT_EXCEPTION("node type mismatch");
             }
         }
 
@@ -110,7 +109,7 @@ namespace wa {
         // 返回第depth层的结果
         MultiTree searchPath(const Vector<K> &path, Int depth) const {
             if (depth > path.size()) {
-                throw CODE_LOCATION_EXCEPTION(
+                throw INVALID_ARGUMENT_EXCEPTION(
                         "depth > path.size()" + std::to_string(depth) + " > " + std::to_string(path.size()));
             }
             if (depth == 0) {
@@ -122,7 +121,7 @@ namespace wa {
             Int currentDepth = 0;
             while (currentDepth < depth) {
                 if (currentNode->isLeaf_) {
-                    throw CODE_LOCATION_EXCEPTION("leaf node can not search");
+                    throw INVALID_ARGUMENT_EXCEPTION("leaf node can not search");
                 }
                 SP<NonLeafNode> nonLeafNode = currentNode->nonLeaf_;
                 auto it = nonLeafNode->children_.find(path[currentDepth]);
@@ -132,7 +131,7 @@ namespace wa {
                     currentDepth++;                             // 增加当前深度
                 } else {
                     //抛出异常
-                    throw CODE_LOCATION_EXCEPTION("path not found");
+                    throw INVALID_ARGUMENT_EXCEPTION("path not found");
                 }
             }
 
@@ -141,7 +140,7 @@ namespace wa {
 
         MultiTree searchPathCreate(const Vector<K> &path, Int depth) {
             if (depth > path.size()) {
-                throw CODE_LOCATION_EXCEPTION(
+                throw INVALID_ARGUMENT_EXCEPTION(
                         "depth > path.size()" + std::to_string(depth) + " > " + std::to_string(path.size()));
             }
 
@@ -153,7 +152,7 @@ namespace wa {
             Int currentDepth = 0;
             while (currentDepth < depth) {
                 if (currentNode->isLeaf_) {
-                    throw CODE_LOCATION_EXCEPTION("leaf node can not search");
+                    throw INVALID_ARGUMENT_EXCEPTION("leaf node can not search");
                 }
                 SP<NonLeafNode> nonLeafNode = currentNode->nonLeaf_;
                 auto it = nonLeafNode->children_.find(path[currentDepth]);
@@ -174,7 +173,7 @@ namespace wa {
         void merge(const Vector<K> &path, MultiTree &other) {
             MultiTree parent = searchPathCreate(path, path.size() - 1);
             if(parent.isLeaf()){
-                throw CODE_LOCATION_EXCEPTION("leaf node can not merge");
+                throw INVALID_ARGUMENT_EXCEPTION("leaf node can not merge");
             }
             SP<NonLeafNode> parentNonLeafNode = parent.root_->nonLeaf_;
             K lastKey = path.back();
@@ -190,7 +189,7 @@ namespace wa {
         void setValue(const Vector<K> &path, V value) {
             MultiTree parent = searchPathCreate(path, path.size() - 1);
             if (parent.isLeaf()) {
-                throw CODE_LOCATION_EXCEPTION("Cannot add value to a leaf node");
+                throw INVALID_ARGUMENT_EXCEPTION("Cannot add value to a leaf node");
             }
 
             SP<NonLeafNode> nonLeafNode = parent.root_->nonLeaf_;
@@ -202,7 +201,7 @@ namespace wa {
                 if (it->second->isLeaf_) {
                     it->second->leaf_->value_ = std::move(value); // 更新值
                 } else {
-                    throw CODE_LOCATION_EXCEPTION("Cannot set value to a non-leaf node");
+                    throw INVALID_ARGUMENT_EXCEPTION("Cannot set value to a non-leaf node");
                 }
             } else {
                 // 如果不存在，创建新的叶子节点并添加
@@ -214,7 +213,7 @@ namespace wa {
             try {
                 MultiTree childTree = searchPath(path, path.size());
                 return !childTree.isLeaf(); // 如果不是叶子节点，则是非叶子节点
-            } catch (const CodeLocationException&) {
+            } catch (const expcetion::InvalidArgumentException&) {
                 return FALSE; // 路径不存在
             }
         }
@@ -223,7 +222,7 @@ namespace wa {
             try {
                 MultiTree childTree = searchPath(path, path.size());
                 return childTree.isLeaf();
-            } catch (const CodeLocationException&) {
+            } catch (const expcetion::InvalidArgumentException&) {
                 return FALSE; // 路径不存在
             }
         }
@@ -232,13 +231,13 @@ namespace wa {
             try {
                 MultiTree childTree = searchPath(path, path.size());
                 return TRUE; // 如果能找到路径，说明存在节点
-            } catch (const CodeLocationException&) {
+            } catch (const expcetion::CodeLocationException&) {
                 return FALSE; // 路径不存在
             }
         }
         V getValue()const{
             if (!isLeaf()){
-                    throw CODE_LOCATION_EXCEPTION("Cannot get value to a non-leaf node");
+                    throw INVALID_ARGUMENT_EXCEPTION("Cannot get value to a non-leaf node");
             }
             return root_->leaf_->value_;
         }
@@ -251,7 +250,7 @@ namespace wa {
                 } else {
                     return defaultValue; // 不是叶子节点
                 }
-            } catch (const CodeLocationException&) {
+            } catch (const expcetion::InvalidArgumentException&) {
                 return defaultValue; // 路径不存在
             }
         }

@@ -25,8 +25,11 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -g")
 endif()
 
-set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/build-${CMAKE_BUILD_TYPE}")
+# ------------------------------------ 设置头文件根目录
 include_directories(${CMAKE_SOURCE_DIR})
+# ------------------------------------ 设置二进制文件目录
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 
 # --------------------------------------- 查找 Protobuf 库
 find_package(Protobuf REQUIRED)
@@ -163,3 +166,8 @@ foreach(target IN LISTS TEST_TARGET_FILES MAIN_TARGET_FILES EXAMPLE_TARGET_FILES
     target_link_libraries(${target_name} ${Protobuf_LIBRARIES}  OpenSSL::SSL OpenSSL::Crypto pthread)
     message(STATUS "Linked Protobuf to target: ${target_name}")
 endforeach()
+
+
+# 拷贝静态目录到build目录下 --------------------------------------------------------------------------------------------------
+file(COPY ${CMAKE_SOURCE_DIR}/static DESTINATION ${CMAKE_BINARY_DIR})
+message(STATUS "Copied static directory to ${CMAKE_BINARY_DIR}")

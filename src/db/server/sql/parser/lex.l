@@ -63,7 +63,6 @@ ID               [A-Za-z_]+[A-Za-z0-9_]*
 DOT              \.
 STRING           \"([^"\\]*(\\.[^"\\]*)*)\" | '\''([^'\\]*(\\.[^'\\]*)*)'\''
 
-START_TRANSACTION  START{WHITE_SPACE}+TRANSACTION
 %x STR
 
 %%
@@ -114,10 +113,11 @@ VALUES                                  RETURN_TOKEN(VALUES);
 DELETE                                  RETURN_TOKEN(DELETE);
 UPDATE                                  RETURN_TOKEN(UPDATE);
 SET                                     RETURN_TOKEN(SET);
-BEGIN                                   RETURN_TOKEN(TRX_BEGIN);
-{START_TRANSACTION}                     RETURN_TOKEN(TRX_BEGIN);
-COMMIT                                  RETURN_TOKEN(TRX_COMMIT);
-ROLLBACK                                RETURN_TOKEN(TRX_ROLLBACK);
+BEGIN                                   RETURN_TOKEN(BEGIN);
+START                                   RETURN_TOKEN(START);
+TRANSACTION                             RETURN_TOKEN(TRANSACTION);
+COMMIT                                  RETURN_TOKEN(COMMIT);
+ROLLBACK                                RETURN_TOKEN(ROLLBACK);
 INT                                     RETURN_TOKEN(TYPE_INT);
 CHAR                                    RETURN_TOKEN(TYPE_STRING);
 FLOAT                                   RETURN_TOKEN(TYPE_FLOAT);

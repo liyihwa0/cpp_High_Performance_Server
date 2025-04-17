@@ -99,7 +99,7 @@ namespace wa{
          */
         struct CreateTableSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<FieldInfoNode>>               fieldInfos_;
+            Vector<UP<FieldDefNode>>                fieldInfos_;
             UP<String>                              storageFormat_;
         };
 
@@ -191,7 +191,7 @@ namespace wa{
          */
         class ParsedSqlNode{
         public:
-            SqlCommandType                          flag;
+            SqlCommandType                          sqlCommandType_;
             ErrorSqlNode                            error;
             SelectSqlNode                           selection;
             InsertSqlNode                           insertion;

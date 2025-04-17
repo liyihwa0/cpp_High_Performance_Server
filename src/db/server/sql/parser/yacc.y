@@ -82,9 +82,11 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         LBRACE
         RBRACE
         COMMA
-        TRX_BEGIN
-        TRX_COMMIT
-        TRX_ROLLBACK
+        BEGIN
+        START
+        TRANSACTION
+        COMMIT
+        ROLLBACK
         TYPE_INT
         TYPE_STRING
         TYPE_FLOAT
@@ -218,12 +220,12 @@ command_wrapper:
 exit_stmt:
     EXIT {
       (void)yynerrs;  // 这么写为了消除yynerrs未使用的告警。如果你有更好的方法欢迎提PR
-      $$ = new ParsedSqlNode(SCF_EXIT);
+      $$ = new ParsedSqlNode(SqlCommandType::EXIT);
     };
 
 help_stmt:
     HELP {
-      $$ = new ParsedSqlNode(SCF_HELP);
+      $$ = new ParsedSqlNode(SqlCommandType::HELP);
     };
 
 sync_stmt:
@@ -233,38 +235,38 @@ sync_stmt:
     ;
 
 begin_stmt:
-    TRX_BEGIN  {
-      $$ = new ParsedSqlNode(SCF_BEGIN);
+    BEGIN  {
+      $$ = new ParsedSqlNode(SqlCommandType::BEGIN);
     }
     ;
 
 commit_stmt:
-    TRX_COMMIT {
-      $$ = new ParsedSqlNode(SCF_COMMIT);
+    COMMIT {
+      $$ = new ParsedSqlNode(SqlCommandType::COMMIT);
     }
     ;
 
 rollback_stmt:
-    TRX_ROLLBACK  {
-      $$ = new ParsedSqlNode(SCF_ROLLBACK);
+    ROLLBACK  {
+      $$ = new ParsedSqlNode(SqlCommandType::ROLLBACK);
     }
     ;
 
 drop_table_stmt:    /*drop table 语句的语法解析树*/
     DROP TABLE ID {
-      $$ = new ParsedSqlNode(SCF_DROP_TABLE);
+      $$ = new ParsedSqlNode(SqlCommandType::DROP_TABLE);
       $$->drop_table.relation_name = $3;
     };
 
 show_tables_stmt:
     SHOW TABLES {
-      $$ = new ParsedSqlNode(SCF_SHOW_TABLES);
+      $$ = new ParsedSqlNode(SqlCommandType::SHOW_TABLES);
     }
     ;
 
 desc_table_stmt:
     DESC ID  {
-      $$ = new ParsedSqlNode(SCF_DESC_TABLE);
+      $$ = new ParsedSqlNode(SqlCommandType::DESC_TABLE);
       $$->desc_table.relation_name = $2;
     }
     ;
@@ -272,7 +274,7 @@ desc_table_stmt:
 create_index_stmt:    /*create index 语句的语法解析树*/
     CREATE INDEX ID ON ID LBRACE ID RBRACE
     {
-      $$ = new ParsedSqlNode(SCF_CREATE_INDEX);
+      $$ = new ParsedSqlNode(SqlCommandType::CREATE_INDEX);
       CreateIndexSqlNode &create_index = $$->create_index;
       create_index.index_name = $3;
       create_index.relation_name = $5;
@@ -283,7 +285,7 @@ create_index_stmt:    /*create index 语句的语法解析树*/
 drop_index_stmt:      /*drop index 语句的语法解析树*/
     DROP INDEX ID ON ID
     {
-      $$ = new ParsedSqlNode(SCF_DROP_INDEX);
+      $$ = new ParsedSqlNode(SqlCommandType::DROP_INDEX);
       $$->drop_index.index_name = $3;
       $$->drop_index.relation_name = $5;
     }
@@ -291,7 +293,7 @@ drop_index_stmt:      /*drop index 语句的语法解析树*/
 create_table_stmt:    /*create table 语句的语法解析树*/
     CREATE TABLE ID LBRACE attr_def attr_def_list RBRACE storage_format
     {
-      $$ = new ParsedSqlNode(SCF_CREATE_TABLE);
+      $$ = new ParsedSqlNode(SqlCommandType::CREATE_TABLE);
       CreateTableSqlNode &create_table = $$->create_table;
       create_table.relation_name = $3;
       //free($3);
@@ -355,7 +357,7 @@ type:
 insert_stmt:        /*insert   语句的语法解析树*/
     INSERT INTO ID VALUES LBRACE value value_list RBRACE
     {
-      $$ = new ParsedSqlNode(SCF_INSERT);
+      $$ = new ParsedSqlNode(SqlCommandType::INSERT);
       $$->insertion.relation_name = $3;
       if ($7 != nullptr) {
         $$->insertion.values.swap(*$7);
@@ -411,7 +413,7 @@ storage_format:
 delete_stmt:    /*  delete 语句的语法解析树*/
     DELETE FROM ID where
     {
-      $$ = new ParsedSqlNode(SCF_DELETE);
+      $$ = new ParsedSqlNode(SqlCommandType::DELETE);
       $$->deletion.relation_name = $3;
       if ($4 != nullptr) {
         $$->deletion.conditions.swap(*$4);
@@ -422,7 +424,7 @@ delete_stmt:    /*  delete 语句的语法解析树*/
 update_stmt:      /*  update 语句的语法解析树*/
     UPDATE ID SET ID EQ value where
     {
-      $$ = new ParsedSqlNode(SCF_UPDATE);
+      $$ = new ParsedSqlNode(SqlCommandType::UPDATE);
       $$->update.relation_name = $2;
       $$->update.attribute_name = $4;
       $$->update.value = *$6;
@@ -435,7 +437,7 @@ update_stmt:      /*  update 语句的语法解析树*/
 select_stmt:        /*  select 语句的语法解析树*/
     SELECT expression_list FROM rel_list where group_by
     {
-      $$ = new ParsedSqlNode(SCF_SELECT);
+      $$ = new ParsedSqlNode(SqlCommandType::SELECT);
       if ($2 != nullptr) {
         $$->selection.expressions.swap(*$2);
         delete $2;
@@ -460,7 +462,7 @@ select_stmt:        /*  select 语句的语法解析树*/
 calc_stmt:
     CALC expression_list
     {
-      $$ = new ParsedSqlNode(SCF_CALC);
+      $$ = new ParsedSqlNode(SqlCommandType::CALC);
       $$->calc.expressions.swap(*$2);
       delete $2;
     }
@@ -549,7 +551,7 @@ tables:
 set_variable_stmt:
     SET ID EQ value
     {
-      $$ = new ParsedSqlNode(SCF_SET_VARIABLE);
+      $$ = new ParsedSqlNode(SqlCommandType::SET_VARIABLE);
       $$->set_variable.name  = $2;
       $$->set_variable.value = *$4;
       delete $4;
