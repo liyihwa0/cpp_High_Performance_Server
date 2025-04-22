@@ -9,57 +9,101 @@
 #include "./configer.h"
 #include "../util/file_reader.h"
 namespace wa{
-    SP<ConfigValues> ParseIniFile(const String& filename){
-        Vector<String> path;
-        path.push_back("");
-        ConfigValues* values=new ConfigValues();
-        FileReader fileReader(filename);
-
-        while(fileReader.hasMore()){
-            UP<String> line=fileReader.nextLine();
+    namespace config {
+        // 字符串可能是被""包裹的,字符串的前后可能有空格
+        String ParseString(const String& str,Int& start,Int end,Char stopAt) {
+            // 解析字符串,返回解析后的,直到遇到stopAt字符
+            while (start<end&&Helper::IsSpaceChar(str[start])){
+                start++;
+            }
             
-            Int i=0;
-            while(i< line->length()){
-                // 跳过前后的空白
-                Int len= line->length()-1;
-                while(len>=0&&Helper::IsSpaceChar(line->at(len))){
-                    len--;
-                }
-                while(i<len &&Helper::IsSpaceChar(line->at(i))) i++;
-                
-                // 检查是否是节
-                if(i<len && line->at(i)=='['){
-                    path.pop_back();
-                    // 遍历到']'
-                    String currentSection="";
-                    i++;
-                    while(i<len&&line->at(i)!=']'){
-                        currentSection.push_back(line->at(i));
-                        i++;
+            String result;
+            while(start<end){
+                Char currentChar=str[start];
+                if(currentChar=='\\'){ 
+                    if(start+1>=end){
+                        throw INVALID_ARGUMENT_EXCEPTION("Bad string " + str);
                     }
-                    i++;
-                    if(i<len){
-                        throw INVALID_ARGUMENT_EXCEPTION("Unknow char "+ ToString(line->at(i)));
+                    switch (str[start + 1]) {
+                        case '\"':
+                            result += '\"';
+                            start += 2;
+                            continue;
+                        case '\\':
+                            result += '\\';
+                            start += 2;
+                            continue;
+                        case 'n':
+                            result += '\n';
+                            start += 2;
+                            continue;
+                        case 't':
+                            result += '\t';
+                            start += 2;
+                            continue;
+                        default:
+                            throw INVALID_ARGUMENT_EXCEPTION("Invalid escape sequence: \\" + ToString(str[start + 1]));
                     }
-                    path.push_back(currentSection);
-                }else if(i<len&&(line->at(i)=='#'||line->at(i)==';')){
+                }else if(currentChar==stopAt){
+                    start++;
                     break;
                 }else{
-                    // 处理键值对
-                    Int delimiterPos=line->find('=',i);
-                    if (delimiterPos != String::npos) {
-                        String key=line->substr(i,delimiterPos-i);
-                        String value=line->substr(delimiterPos,len-delimiterPos);
-
-                        path.push_back(key);
-                        // 设置值
-                        values->setValue(path, value);
-                        path.pop_back();
-                    }
+                    result += currentChar;
+                    start++;
                 }
             }
+            // 跳过后续空格
+            while (start < end && Helper::IsSpaceChar(str[start])) {
+                start++;
+            }
+            return result;
         }
-        
-        return SP<ConfigValues>(values);
-    }
+
+        SP<ConfigValues> ParseIniFile(const String &filename) {
+            Vector<String> path;
+            path.push_back("");
+            ConfigValues *values = new ConfigValues();
+            FileReader fileReader(filename);
+
+            while (fileReader.hasMore()) {
+                UP<String> line = fileReader.nextLine();
+                
+                Int i = 0;
+                // 跳过前后的空白
+                Int len = line->length();
+                while (len > 0 && Helper::IsSpaceChar(line->at(len-1))) {
+                    len--;
+                }
+                while (i < len && Helper::IsSpaceChar(line->at(i))) i++;
+
+                if (i < len && (line->at(i) == '#' || line->at(i) == ';'))
+                    continue;
+
+                // 检查是否是节
+                if (i < len && line->at(i) == '[') {
+                    path.pop_back();
+                    // 遍历到']'
+                    i++;
+                    Int j = i;
+                    while (j < len && line->at(j) != ']') j++;
+
+                    //j 此时应该正好停留到 ] 字符上
+                    if (j >= len) {
+                        throw INVALID_ARGUMENT_EXCEPTION("No ] found in" + ToString(*line.get()));
+                    }
+
+                    path.push_back(line->substr(i, j - i));
+                } else {
+                    // 处理key
+                    String  key= ParseString(*line,i,len,'=');
+                    String  value= ParseString(*line,i,len,0);
+                    path.push_back(key);
+                    // 设置值
+                    values->setValue(path, value);
+                    path.pop_back();
+                }
+            }
+            return SP<ConfigValues>(values);
+        }
+    };
 };
