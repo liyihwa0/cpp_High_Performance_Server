@@ -19,18 +19,14 @@ Int testFunc(String input1,Int input2){
     return expectRes++;
 }
 int main(){
-    try{
-        while(uni.inputHasMore()){
-            String input1=uni.getNext<String>();
-            Int input2=uni.getNext<Int>();
-            uni.expectValues(testFunc(input1,input2));    // 在不符合时会抛出输出有误的异常
-        }
-    }catch(Exception& e){  // 处理输入格式有误/输入长度有误/输出有误/输出长度有误
-        uni.handleException(e);
+   
+    while(uni.inputHasMore()){
+        String input1=uni.getNext<String>();
+        Int input2=uni.getNext<Int>();
+        uni.expectValues(testFunc(input1,input2));    // 在不符合时会抛出输出有误的异常
     }
-    
-    uni.cleanUp();  // 在这里output的剩余行,并处理输出长度有误的情况
-return 0;
+    uni.cleanUp();// 在这里output的剩余行,并处理输出长度有误的情况
+    return 0;
 }
 ```
 

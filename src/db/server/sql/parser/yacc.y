@@ -1,4 +1,4 @@
-// 头部分 ======================================================================================================================================
+/* 头部分 ====================================================================================================================================== */
 %{
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +50,7 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 }
 
 %}
-// 规则部分 ======================================================================================================================================
+/* 规则部分 ====================================================================================================================================== */
 
 %define api.pure full
 %define parse.error verbose
@@ -62,7 +62,7 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %parse-param { ParsedSqlResult * sql_result }
 %parse-param { void * scanner }
 
-//标识tokens
+/*标识tokens*/
 %token  SEMICOLON
         BY
         CREATE
@@ -118,6 +118,9 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         MUL
         DIV
         NULL
+        IS
+        NOT
+        LIKE
 %token  <int_>    INT
 %token  <float_>    FLOAT
 %token  <string_>   ID
@@ -134,21 +137,25 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
     FieldSqlNode*                               field_;
     Vector<UP<FieldSqlNode>>*                   fields_;
 
+    FieldDefSqlNode*                            fieldDef_;
+    Vector<UP<FieldDefSqlNode>>*                fieldDefList_;
+
     Table*                                      table_;
     Vector<UP<Table>>*                          tables_;
 
     Float                                       float_;
     Int                                         int_;
     String*                                     string_;
+    
 }
 
 
 
-//type union中的类型          变量名
+/*type union中的类型          规则名*/
 
 %type   <compareOperator_>              compareOperator
 %type   <expression_>                   expression
-%type   <expressionList_>               expressionList      // INSERT INTO table fields VALUES expressionList;
+%type   <expressionList_>               expressionList  
 
 %type   <field_>                        field
 %type   <fields_>                       fieldList
@@ -157,37 +164,42 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %type   <tables_>                       tableList
 
 %type   <expression_>                   condition
-%type   <expressionList_>               conditionList      // SELECT fields FROM tables WHERE conditions ORDER BY fields;
+%type   <expressionList_>               conditionList  
+
+%type   <fieldDef_>                     fieldDef
+%type   <fieldDefList_>                 fieldDefList
+
+%type   <fieldList_>                    groupByStmt
+%type   <expressionList_>               whereStmt
 
 
-
-%type   <parsedSqlNode_>                calc_stmt
-%type   <parsedSqlNode_>                select_stmt
-%type   <parsedSqlNode_>                insert_stmt
-%type   <parsedSqlNode_>                update_stmt
-%type   <parsedSqlNode_>                delete_stmt
-%type   <parsedSqlNode_>                create_table_stmt
-%type   <parsedSqlNode_>                drop_table_stmt
-%type   <parsedSqlNode_>                show_tables_stmt
-%type   <parsedSqlNode_>                desc_table_stmt
-%type   <parsedSqlNode_>                create_index_stmt
-%type   <parsedSqlNode_>                drop_index_stmt
-%type   <parsedSqlNode_>                sync_stmt
-%type   <parsedSqlNode_>                begin_stmt
-%type   <parsedSqlNode_>                commit_stmt
-%type   <parsedSqlNode_>                rollback_stmt
-%type   <parsedSqlNode_>                load_data_stmt
-%type   <parsedSqlNode_>                explain_stmt
-%type   <parsedSqlNode_>                set_variable_stmt
-%type   <parsedSqlNode_>                help_stmt
-%type   <parsedSqlNode_>                exit_stmt
-%type   <parsedSqlNode_>                command_wrapper
+%type   <parsedSqlNode_>                calcStmt
+%type   <parsedSqlNode_>                selectStmt
+%type   <parsedSqlNode_>                insertStmt
+%type   <parsedSqlNode_>                updateStmt
+%type   <parsedSqlNode_>                deleteStmt
+%type   <parsedSqlNode_>                createTableStmt
+%type   <parsedSqlNode_>                dropTableStmt
+%type   <parsedSqlNode_>                showTablesStmt
+%type   <parsedSqlNode_>                descTableStmt
+%type   <parsedSqlNode_>                createIndexStmt
+%type   <parsedSqlNode_>                dropIndexStmt
+%type   <parsedSqlNode_>                syncStmt
+%type   <parsedSqlNode_>                beginStmt
+%type   <parsedSqlNode_>                commitStmt
+%type   <parsedSqlNode_>                rollbackStmt
+%type   <parsedSqlNode_>                loadDataStmt
+%type   <parsedSqlNode_>                explainStmt
+%type   <parsedSqlNode_>                setVariableStmt
+%type   <parsedSqlNode_>                helpStmt
+%type   <parsedSqlNode_>                exitStmt
+%type   <parsedSqlNode_>                commandWrapper
 
 %left ADD SUB MUL DIV
 %nonassoc UMINUS
 %%
 
-commands: command_wrapper opt_semicolon  //commands or sqls. parser starts here.
+commands: command_wrapper opt_semicolon /*commands or sqls. parser starts here.*/
   {
     unique_ptr<ParsedSqlNode> sql_node = unique_ptr<ParsedSqlNode>($1);
     sql_result->add_sql_node(std::move(sql_node));
@@ -195,83 +207,76 @@ commands: command_wrapper opt_semicolon  //commands or sqls. parser starts here.
   ;
 
 command_wrapper:
-    calc_stmt
-  | select_stmt
-  | insert_stmt
-  | update_stmt
-  | delete_stmt
-  | create_table_stmt
-  | drop_table_stmt
-  | show_tables_stmt
-  | desc_table_stmt
-  | create_index_stmt
-  | drop_index_stmt
-  | sync_stmt
-  | begin_stmt
-  | commit_stmt
-  | rollback_stmt
-  | load_data_stmt
-  | explain_stmt
-  | set_variable_stmt
-  | help_stmt
-  | exit_stmt
+    calcStmt
+  | selectStmt
+  | insertStmt
+  | updateStmt
+  | deleteStmt
+  | createTableStmt
+  | dropTableStmt
+  | showTablesStmt
+  | descTableStmt
+  | createIndexStmt
+  | dropIndexStmt
+  | syncStmt
+  | beginStmt
+  | commitStmt
+  | rollbackStmt
+  | loadDataStmt
+  | explainStmt
+  | setVariableStmt
+  | helpStmt
+  | exitStmt
     ;
 
-exit_stmt:
+exitStmt:
     EXIT {
       (void)yynerrs;  // 这么写为了消除yynerrs未使用的告警。如果你有更好的方法欢迎提PR
       $$ = new ParsedSqlNode(SqlCommandType::EXIT);
     };
 
-help_stmt:
+helpStmt:
     HELP {
       $$ = new ParsedSqlNode(SqlCommandType::HELP);
     };
 
-sync_stmt:
+syncStmt:
     SYNC {
       $$ = new ParsedSqlNode(SCF_SYNC);
     }
     ;
 
-begin_stmt:
+beginStmt:
     BEGIN  {
       $$ = new ParsedSqlNode(SqlCommandType::BEGIN);
     }
     ;
 
-commit_stmt:
+commitStmt:
     COMMIT {
       $$ = new ParsedSqlNode(SqlCommandType::COMMIT);
     }
     ;
 
-rollback_stmt:
+rollbackStmt:
     ROLLBACK  {
       $$ = new ParsedSqlNode(SqlCommandType::ROLLBACK);
     }
     ;
 
-drop_table_stmt:    /*drop table 语句的语法解析树*/
+dropTableStmt:    /*drop table 语句的语法解析树*/
     DROP TABLE ID {
       $$ = new ParsedSqlNode(SqlCommandType::DROP_TABLE);
       $$->drop_table.relation_name = $3;
     };
 
-show_tables_stmt:
+showTablesStmt:
     SHOW TABLES {
       $$ = new ParsedSqlNode(SqlCommandType::SHOW_TABLES);
     }
     ;
 
-desc_table_stmt:
-    DESC ID  {
-      $$ = new ParsedSqlNode(SqlCommandType::DESC_TABLE);
-      $$->desc_table.relation_name = $2;
-    }
-    ;
-
-create_index_stmt:    /*create index 语句的语法解析树*/
+createIndexStmt:    /*create index 语句的语法解析树*/
     CREATE INDEX ID ON ID LBRACE ID RBRACE
     {
       $$ = new ParsedSqlNode(SqlCommandType::CREATE_INDEX);
@@ -282,7 +287,7 @@ create_index_stmt:    /*create index 语句的语法解析树*/
     }
     ;
 
-drop_index_stmt:      /*drop index 语句的语法解析树*/
+dropIndexStmt:      /*drop index 语句的语法解析树*/
     DROP INDEX ID ON ID
     {
       $$ = new ParsedSqlNode(SqlCommandType::DROP_INDEX);
@@ -290,8 +295,8 @@ drop_index_stmt:      /*drop index 语句的语法解析树*/
       $$->drop_index.relation_name = $5;
     }
     ;
-create_table_stmt:    /*create table 语句的语法解析树*/
-    CREATE TABLE ID LBRACE attr_def attr_def_list RBRACE storage_format
+createTableStmt:    /*create table 语句的语法解析树*/
+    CREATE TABLE ID LBRACE fieldDef fieldDefList RBRACE storageFormat
     {
       $$ = new ParsedSqlNode(SqlCommandType::CREATE_TABLE);
       CreateTableSqlNode &create_table = $$->create_table;
@@ -312,12 +317,12 @@ create_table_stmt:    /*create table 语句的语法解析树*/
       }
     }
     ;
-attr_def_list:
+fieldDefList:
     /* empty */
     {
       $$ = nullptr;
     }
-    | COMMA attr_def attr_def_list
+    | COMMA fieldDef fieldDefList
     {
       if ($3 != nullptr) {
         $$ = $3;
@@ -328,12 +333,11 @@ attr_def_list:
       delete $2;
     }
     ;
-
-attr_def:
-    ID type LBRACE number RBRACE
+field:
+    ID type LBRACE INT RBRACE
     {
       $$ = new FieldInfo;
-      $$->type = (AttrType)$2;
+      $$->type = (FieldType)$2;
       $$->name = $1;
       $$->length = $4;
     }
@@ -345,17 +349,14 @@ attr_def:
       $$->length = 4;
     }
     ;
-number:
-    NUMBER {$$ = $1;}
-    ;
 type:
-    INT_T      { $$ = static_cast<int>(AttrType::INTS); }
-    | STRING_T { $$ = static_cast<int>(AttrType::CHARS); }
-    | FLOAT_T  { $$ = static_cast<int>(AttrType::FLOATS); }
-    | VECTOR_T { $$ = static_cast<int>(AttrType::VECTORS); }
+    TYPE_INT      { $$ = static_cast<int>(FieldType::INT); }
+    | TYPE_STRING { $$ = static_cast<int>(FieldType::CHARS); }
+    | TYPE_FLOAT  { $$ = static_cast<int>(FieldType::FLOAT); }
+    | TYPE_VECTOR { $$ = static_cast<int>(FieldType::VECTOR); }
     ;
-insert_stmt:        /*insert   语句的语法解析树*/
-    INSERT INTO ID VALUES LBRACE value value_list RBRACE
+insertStmt:        /*insert   语句的语法解析树*/
+    INSERT INTO ID VALUES LBRACE expression expressionList RBRACE
     {
       $$ = new ParsedSqlNode(SqlCommandType::INSERT);
       $$->insertion.relation_name = $3;
@@ -369,21 +370,6 @@ insert_stmt:        /*insert   语句的语法解析树*/
     }
     ;
 
-value_list:
-    /* empty */
-    {
-      $$ = nullptr;
-    }
-    | COMMA value value_list  {
-      if ($3 != nullptr) {
-        $$ = $3;
-      } else {
-        $$ = new vector<Value>;
-      }
-      $$->emplace_back(*$2);
-      delete $2;
-    }
-    ;
 value:
     INT {
       $$ = new Value((int)$1);
@@ -399,30 +385,20 @@ value:
       free(tmp);
     }
     ;
-storage_format:
-    /* empty */
-    {
-      $$ = nullptr;
-    }
-    | STORAGE FORMAT EQ ID
-    {
-      $$ = $4;
-    }
-    ;
 
-delete_stmt:    /*  delete 语句的语法解析树*/
-    DELETE FROM ID where
+deleteStmt:    /*  delete 语句的语法解析树*/
+    DELETE FROM ID whereStmt
     {
       $$ = new ParsedSqlNode(SqlCommandType::DELETE);
       $$->deletion.relation_name = $3;
       if ($4 != nullptr) {
-        $$->deletion.conditions.swap(*$4);
+        $$->deletion.conditionList.swap(*$4);
         delete $4;
       }
     }
     ;
-update_stmt:      /*  update 语句的语法解析树*/
-    UPDATE ID SET ID EQ value where
+updateStmt:      /*  update 语句的语法解析树*/
+    UPDATE ID SET ID EQ value whereStmt
     {
       $$ = new ParsedSqlNode(SqlCommandType::UPDATE);
       $$->update.relation_name = $2;
@@ -434,8 +410,8 @@ update_stmt:      /*  update 语句的语法解析树*/
       }
     }
     ;
-select_stmt:        /*  select 语句的语法解析树*/
-    SELECT expression_list FROM rel_list where group_by
+selectStmt:        /*  select 语句的语法解析树*/
+    SELECT expressionList FROM fieldList whereStmt groupByStmt
     {
       $$ = new ParsedSqlNode(SqlCommandType::SELECT);
       if ($2 != nullptr) {
@@ -459,8 +435,8 @@ select_stmt:        /*  select 语句的语法解析树*/
       }
     }
     ;
-calc_stmt:
-    CALC expression_list
+calcStmt:
+    CALC expressionList
     {
       $$ = new ParsedSqlNode(SqlCommandType::CALC);
       $$->calc.expressions.swap(*$2);
@@ -468,13 +444,13 @@ calc_stmt:
     }
     ;
 
-expression_list:
+expressionList:
     expression
     {
       $$ = new vector<unique_ptr<Expression>>;
       $$->emplace_back($1);
     }
-    | expression COMMA expression_list
+    | expression COMMA expressionList
     {
       if ($3 != nullptr) {
         $$ = $3;
@@ -484,7 +460,18 @@ expression_list:
       $$->emplace($$->begin(), $1);
     }
     ;
-
+compareOperator:
+    EQ { $$ = CompareOperator::EQUAL; }
+    | LE { $$ = CompareOperator::LESS_EQUAL; }
+    | NE { $$ = CompareOperator::NOT_EQUAL; }
+    | LT { $$ = CompareOperator::LESS_THAN; }
+    | GE { $$ = CompareOperator::GREAT_EQUAL; }
+    | GT { $$ = CompareOperator::GREAT_THAN; }
+    | IS { $$ = CompareOperator::IS; }
+    | IS NOT { $$ = CompareOperator::IS_NOT; }
+    | LIKE { $$ = CompareOperator::LIKE; }
+    | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
+    ;
 expression:
     expression ADD expression {
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::ADD, $1, $3, sql_string, &@$);
@@ -496,6 +483,9 @@ expression:
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::MUL, $1, $3, sql_string, &@$);
     }
     | expression DIV expression {
+      $$ = create_arithmetic_expression(ArithmeticExpr::Type::DIV, $1, $3, sql_string, &@$);
+    }
+    | expression compareOperator expression{
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::DIV, $1, $3, sql_string, &@$);
     }
     | LBRACE expression RBRACE {
@@ -514,8 +504,11 @@ expression:
       $$ = new StarExpr();
     }
     ;
-
-fieldRef:
+whereStmt:
+    conditionList{
+     $$ = $1;   
+    }
+fieldDef:
     ID {
       $$ = new FieldRefNode();
       $$->attribute_name = $1;
@@ -532,12 +525,12 @@ table:
       $$ = $1;
     }
     ;
-tables:
-    relation {
+tableList:
+    table {
       $$ = new vector<string>();
       $$->push_back($1);
     }
-    | tables COMMA table {
+    | tableList COMMA table {
       if ($3 != nullptr) {
         $$ = $3;
       } else {
@@ -548,8 +541,8 @@ tables:
     }
     ;
 
-set_variable_stmt:
-    SET ID EQ value
+setVariableStmt:
+    SET ID EQ expression
     {
       $$ = new ParsedSqlNode(SqlCommandType::SET_VARIABLE);
       $$->set_variable.name  = $2;
@@ -558,11 +551,8 @@ set_variable_stmt:
     }
     ;
 
-opt_semicolon: /*empty*/
-    | SEMICOLON
-    ;
+
 %%
-//_____________________________________________________________________
 extern void scan_string(const char *str, yyscan_t scanner);
 
 int sql_parse(const char *s, ParsedSqlResult *sql_result) {

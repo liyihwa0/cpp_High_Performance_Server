@@ -2,7 +2,7 @@ namespace wa{
     namespace db{
         enum CompareOperator
         {
-            EQUAL_TO,
+            EQUAL,
             LESS_EQUAL,
             NOT_EQUAL,
             LESS_THAN,

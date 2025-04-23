@@ -9,11 +9,54 @@ namespace wa{
          * 如果需要使用多行字符串,请用 ""包裹
          * DataInputer通过getNext每次获取一个期望类型的变量
          */
-        class InputDataOutOfRange: Exception {};
-        class ExpectedDataOutOfRange: Exception {};
-        class InputDataTypeMismatch: Exception {};
-        class ExpectedDataMismatch: Exception {};
+        class InputDataOutOfRange : public std::exception {
+        private:
+            std::string message_;
+        public:
+            InputDataOutOfRange(const std::string& message = "Input data is out of range")
+                    : message_(message) {}
 
+            virtual const char* what() const noexcept override {
+                return message_.c_str();
+            }
+        };
+
+        class ExpectedDataOutOfRange : public std::exception {
+        private:
+            std::string message_;
+        public:
+            ExpectedDataOutOfRange(const std::string& message = "Expected data is out of range")
+                    : message_(message) {}
+
+            virtual const char* what() const noexcept override {
+                return message_.c_str();
+            }
+        };
+
+        class InputDataTypeMismatch : public std::exception {
+        private:
+            std::string message_;
+        public:
+            InputDataTypeMismatch(const std::string& message = "Input data type mismatch")
+                    : message_(message) {}
+
+            virtual const char* what() const noexcept override {
+                return message_.c_str();
+            }
+        };
+
+        class ExpectedDataMismatch : public std::exception {
+        private:
+            std::string message_;
+        public:
+            ExpectedDataMismatch(const String& expect,const String& got)
+                    : message_("Expected Data Mismatch, expect "+expect+",got "+got) {}
+
+            virtual const char* what() const noexcept override {
+                return message_.c_str();
+            }
+        };
+        
         class DataInputer {
         private:
             String tempValue_;
@@ -48,6 +91,9 @@ namespace wa{
 
         public:
             DataInputer(const String& file) : inputStream_(ifstream(file)) {
+                if(!inputStream_.is_open()){
+                    throw FILE_NOT_FOUND_EXCEPTION(file);
+                }
                 nextItem();
             }
             bool hasMore() const {
@@ -59,7 +105,7 @@ namespace wa{
                 if (!hasMore()) {
                     throw InputDataOutOfRange();
                 }
-                T data = static_cast<T>(tempValue_); // 假设有合适的转换
+                T data = CastAsType<T>(tempValue_); // 假设有合适的转换
                 nextItem();
                 return data;
             }
@@ -68,16 +114,19 @@ namespace wa{
         class UnitTester{
         private:
             DataInputer dataInputer_;
-            String unitName_;
-            String configFile_;
             std::ifstream expectedDatas_;
             
         public:
-            UnitTester(const String& configFile, const String& unitName)
-                    : dataInputer_(configFile), unitName_(unitName) {
-                    
+            UnitTester(const String& inputFile, const String& outputFile)
+                    : dataInputer_(inputFile), expectedDatas_(outputFile) {
+                if(!expectedDatas_.is_open()){
+                    throw FILE_NOT_FOUND_EXCEPTION(outputFile);
+                }
             }
-            
+            template<class T>
+            T getNext() {
+                return dataInputer_.getNext<T>();
+            }
             Bool inputHasMore() const {
                 return dataInputer_.hasMore();
             }
@@ -102,24 +151,9 @@ namespace wa{
                         throw ExpectedDataOutOfRange();
                     }
                     if(argStr!=expectedStr){
-                        throw ExpectedDataMismatch();
+                        throw ExpectedDataMismatch(expectedStr,argStr);
                     }
                 }(args)), ...); // 展开参数包并调用 lambda
-            }
-            
-            void handleException(const Exception& e){
-                if (const InputDataOutOfRange* ex = dynamic_cast<const InputDataOutOfRange*>(&e)) {
-                    std::cerr << "Input Data Out of Range: " << ex->what() << std::endl;
-                } else if (const ExpectedDataOutOfRange* ex = dynamic_cast<const ExpectedDataOutOfRange*>(&e)) {
-                    std::cerr << "Expected Data Out of Range: " << ex->what() << std::endl;
-                } else if (const InputDataTypeMismatch* ex = dynamic_cast<const InputDataTypeMismatch*>(&e)) {
-                    std::cerr << "Input Data Type Mismatch: " << ex->what() << std::endl;
-                } else if (const ExpectedDataMismatch* ex = dynamic_cast<const ExpectedDataMismatch*>(&e)) {
-                    std::cerr << "Expected Data Mismatch: " << ex->what() << std::endl;
-                } else {
-                    std::cerr << "Unknown Exception: " << e.what() << std::endl;
-                }
-                exit(-1);
             }
             
             void cleanUp(){

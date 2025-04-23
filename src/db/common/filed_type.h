@@ -1,11 +1,17 @@
 namespace wa{
     namespace db{
         /**
-         * @brief 表示一个SQL语句的类型
-         * @ingroup SQLParser
+         * @brief 表示一个字段的类型
          */
         enum FieldType{
-
+            INT,
+            CHARS,
+            FLOAT,
+            DOUBLE,
+            CHAR,
+            VARCHAR,
+            DATE,
+            BOOLEAN
         };
     }
 }

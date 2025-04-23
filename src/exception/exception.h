@@ -100,6 +100,17 @@ namespace wa {
                                      Args&&... messages)
                     : CodeLocationException(file, line, function, std::forward<Args>(messages)...) {}
         };
+        
+        class FileNotFoundException:public CodeLocationException{
+        public:
+            // 构造函数
+            template <typename... Args>
+            FileNotFoundException(const String& file,
+                                     Int line,
+                                     const String& function,
+                                     Args&&... messages)
+                    : CodeLocationException(file, line, function, std::forward<Args>(messages)...) {}
+        };
     }
 } // namespace wa
 
@@ -117,4 +128,7 @@ namespace wa {
 #define INVALID_ARGUMENT_EXCEPTION(...) \
     wa::expcetion::InvalidArgumentException(__FILE__, __LINE__, __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
     
+#define FILE_NOT_FOUND_EXCEPTION(...) \
+    wa::expcetion::FileNotFoundException(__FILE__, __LINE__, __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
+
 #endif

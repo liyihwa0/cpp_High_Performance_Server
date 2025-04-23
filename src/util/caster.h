@@ -91,27 +91,27 @@ namespace wa{
 
     // 特化 ToString 函数模板以支持基本类型
     template<>
-    String ToString<int>(const int& value) {
+    String ToString<Int>(const Int& value) {
         return std::to_string(value);
     }
 
     template<>
-    String ToString<double>(const double& value) {
+    String ToString<F64>(const F64& value) {
         return std::to_string(value);
     }
 
     template<>
-    String ToString<float>(const float& value) {
+    String ToString<F32>(const F32& value) {
         return std::to_string(value);
     }
 
     template<>
-    String ToString<char>(const char& value) {
+    String ToString<Char>(const Char& value) {
         return String(1, value); // 将 char 转换为 String
     }
 
     template<>
-    String ToString<bool>(const bool& value) {
+    String ToString<Bool>(const Bool& value) {
         return value ? "true" : "false"; // 将 bool 转换为 "true" 或 "false"
     }
 

@@ -71,6 +71,77 @@ foreach(PROTO_FILE ${PROTOBUF_FILES})
 endforeach()
 
 
+# flex/bison 生成文件 -------------------------------------
+file(GLOB_RECURSE FLEX_FILES RELATIVE "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/*.l")
+file(GLOB_RECURSE BISON_FILES  RELATIVE "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/*.y")
+
+message(STATUS "flex files: ${FLEX_FILES}")
+message(STATUS "bison files: ${BISON_FILES}")
+
+# 遍历每个 Flex 文件，生成对应的 .cpp 文件
+foreach(FLEX_FILE ${FLEX_FILES})
+    # 获取 Flex 文件的绝对路径
+    set(ABS_FLEX_FILE "${CMAKE_SOURCE_DIR}/${FLEX_FILE}")
+    # 获取 Flex 文件的目录
+    get_filename_component(FLEX_DIR ${ABS_FLEX_FILE} DIRECTORY)
+    # 获取 Flex 文件的名称（不含扩展名）
+    get_filename_component(FLEX_FILE_NAME_WE ${FLEX_FILE} NAME_WE)
+
+    # 设置生成的 .cpp 文件的输出路径
+    set(GEN_FLEX_CPP "${FLEX_DIR}/${FLEX_FILE_NAME_WE}.cpp")
+    set(GEN_FLEX_H "${FLEX_DIR}/${FLEX_FILE_NAME_WE}.h")
+
+    message(STATUS "exec flex --outfile ${GEN_FLEX_CPP} --header-file=${GEN_FLEX_H} ${ABS_FLEX_FILE}")
+
+    # 使用 execute_process 在 CMake 配置阶段执行 flex 命令
+    execute_process(
+            COMMAND flex --outfile ${GEN_FLEX_CPP} --header-file=${GEN_FLEX_H} ${ABS_FLEX_FILE}
+            OUTPUT_VARIABLE FLEX_OUTPUT
+            ERROR_VARIABLE FLEX_ERROR
+            RESULT_VARIABLE FLEX_RESULT
+    )
+
+    # 检查 flex 命令是否成功执行
+    if(FLEX_RESULT EQUAL 0)
+        message(STATUS "Successfully generated ${ABS_FLEX_FILE}")
+    else()
+        message(FATAL_ERROR "Failed to generate ${ABS_FLEX_FILE} : ${FLEX_ERROR}")
+    endif()
+endforeach()
+
+# 遍历每个 Bison 文件，生成对应的 .cpp 和 .h 文件
+foreach(BISON_FILE ${BISON_FILES})
+    # 获取 Bison 文件的绝对路径
+    set(ABS_BISON_FILE "${CMAKE_SOURCE_DIR}/${BISON_FILE}")
+    # 获取 Bison 文件的目录
+    get_filename_component(BISON_DIR ${ABS_BISON_FILE} DIRECTORY)
+    # 获取 Bison 文件的名称（不含扩展名）
+    get_filename_component(BISON_FILE_NAME_WE ${BISON_FILE} NAME_WE)
+
+    # 设置生成的 .cpp 和 .h 文件的输出路径
+    set(GEN_BISON_CPP "${BISON_DIR}/${BISON_FILE_NAME_WE}.tab.cpp")
+    set(GEN_BISON_H "${BISON_DIR}/${BISON_FILE_NAME_WE}.tab.hpp")
+
+    message(STATUS "exec bison -d -o ${GEN_BISON_CPP} ${ABS_BISON_FILE}")
+
+    # 使用 execute_process 在 CMake 配置阶段执行 bison 命令
+    execute_process(
+            COMMAND bison -d -o ${GEN_BISON_CPP} ${ABS_BISON_FILE}
+            OUTPUT_VARIABLE BISON_OUTPUT
+            ERROR_VARIABLE BISON_ERROR
+            RESULT_VARIABLE BISON_RESULT
+    )
+
+    # 检查 bison 命令是否成功执行
+    if(BISON_RESULT EQUAL 0)
+        message(STATUS "Successfully generated ${ABS_BISON_FILE}")
+    else()
+        message(FATAL_ERROR "Failed to generate ${ABS_BISON_FILE} : ${BISON_ERROR}")
+    endif()
+endforeach()
+
+
+
 #设置搜索的头文件的路径,包含 Protobuf 的头文件
 include_directories(${Protobuf_INCLUDE_DIRS})
 include_directories(/usr/include)
