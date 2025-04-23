@@ -26,14 +26,26 @@ namespace wa{
          * @brief 描述一个字段
          * @ingroup SQLParser
          * @details 属性，或者说字段(column, field)
-         * Rel -> Relation
-         * Attr -> Attribute
          */
-        struct FieldRefNode{
+        struct FieldNode{
             UP<String>                              tableName_;
             UP<String>                              fieldName_;
         };
 
+        /**
+       * @brief 描述一个字段的定义
+       * @ingroup SQLParser
+       * @details 属性，或者说字段(column, field)
+       */
+        struct FieldDefSqlNode{
+            UP<String>                              fieldName_;
+            FieldType                               fieldType_;
+            Int                                     optionalArg_;
+        };
+      
+        
+        
+        
         /**
          * @brief 描述一个select语句
          * @ingroup SQLParser
@@ -86,7 +98,7 @@ namespace wa{
          * @ingroup SQLParser
          * @details 属性，或者说字段(column, field)
          */
-        struct FieldDefNode{
+        struct FieldDefSqlNode{
             FieldType                               type_;
             UP<String>                              name_;
             Size                                    length_;  ///< Length of attribute
@@ -99,7 +111,7 @@ namespace wa{
          */
         struct CreateTableSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<FieldDefNode>>                fieldInfos_;
+            Vector<UP<FieldDefSqlNode>>             fieldDefs_;
             UP<String>                              storageFormat_;
         };
 
@@ -181,9 +193,9 @@ namespace wa{
          * @details 当前解析时并没有处理错误的行号和列号
          */
         struct ErrorSqlNode{
-            Vector<String>                          error_msg;
-            Int                                     line;
-            Int                                     column;
+            Vector<String>                          errorMsg_;
+            Int                                     line_;
+            Int                                     column_;
         };
         /**
          * @brief 表示一个SQL语句
@@ -191,7 +203,6 @@ namespace wa{
          */
         class ParsedSqlNode{
         public:
-            SqlCommandType                          sqlCommandType_;
             ErrorSqlNode                            error;
             SelectSqlNode                           selection;
             InsertSqlNode                           insertion;
@@ -210,21 +221,5 @@ namespace wa{
             ParsedSqlNode();
             explicit ParsedSqlNode(SqlCommandType flag);
         };
-
-        /**
-         * @brief 表示语法解析后的数据
-         * @ingroup SQLParser
-         */
-        class ParsedSqlResult
-        {
-        public:
-            void add_sql_node(UP<ParsedSqlNode> sql_node);
-
-            Vector<UP<ParsedSqlNode>> &sql_nodes() { return sql_nodes_; }
-
-        private:
-            Vector<UP<ParsedSqlNode>> sql_nodes_;  ///< 这里记录SQL命令。虽然看起来支持多个，但是当前仅处理一个
-        };
-
     }
 }

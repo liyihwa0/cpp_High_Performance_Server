@@ -129,7 +129,6 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 /* union 中定义各种数据类型，真实生成的代码也是union类型，所以不能有非POD类型的数据*/
 %union{
     ParsedSqlNode *                             parsedSqlNode_;
-    ConditionSqlNode *                          condition_;
     Expression *                                expression_;
     Vector<UP<Expression>> *                    expressionList_;
     enum CompareOperator                        compareOperator_;
@@ -140,13 +139,10 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
     FieldDefSqlNode*                            fieldDef_;
     Vector<UP<FieldDefSqlNode>>*                fieldDefList_;
 
-    Table*                                      table_;
-    Vector<UP<Table>>*                          tables_;
-
     Float                                       float_;
     Int                                         int_;
     String*                                     string_;
-    
+    Vector<UP<String>>                          strings_;   
 }
 
 
@@ -160,8 +156,8 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %type   <field_>                        field
 %type   <fields_>                       fieldList
 
-%type   <table_>                        table
-%type   <tables_>                       tableList
+%type   <string_>                       table
+%type   <strings_>                      tableList
 
 %type   <expression_>                   condition
 %type   <expressionList_>               conditionList  
@@ -444,6 +440,19 @@ calcStmt:
     }
     ;
 
+
+compareOperator:
+    EQ { $$ = CompareOperator::EQUAL; }
+    | LE { $$ = CompareOperator::LESS_EQUAL; }
+    | NE { $$ = CompareOperator::NOT_EQUAL; }
+    | LT { $$ = CompareOperator::LESS_THAN; }
+    | GE { $$ = CompareOperator::GREAT_EQUAL; }
+    | GT { $$ = CompareOperator::GREAT_THAN; }
+    | IS { $$ = CompareOperator::IS; }
+    | IS NOT { $$ = CompareOperator::IS_NOT; }
+    | LIKE { $$ = CompareOperator::LIKE; }
+    | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
+    ;
 expressionList:
     expression
     {
@@ -459,18 +468,6 @@ expressionList:
       }
       $$->emplace($$->begin(), $1);
     }
-    ;
-compareOperator:
-    EQ { $$ = CompareOperator::EQUAL; }
-    | LE { $$ = CompareOperator::LESS_EQUAL; }
-    | NE { $$ = CompareOperator::NOT_EQUAL; }
-    | LT { $$ = CompareOperator::LESS_THAN; }
-    | GE { $$ = CompareOperator::GREAT_EQUAL; }
-    | GT { $$ = CompareOperator::GREAT_THAN; }
-    | IS { $$ = CompareOperator::IS; }
-    | IS NOT { $$ = CompareOperator::IS_NOT; }
-    | LIKE { $$ = CompareOperator::LIKE; }
-    | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
     ;
 expression:
     expression ADD expression {
@@ -508,6 +505,11 @@ whereStmt:
     conditionList{
      $$ = $1;   
     }
+conditionList:
+    expressionList{
+        $$ = $1;
+    }
+    
 fieldDef:
     ID {
       $$ = new FieldRefNode();
