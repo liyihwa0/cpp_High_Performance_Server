@@ -130,43 +130,47 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %union{
     ParsedSqlNode *                             parsedSqlNode_;
     Expression *                                expression_;
-    Vector<UP<Expression>> *                    expressionList_;
+    Vector<UP<Expression>> *                    expressions_;
     enum CompareOperator                        compareOperator_;
 
     FieldSqlNode*                               field_;
     Vector<UP<FieldSqlNode>>*                   fields_;
 
     FieldDefSqlNode*                            fieldDef_;
-    Vector<UP<FieldDefSqlNode>>*                fieldDefList_;
+    Vector<UP<FieldDefSqlNode>>*                fieldDefs_;
 
+    Value*                                      value_;
     Float                                       float_;
     Int                                         int_;
     String*                                     string_;
     Vector<UP<String>>                          strings_;   
+    FieldType                                   type_;
 }
 
 
 
 /*type union中的类型          规则名*/
-
+%type   <type_>                         type
+%type   <value_>                        value
 %type   <compareOperator_>              compareOperator
 %type   <expression_>                   expression
-%type   <expressionList_>               expressionList  
+%type   <expressions_>                  expressions  
 
 %type   <field_>                        field
-%type   <fields_>                       fieldList
+%type   <fields_>                       fields
 
 %type   <string_>                       table
-%type   <strings_>                      tableList
+%type   <strings_>                      tables
 
-%type   <expression_>                   condition
-%type   <expressionList_>               conditionList  
+%type   <string_>                       storageStmt
+
+%type   <expressions_>                  conditions  
 
 %type   <fieldDef_>                     fieldDef
-%type   <fieldDefList_>                 fieldDefList
+%type   <fieldDefs_>                    fieldDefs
 
-%type   <fieldList_>                    groupByStmt
-%type   <expressionList_>               whereStmt
+%type   <fields_>                       groupByStmt
+%type   <expressions_>                  whereStmt
 
 
 %type   <parsedSqlNode_>                calcStmt
@@ -177,32 +181,32 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %type   <parsedSqlNode_>                createTableStmt
 %type   <parsedSqlNode_>                dropTableStmt
 %type   <parsedSqlNode_>                showTablesStmt
-%type   <parsedSqlNode_>                descTableStmt
+ /*%type   <parsedSqlNode_>                descTableStmt*/
 %type   <parsedSqlNode_>                createIndexStmt
 %type   <parsedSqlNode_>                dropIndexStmt
 %type   <parsedSqlNode_>                syncStmt
 %type   <parsedSqlNode_>                beginStmt
 %type   <parsedSqlNode_>                commitStmt
 %type   <parsedSqlNode_>                rollbackStmt
-%type   <parsedSqlNode_>                loadDataStmt
-%type   <parsedSqlNode_>                explainStmt
+ /*%type   <parsedSqlNode_>                loadDataStmt*/
+ /*%type   <parsedSqlNode_>                explainStmt*/
 %type   <parsedSqlNode_>                setVariableStmt
 %type   <parsedSqlNode_>                helpStmt
 %type   <parsedSqlNode_>                exitStmt
+%type   <parsedSqlNode_>                commands
 %type   <parsedSqlNode_>                commandWrapper
 
 %left ADD SUB MUL DIV
 %nonassoc UMINUS
 %%
-
-commands: command_wrapper opt_semicolon /*commands or sqls. parser starts here.*/
+commands: commandWrapper SEMICOLON /*commands or sqls. parser starts here.*/
   {
     unique_ptr<ParsedSqlNode> sql_node = unique_ptr<ParsedSqlNode>($1);
     sql_result->add_sql_node(std::move(sql_node));
   }
   ;
 
-command_wrapper:
+commandWrapper:
     calcStmt
   | selectStmt
   | insertStmt
@@ -211,15 +215,15 @@ command_wrapper:
   | createTableStmt
   | dropTableStmt
   | showTablesStmt
-  | descTableStmt
+  /*| descTableStmt*/
   | createIndexStmt
   | dropIndexStmt
   | syncStmt
   | beginStmt
   | commitStmt
   | rollbackStmt
-  | loadDataStmt
-  | explainStmt
+ /*| loadDataStmt*/
+ /* | explainStmt*/
   | setVariableStmt
   | helpStmt
   | exitStmt
@@ -292,7 +296,7 @@ dropIndexStmt:      /*drop index 语句的语法解析树*/
     }
     ;
 createTableStmt:    /*create table 语句的语法解析树*/
-    CREATE TABLE ID LBRACE fieldDef fieldDefList RBRACE storageFormat
+    CREATE TABLE ID LBRACE fieldDef fieldDefs RBRACE storageStmt
     {
       $$ = new ParsedSqlNode(SqlCommandType::CREATE_TABLE);
       CreateTableSqlNode &create_table = $$->create_table;
@@ -313,17 +317,33 @@ createTableStmt:    /*create table 语句的语法解析树*/
       }
     }
     ;
-fieldDefList:
+fieldDefs:
     /* empty */
     {
       $$ = nullptr;
     }
-    | COMMA fieldDef fieldDefList
+    | COMMA fieldDef fieldDefs
     {
       if ($3 != nullptr) {
         $$ = $3;
       } else {
         $$ = new vector<FieldInfo>;
+      }
+      $$->emplace_back(*$2);
+      delete $2;
+    }
+    ;
+fields:
+    /* empty */
+    {
+      $$ = nullptr;
+    }
+    | COMMA field fields
+    {
+      if ($3 != nullptr) {
+        $$ = $3;
+      } else {
+        $$ = new vector<Field>;
       }
       $$->emplace_back(*$2);
       delete $2;
@@ -346,13 +366,13 @@ field:
     }
     ;
 type:
-    TYPE_INT      { $$ = static_cast<int>(FieldType::INT); }
-    | TYPE_STRING { $$ = static_cast<int>(FieldType::CHARS); }
-    | TYPE_FLOAT  { $$ = static_cast<int>(FieldType::FLOAT); }
-    | TYPE_VECTOR { $$ = static_cast<int>(FieldType::VECTOR); }
+    TYPE_INT      { $$ = FieldType::INT; }
+    | TYPE_STRING { $$ = FieldType::CHARS; }
+    | TYPE_FLOAT  { $$ = FieldType::FLOAT; }
+    | TYPE_VECTOR { $$ = FieldType::VECTOR; }
     ;
 insertStmt:        /*insert   语句的语法解析树*/
-    INSERT INTO ID VALUES LBRACE expression expressionList RBRACE
+    INSERT INTO ID VALUES LBRACE expression expressions RBRACE
     {
       $$ = new ParsedSqlNode(SqlCommandType::INSERT);
       $$->insertion.relation_name = $3;
@@ -365,7 +385,16 @@ insertStmt:        /*insert   语句的语法解析树*/
       delete $6;
     }
     ;
-
+storageStmt:
+    /* empty */
+    {
+      $$ = nullptr;
+    }
+    | STORAGE FORMAT EQ ID
+    {
+      $$ = $4;
+    }
+    ;
 value:
     INT {
       $$ = new Value((int)$1);
@@ -388,7 +417,7 @@ deleteStmt:    /*  delete 语句的语法解析树*/
       $$ = new ParsedSqlNode(SqlCommandType::DELETE);
       $$->deletion.relation_name = $3;
       if ($4 != nullptr) {
-        $$->deletion.conditionList.swap(*$4);
+        $$->deletion.conditions.swap(*$4);
         delete $4;
       }
     }
@@ -406,8 +435,15 @@ updateStmt:      /*  update 语句的语法解析树*/
       }
     }
     ;
+groupByStmt:
+    fields
+    {
+        $$=$1;
+    }
+    ;
+    
 selectStmt:        /*  select 语句的语法解析树*/
-    SELECT expressionList FROM fieldList whereStmt groupByStmt
+    SELECT expressions FROM fields whereStmt groupByStmt
     {
       $$ = new ParsedSqlNode(SqlCommandType::SELECT);
       if ($2 != nullptr) {
@@ -432,7 +468,7 @@ selectStmt:        /*  select 语句的语法解析树*/
     }
     ;
 calcStmt:
-    CALC expressionList
+    CALC expressions
     {
       $$ = new ParsedSqlNode(SqlCommandType::CALC);
       $$->calc.expressions.swap(*$2);
@@ -453,13 +489,13 @@ compareOperator:
     | LIKE { $$ = CompareOperator::LIKE; }
     | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
     ;
-expressionList:
+expressions:
     expression
     {
       $$ = new vector<unique_ptr<Expression>>;
       $$->emplace_back($1);
     }
-    | expression COMMA expressionList
+    | expression COMMA expressions
     {
       if ($3 != nullptr) {
         $$ = $3;
@@ -502,11 +538,11 @@ expression:
     }
     ;
 whereStmt:
-    conditionList{
+    conditions{
      $$ = $1;   
     }
-conditionList:
-    expressionList{
+conditions:
+    expressions{
         $$ = $1;
     }
     
@@ -527,12 +563,12 @@ table:
       $$ = $1;
     }
     ;
-tableList:
+tables:
     table {
       $$ = new vector<string>();
       $$->push_back($1);
     }
-    | tableList COMMA table {
+    | tables COMMA table {
       if ($3 != nullptr) {
         $$ = $3;
       } else {
