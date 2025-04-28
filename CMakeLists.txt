@@ -119,8 +119,8 @@ foreach(BISON_FILE ${BISON_FILES})
     get_filename_component(BISON_FILE_NAME_WE ${BISON_FILE} NAME_WE)
 
     # 设置生成的 .cpp 和 .h 文件的输出路径
-    set(GEN_BISON_CPP "${BISON_DIR}/${BISON_FILE_NAME_WE}.tab.cpp")
-    set(GEN_BISON_H "${BISON_DIR}/${BISON_FILE_NAME_WE}.tab.hpp")
+    set(GEN_BISON_CPP "${BISON_DIR}/${BISON_FILE_NAME_WE}.cpp")
+    set(GEN_BISON_H "${BISON_DIR}/${BISON_FILE_NAME_WE}.hpp")
 
     message(STATUS "exec bison -d -o ${GEN_BISON_CPP} ${ABS_BISON_FILE}")
 

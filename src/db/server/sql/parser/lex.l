@@ -96,6 +96,8 @@ HELP                                    RETURN_TOKEN(HELP);
 DESC                                    RETURN_TOKEN(DESC);
 CREATE                                  RETURN_TOKEN(CREATE);
 DROP                                    RETURN_TOKEN(DROP);
+IF                                      RETURN_TOKEN(IF);
+EXISTS                                  RETURN_TOKEN(EXISTS);   
 TABLE                                   RETURN_TOKEN(TABLE);
 TABLES                                  RETURN_TOKEN(TABLES);
 INDEX                                   RETURN_TOKEN(INDEX);
@@ -157,6 +159,10 @@ LIKE                                    RETURN_TOKEN(LIKE);
 .                                       LOG_DEBUG("Unknown character [%c]",yytext[0]); return yytext[0];
 %%
 
-void scan_string(const char *str, yyscan_t scanner) {
-  yy_switch_to_buffer(yy_scan_string(str, scanner), scanner);
-}
+namespace wa{
+    namespace db{
+        void ScanString(const char *str, yyscan_t scanner) {
+          yy_switch_to_buffer(yy_scan_string(str, scanner), scanner);
+        }
+    };
+};

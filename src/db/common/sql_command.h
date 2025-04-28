@@ -26,6 +26,7 @@ namespace wa{
             HELP,
             EXIT,
             EXPLAIN,
+            SCF_SYNC,
             SET_VARIABLE,  ///< 设置变量
         };
     }

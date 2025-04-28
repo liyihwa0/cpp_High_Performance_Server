@@ -3,50 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "common/log/log.h"
-#include "common/lang/string.h"
-#include "sql/parser/parse_defs.h"
-#include "sql/parser/yacc_sql.hpp"
-#include "sql/parser/lex_sql.h"
-#include "sql/expr/expression.h"
+#include "./sql_node.h"
+#include "./lex.h"
+#include "./yacc.hpp"
+#include "../../../common/compare_operator.h"
 
 using namespace std;
 
-string token_name(const char *sql_string, YYLTYPE *llocp)
-{
-  return string(sql_string + llocp->first_column, llocp->last_column - llocp->first_column + 1);
-}
 
-int yyerror(YYLTYPE *llocp, const char *sql_string, ParsedSqlResult *sql_result, yyscan_t scanner, const char *msg)
-{
-  unique_ptr<ParsedSqlNode> error_sql_node = make_unique<ParsedSqlNode>(SCF_ERROR);
-  error_sql_node->error.error_msg = msg;
-  error_sql_node->error.line = llocp->first_line;
-  error_sql_node->error.column = llocp->first_column;
-  sql_result->add_sql_node(std::move(error_sql_node));
-  return 0;
-}
+namespace wa{
+namespace db{
 
-ArithmeticExpr *create_arithmetic_expression(ArithmeticExpr::Type type,
-                                             Expression *left,
-                                             Expression *right,
-                                             const char *sql_string,
-                                             YYLTYPE *llocp)
-{
-  ArithmeticExpr *expr = new ArithmeticExpr(type, left, right);
-  expr->set_name(token_name(sql_string, llocp));
-  return expr;
-}
-
-UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
-                                           Expression *child,
-                                           const char *sql_string,
-                                           YYLTYPE *llocp)
-{
-  UnboundAggregateExpr *expr = new UnboundAggregateExpr(aggregate_name, child);
-  expr->set_name(token_name(sql_string, llocp));
-  return expr;
+string token_name(const char *sql_string, YYLTYPE *llocp){
+    return string(sql_string + llocp->first_column, llocp->last_column - llocp->first_column + 1);
 }
 
 %}
@@ -121,6 +90,8 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
         IS
         NOT
         LIKE
+        IF
+        EXISTS
 %token  <int_>    INT
 %token  <float_>    FLOAT
 %token  <string_>   ID
@@ -136,8 +107,11 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
     FieldSqlNode*                               field_;
     Vector<UP<FieldSqlNode>>*                   fields_;
 
-    FieldDefSqlNode*                            fieldDef_;
-    Vector<UP<FieldDefSqlNode>>*                fieldDefs_;
+    FieldDefNode*                               fieldDef_;
+    Vector<UP<FieldDefNode>>*                   fieldDefs_;
+    
+    AssignmentNode*                             assignment_;
+    Vector<UP<AssignmentNode>>*                 assignments_;
 
     Value*                                      value_;
     Float                                       float_;
@@ -155,7 +129,7 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 %type   <compareOperator_>              compareOperator
 %type   <expression_>                   expression
 %type   <expressions_>                  expressions  
-
+%type   <expressions_>                  nonEmptyExpressions
 %type   <field_>                        field
 %type   <fields_>                       fields
 
@@ -164,14 +138,13 @@ UnboundAggregateExpr *create_aggregate_expression(const char *aggregate_name,
 
 %type   <string_>                       storageStmt
 
-%type   <expressions_>                  conditions  
-
 %type   <fieldDef_>                     fieldDef
 %type   <fieldDefs_>                    fieldDefs
 
 %type   <fields_>                       groupByStmt
 %type   <expressions_>                  whereStmt
-
+%type   <assignment_>                   assignmentStmt
+%type   <assignments_>                  assignmentStmts
 
 %type   <parsedSqlNode_>                calcStmt
 %type   <parsedSqlNode_>                selectStmt
@@ -228,7 +201,15 @@ commandWrapper:
   | helpStmt
   | exitStmt
     ;
+type:
+    TYPE_INT      { $$ = FieldType::INT; }
+    | TYPE_STRING { $$ = FieldType::CHARS; }
+    | TYPE_FLOAT  { $$ = FieldType::FLOAT; }
+    | TYPE_VECTOR { $$ = FieldType::VECTOR; }
+    ;
+    
 
+/* stmt  ================================================================================= */
 exitStmt:
     EXIT {
       (void)yynerrs;  // 这么写为了消除yynerrs未使用的告警。如果你有更好的方法欢迎提PR
@@ -242,7 +223,7 @@ helpStmt:
 
 syncStmt:
     SYNC {
-      $$ = new ParsedSqlNode(SCF_SYNC);
+      $$ = new ParsedSqlNode(SqlCommandType::SCF_SYNC);
     }
     ;
 
@@ -251,7 +232,6 @@ beginStmt:
       $$ = new ParsedSqlNode(SqlCommandType::BEGIN);
     }
     ;
-
 commitStmt:
     COMMIT {
       $$ = new ParsedSqlNode(SqlCommandType::COMMIT);
@@ -266,10 +246,12 @@ rollbackStmt:
 
 dropTableStmt:    /*drop table 语句的语法解析树*/
     DROP TABLE ID {
-      $$ = new ParsedSqlNode(SqlCommandType::DROP_TABLE);
-      $$->drop_table.relation_name = $3;
-    };
-
+      $$ = new ParsedSqlNode(new DropTableSqlNode($3,FALSE)); 
+    }
+    | DROP TABLE IF EXISTS ID {
+      $$ = new ParsedSqlNode(new DropTableSqlNode($5, TRUE)); 
+    }
+    ;
 showTablesStmt:
     SHOW TABLES {
       $$ = new ParsedSqlNode(SqlCommandType::SHOW_TABLES);
@@ -279,122 +261,157 @@ showTablesStmt:
 createIndexStmt:    /*create index 语句的语法解析树*/
     CREATE INDEX ID ON ID LBRACE ID RBRACE
     {
-      $$ = new ParsedSqlNode(SqlCommandType::CREATE_INDEX);
-      CreateIndexSqlNode &create_index = $$->create_index;
-      create_index.index_name = $3;
-      create_index.relation_name = $5;
-      create_index.attribute_name = $7;
+      $$ = new ParsedSqlNode(new CreateIndexSqlNode($3,$5,$7));
     }
     ;
 
 dropIndexStmt:      /*drop index 语句的语法解析树*/
     DROP INDEX ID ON ID
     {
-      $$ = new ParsedSqlNode(SqlCommandType::DROP_INDEX);
-      $$->drop_index.index_name = $3;
-      $$->drop_index.relation_name = $5;
+      $$ = new ParsedSqlNode(new DropIndexSqlNode($3,$5));
     }
     ;
 createTableStmt:    /*create table 语句的语法解析树*/
     CREATE TABLE ID LBRACE fieldDef fieldDefs RBRACE storageStmt
     {
-      $$ = new ParsedSqlNode(SqlCommandType::CREATE_TABLE);
-      CreateTableSqlNode &create_table = $$->create_table;
-      create_table.relation_name = $3;
-      //free($3);
-
-      vector<FieldInfo> *src_attrs = $6;
-
-      if (src_attrs != nullptr) {
-        create_table.attr_infos.swap(*src_attrs);
-        delete src_attrs;
-      }
-      create_table.attr_infos.emplace_back(*$5);
-      reverse(create_table.attr_infos.begin(), create_table.attr_infos.end());
-      delete $5;
-      if ($8 != nullptr) {
-        create_table.storage_format = $8;
-      }
+      $$ = new ParsedSqlNode(new CreateTableSqlNode($3,$5,$6,$8));
     }
     ;
-fieldDefs:
-    /* empty */
+insertStmt:  
+    INSERT INTO ID VALUES LBRACE expressions RBRACE
     {
-      $$ = nullptr;
-    }
-    | COMMA fieldDef fieldDefs
-    {
-      if ($3 != nullptr) {
-        $$ = $3;
-      } else {
-        $$ = new vector<FieldInfo>;
-      }
-      $$->emplace_back(*$2);
-      delete $2;
-    }
-    ;
-fields:
-    /* empty */
-    {
-      $$ = nullptr;
-    }
-    | COMMA field fields
-    {
-      if ($3 != nullptr) {
-        $$ = $3;
-      } else {
-        $$ = new vector<Field>;
-      }
-      $$->emplace_back(*$2);
-      delete $2;
-    }
-    ;
-field:
-    ID type LBRACE INT RBRACE
-    {
-      $$ = new FieldInfo;
-      $$->type = (FieldType)$2;
-      $$->name = $1;
-      $$->length = $4;
-    }
-    | ID type
-    {
-      $$ = new FieldInfo;
-      $$->type = (AttrType)$2;
-      $$->name = $1;
-      $$->length = 4;
-    }
-    ;
-type:
-    TYPE_INT      { $$ = FieldType::INT; }
-    | TYPE_STRING { $$ = FieldType::CHARS; }
-    | TYPE_FLOAT  { $$ = FieldType::FLOAT; }
-    | TYPE_VECTOR { $$ = FieldType::VECTOR; }
-    ;
-insertStmt:        /*insert   语句的语法解析树*/
-    INSERT INTO ID VALUES LBRACE expression expressions RBRACE
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::INSERT);
-      $$->insertion.relation_name = $3;
-      if ($7 != nullptr) {
-        $$->insertion.values.swap(*$7);
-        delete $7;
-      }
-      $$->insertion.values.emplace_back(*$6);
-      reverse($$->insertion.values.begin(), $$->insertion.values.end());
-      delete $6;
-    }
-    ;
+        $$ = new ParsedSqlNode(new InsertSqlNode($3,$6));
+    };
 storageStmt:
     /* empty */
     {
-      $$ = nullptr;
+      $$ = NULLPTR;
     }
     | STORAGE FORMAT EQ ID
     {
       $$ = $4;
     }
     ;
+deleteStmt:    /*  delete 语句的语法解析树*/
+    DELETE FROM ID whereStmt
+    {
+      $$ = new ParsedSqlNode(SqlCommandType::DELETE);
+      $$->deletion.relation_name = $3;
+      if ($4 != NULLPTR) {
+        $$->deletion.conditions.swap(*$4);
+        delete $4;
+      }
+    }
+    ;
+updateStmt:      /*  update 语句的语法解析树*/
+    UPDATE ID SET assignmentStmts whereStmt
+    {
+        $$ = new ParsedSqlNode(new UpdateSqlNode($2,$4,$5));
+    };
+selectStmt:        /*  select 语句的语法解析树*/
+    SELECT nonEmptyExpressions FROM tables whereStmt groupByStmt
+    {
+      $$ = new ParsedSqlNode(new SelectSqlNode($4,$2,$5,$6));
+    };
+calcStmt:
+    CALC nonEmptyExpressions
+    {
+      $$ = new ParsedSqlNode(new CalculateSqlNode($2));
+    };
+      
+setVariableStmt:
+    SET ID EQ nonEmptyExpressions
+    {
+        $$ = new ParsedSqlNode(new SetVariableSqlNode($2,$4));
+    };      
+
+/* substmt  ================================================================================= */
+groupByStmt:
+    /* empty */
+    {
+        $$ = NULLPTR;
+    }|
+    GROUP BY fields
+    {
+        $$=$3;
+    };
+    
+whereStmt:
+    /* empty */
+    {
+        $$ = NULLPTR;
+    }|
+    WHERE nonEmptyExpressions{
+        $$ = $2;   
+    };
+assignmentStmts:
+    assignmentStmt
+    {
+        $$ = new Vector<UP<AssignmentNode>> ();
+        $$.emplace_back($1);
+    }|
+    fieldDef COMMA fieldDefs
+    {
+        $$ = $3
+        $$.emplace_back($1);
+    }
+assignmentStmt:
+    ID EQ expression
+    {
+        $$ = new AssignmentNode($1, $3);
+    };
+    
+/* other  ================================================================================= */
+field:
+    ID {
+      $$ = new FieldNode($1,NULLPTR);
+    }
+    | ID DOT ID {
+      $$ = new FieldNode($1,$3);
+    }
+    ;
+
+fields:
+    /* empty */
+    {
+      $$ = NULLPTR;
+    }
+    | COMMA field fields
+    {
+      if ($3 != NULLPTR) {
+        $$ = $3;
+      } else {
+        $$ = new Vector<UP<FieldNode>>;
+      }
+      $$->emplace_back($2);
+      delete $2;
+    }
+    ;
+fieldDef:
+    ID type LBRACE INT RBRACE
+    {
+      $$ = new FieldDefNode($2,$1,$4);
+    }
+    | ID type
+    {
+      $$ = new FieldDefNode($2,$1,0);
+    };
+fieldDefs:
+    /* empty */
+    {
+      $$ = NULLPTR;
+    }
+    | fieldDef COMMA fieldDefs
+    {
+        if ($3 != NULLPTR) {
+            $$ = $3;
+        } else {
+            $$ = new Vector<UP<FieldDefNode>>;
+        }
+        $$->emplace_back($1);
+    };
+
+
 value:
     INT {
       $$ = new Value((int)$1);
@@ -411,72 +428,6 @@ value:
     }
     ;
 
-deleteStmt:    /*  delete 语句的语法解析树*/
-    DELETE FROM ID whereStmt
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::DELETE);
-      $$->deletion.relation_name = $3;
-      if ($4 != nullptr) {
-        $$->deletion.conditions.swap(*$4);
-        delete $4;
-      }
-    }
-    ;
-updateStmt:      /*  update 语句的语法解析树*/
-    UPDATE ID SET ID EQ value whereStmt
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::UPDATE);
-      $$->update.relation_name = $2;
-      $$->update.attribute_name = $4;
-      $$->update.value = *$6;
-      if ($7 != nullptr) {
-        $$->update.conditions.swap(*$7);
-        delete $7;
-      }
-    }
-    ;
-groupByStmt:
-    fields
-    {
-        $$=$1;
-    }
-    ;
-    
-selectStmt:        /*  select 语句的语法解析树*/
-    SELECT expressions FROM fields whereStmt groupByStmt
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::SELECT);
-      if ($2 != nullptr) {
-        $$->selection.expressions.swap(*$2);
-        delete $2;
-      }
-
-      if ($4 != nullptr) {
-        $$->selection.relations.swap(*$4);
-        delete $4;
-      }
-
-      if ($5 != nullptr) {
-        $$->selection.conditions.swap(*$5);
-        delete $5;
-      }
-
-      if ($6 != nullptr) {
-        $$->selection.group_by.swap(*$6);
-        delete $6;
-      }
-    }
-    ;
-calcStmt:
-    CALC expressions
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::CALC);
-      $$->calc.expressions.swap(*$2);
-      delete $2;
-    }
-    ;
-
-
 compareOperator:
     EQ { $$ = CompareOperator::EQUAL; }
     | LE { $$ = CompareOperator::LESS_EQUAL; }
@@ -489,22 +440,37 @@ compareOperator:
     | LIKE { $$ = CompareOperator::LIKE; }
     | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
     ;
-expressions:
+    
+nonEmptyExpressions:
     expression
-    {
-      $$ = new vector<unique_ptr<Expression>>;
-      $$->emplace_back($1);
+    {    
+        $$ = new vector<UP<Expression>>;
+        $$->emplace_back($1);
     }
-    | expression COMMA expressions
+    | nonEmptyExpressions COMMA expression
     {
-      if ($3 != nullptr) {
-        $$ = $3;
-      } else {
-        $$ = new vector<unique_ptr<Expression>>;
-      }
-      $$->emplace($$->begin(), $1);
+        if ($1 != NULLPTR) {
+            $$ = $3;
+        } else {
+            $$ = new Vector<UP<Expression>>;
+        }
+        $$->emplace($1);
+    };
+expressions:
+    /* empty */
+    {
+        $$ = NULLPTR;
     }
-    ;
+    | expressions COMMA expression
+    {
+        if ($1 != NULLPTR) {
+            $$ = $3;
+        } else {
+            $$ = new Vector<UP<Expression>>;
+        }
+        $$->emplace_back($1);
+    };
+    
 expression:
     expression ADD expression {
       $$ = create_arithmetic_expression(ArithmeticExpr::Type::ADD, $1, $3, sql_string, &@$);
@@ -537,67 +503,36 @@ expression:
       $$ = new StarExpr();
     }
     ;
-whereStmt:
-    conditions{
-     $$ = $1;   
-    }
-conditions:
-    expressions{
-        $$ = $1;
-    }
-    
-fieldDef:
-    ID {
-      $$ = new FieldRefNode();
-      $$->attribute_name = $1;
-    }
-    | ID DOT ID {
-      $$ = new FieldRefNode();
-      $$->relation_name  = $1;
-      $$->attribute_name = $3;
-    }
-    ;
 
 table:
     ID {
       $$ = $1;
-    }
-    ;
+    };
 tables:
     table {
-      $$ = new vector<string>();
+      $$ = new Vector<string>();
       $$->push_back($1);
     }
     | tables COMMA table {
-      if ($3 != nullptr) {
+      if ($3 != NULLPTR) {
         $$ = $3;
       } else {
         $$ = new vector<string>;
       }
 
       $$->insert($$->begin(), $1);
-    }
-    ;
+    };
 
-setVariableStmt:
-    SET ID EQ expression
-    {
-      $$ = new ParsedSqlNode(SqlCommandType::SET_VARIABLE);
-      $$->set_variable.name  = $2;
-      $$->set_variable.value = *$4;
-      delete $4;
-    }
-    ;
 
 
 %%
-extern void scan_string(const char *str, yyscan_t scanner);
+extern void wa::db::ScanString(const char *str, yyscan_t scanner);
 
-int sql_parse(const char *s, ParsedSqlResult *sql_result) {
+int YyParseSql(const char *s, ParsedSqlResult *sql_result) {
   yyscan_t scanner;
   std::vector<char *> allocated_strings;
   yylex_init_extra(static_cast<void*>(&allocated_strings),&scanner);
-  scan_string(s, scanner);
+  ScanString(s, scanner);
   int result = yyparse(s, sql_result, scanner);
 
   for (char *ptr : allocated_strings) {
@@ -608,3 +543,5 @@ int sql_parse(const char *s, ParsedSqlResult *sql_result) {
   yylex_destroy(scanner);
   return result;
 }
+    };   
+};

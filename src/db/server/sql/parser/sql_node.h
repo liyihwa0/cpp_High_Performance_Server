@@ -30,6 +30,7 @@ namespace wa{
         struct FieldNode{
             UP<String>                              tableName_;
             UP<String>                              fieldName_;
+            FieldNode(String* tableName,String* fieldName) : tableName_(tableName), fieldName_(fieldName){}
         };
 
         /**
@@ -37,10 +38,12 @@ namespace wa{
        * @ingroup SQLParser
        * @details 属性，或者说字段(column, field)
        */
-        struct FieldDefSqlNode{
-            UP<String>                              fieldName_;
+        struct FieldDefNode{            
             FieldType                               fieldType_;
+            UP<String>                              fieldName_;
             Int                                     optionalArg_;
+            FieldDefNode(FieldType fieldType, String* fieldName, Int optionalArg)
+                    : fieldType_(fieldType), fieldName_(fieldName), optionalArg_(optionalArg) {}
         };
       
         
@@ -57,10 +60,13 @@ namespace wa{
          * 甚至可以包含复杂的表达式。
          */
         struct SelectSqlNode{
-            Vector<UP<String>>                      tables_;                    ///< 查询的表
-            Vector<UP<Expression>>                  expressions_;               ///< 查询的表达式
-            Vector<UP<Expression>>                  conditions_;               ///< 查询条件，使用AND串联起来多个条件
-            Vector<UP<Expression>>                  groupByConditions_;         ///< group by clause
+            UP<Vector<UP<String>>>                      tables_;                    ///< 查询的表
+            UP<Vector<UP<Expression>>>                  expressions_;               ///< 查询的表达式
+            UP<Vector<UP<Expression>>>                  conditions_;               ///< 查询条件，使用AND串联起来多个条件
+            UP<Vector<UP<Expression>>>                  groupByConditions_;         ///< group by clause
+
+            SelectSqlNode(Vector<UP<String>>* tables, Vector<UP<Expression>>* expressions, Vector<UP<Expression>>* conditions, Vector<UP<Expression>>* groupByConditions)
+                    : tables_(tables), expressions_(expressions), conditions_(conditions), groupByConditions_(groupByConditions) {}
         };
 
         /**
@@ -70,7 +76,8 @@ namespace wa{
          */
         struct InsertSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<Expression>>                  values_;
+            UP<Vector<UP<Expression>>>                  values_;
+            InsertSqlNode(String* tableName,Vector<UP<Expression>>* values):tableName_(tableName), values_(values){}
         };
 
         /**
@@ -79,31 +86,38 @@ namespace wa{
          */
         struct DeleteSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<Expression>>                  conditions_;
+            UP<Vector<UP<Expression>>>              conditions_;
+            DeleteSqlNode(String* tableName, Vector<UP<Expression>>* conditions)
+                    : tableName_(tableName), conditions_(conditions) {}
+                    
+        };
+        
+        struct AssignmentNode {
+            UP<String>                                  fieldName_;
+            UP<Expression>                                  expression_;
+
+            AssignmentNode(String* fieldName,Expression* expression): fieldName_(fieldName),expression_(expression){}
         };
 
         /**
          * @brief 描述一个update语句
          * @ingroup SQLParser
+         * @details 这里也做了很多简化。
          */
-        struct UpdateSqlNode{
-            UP<String>                              tableName_;
-            Vector<UP<String>>                      filedNames_;
-            Vector<UP<Expression>>                  values_;
-            Vector<UP<Expression>>                  conditions_;
+        struct UpdateSqlNode {
+            UP<String>                                  tableName_;
+            UP<Vector<UP<AssignmentNode>>>              assignments_;
+            UP<Vector<UP<Expression>>>                  conditions_;
+
+            UpdateSqlNode(String* tableName,
+                          Vector<UP<AssignmentNode>>* assignments,
+                          Vector<UP<Expression>>* conditions)
+                    : tableName_(tableName),
+                      assignments_(assignments),
+                      conditions_(conditions) {}
         };
 
-        /**
-         * @brief 描述一个属性,只有在建表时采用
-         * @ingroup SQLParser
-         * @details 属性，或者说字段(column, field)
-         */
-        struct FieldDefSqlNode{
-            FieldType                               type_;
-            UP<String>                              name_;
-            Size                                    length_;  ///< Length of attribute
-        };
-
+        
         /**
          * @brief 描述一个create table语句
          * @ingroup SQLParser
@@ -111,8 +125,13 @@ namespace wa{
          */
         struct CreateTableSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<FieldDefSqlNode>>             fieldDefs_;
+            Vector<UP<FieldDefNode>>             fieldDefs_;
             UP<String>                              storageFormat_;
+            CreateTableSqlNode(String* tableName, FieldDefNode* fieldDef, Vector<UP<FieldDefNode>> fieldDefs, String* storageFormat)
+                    : tableName_(tableName), fieldDefs_(std::move(fieldDefs)), storageFormat_(storageFormat) {
+                fieldDefs_.emplace_back(fieldDef);
+                reverse(fieldDefs_.begin(),fieldDefs_.end());
+            }
         };
 
         /**
@@ -122,6 +141,8 @@ namespace wa{
         struct DropTableSqlNode{
             UP<String>                              tableName_;
             Bool                                    ifExist_;
+            DropTableSqlNode(String* tableName, Bool ifExist)
+                    : tableName_(tableName), ifExist_(ifExist) {}
         };
 
         /**
@@ -134,6 +155,12 @@ namespace wa{
             UP<String>                              indexName_;
             UP<String>                              tableName_;
             Vector<UP<String>>                      fieldNames_;
+            CreateIndexSqlNode(String* indexName, String* tableName, String * fieldName)
+                    : indexName_(indexName), tableName_(tableName) {
+                fieldNames_.emplace_back(fieldName);
+            }
+            CreateIndexSqlNode(String* indexName, String* tableName, Vector<UP<String>> fieldNames)
+                    : indexName_(indexName), tableName_(tableName), fieldNames_(std::move(fieldNames)) {}
         };
 
         /**
@@ -143,6 +170,8 @@ namespace wa{
         struct DropIndexSqlNode{
             UP<String>                              indexName_;
             UP<String>                              tableName_;
+            DropIndexSqlNode(String* indexName, String* tableName)
+                    : indexName_(indexName), tableName_(tableName) {}
         };
 
         /**
@@ -152,6 +181,8 @@ namespace wa{
          */
         struct DescTableSqlNode{
             UP<String>                              tableName_;
+            DescTableSqlNode(String* tableName)
+                    : tableName_(tableName) {}
         };
 
         /**
@@ -162,6 +193,8 @@ namespace wa{
         struct LoadDataSqlNode{
             UP<String>                              tableName_;
             UP<String>                              fileName_;
+            LoadDataSqlNode(String* tableName, String* fileName)
+                    : tableName_(tableName), fileName_(fileName) {}
         };
 
         /**
@@ -172,6 +205,18 @@ namespace wa{
         struct SetVariableSqlNode{
             UP<String>                              tableName_;
             UP<Expression>                          value_;
+            SetVariableSqlNode(String* tableName, Expression* value)
+                    : tableName_(tableName), value_(value) {}
+        };
+
+        /**
+         * @brief 计算值的SQL语句
+         * @ingroup SQLParser
+         */
+        struct CalculateSqlNode{
+            UP<Expression>                              expression_;
+            CalculateSqlNode(Expression* expression)
+                    : expression_(expression) {}
         };
 
         class ParsedSqlNode;
@@ -185,6 +230,8 @@ namespace wa{
          */
         struct ExplainSqlNode{
             UP<ParsedSqlNode>                       sqlNode_;
+            ExplainSqlNode(ParsedSqlNode* sqlNode)
+                    : sqlNode_(sqlNode) {}
         };
 
         /**
@@ -196,6 +243,8 @@ namespace wa{
             Vector<String>                          errorMsg_;
             Int                                     line_;
             Int                                     column_;
+            ErrorSqlNode(Vector<String> errorMsg, Int line, Int column)
+                    : errorMsg_(std::move(errorMsg)), line_(line), column_(column) {}
         };
         /**
          * @brief 表示一个SQL语句
@@ -203,23 +252,125 @@ namespace wa{
          */
         class ParsedSqlNode{
         public:
-            ErrorSqlNode                            error;
-            SelectSqlNode                           selection;
-            InsertSqlNode                           insertion;
-            DeleteSqlNode                           deletion;
-            UpdateSqlNode                           update;
-            CreateTableSqlNode                      create_table;
-            DropTableSqlNode                        drop_table;
-            CreateIndexSqlNode                      create_index;
-            DropIndexSqlNode                        drop_index;
-            DescTableSqlNode                        desc_table;
-            LoadDataSqlNode                         load_data;
-            ExplainSqlNode                          explain;
-            SetVariableSqlNode                      set_variable;
+            union SqlNode {
+                ErrorSqlNode* error_;
+                SelectSqlNode* select_;
+                InsertSqlNode* insert_;
+                DeleteSqlNode* delete_;
+                UpdateSqlNode* update_;
+                CreateTableSqlNode* createTable_;
+                DropTableSqlNode* dropTable_;
+                CreateIndexSqlNode* createIndex_;
+                DropIndexSqlNode* dropIndex_;
+                DescTableSqlNode* descTable_;
+                LoadDataSqlNode* loadData_;
+                ExplainSqlNode* explain_;
+                SetVariableSqlNode* setVariable_;
+                CalculateSqlNode* calculate_;
+            };            
+            enum SqlCommandType                         type_;
+            SqlNode                                     sqlNode_;
 
         public:
-            ParsedSqlNode();
-            explicit ParsedSqlNode(SqlCommandType flag);
+            explicit ParsedSqlNode() : type_(SqlCommandType::ERROR) {
+                sqlNode_.error_ = nullptr; 
+            }
+
+
+            explicit ParsedSqlNode(SqlCommandType type) : type_(type) {
+                sqlNode_.error_ = nullptr;
+            }
+
+
+            // 构造函数，接受 ErrorSqlNode
+            explicit ParsedSqlNode(ErrorSqlNode* error) : type_(SqlCommandType::ERROR) {
+                sqlNode_.error_ = error;
+            }
+
+            // 构造函数，接受 SelectSqlNode
+            explicit ParsedSqlNode(SelectSqlNode* selection) : type_(SqlCommandType::SELECT) {
+                sqlNode_.select_ = selection;
+            }
+
+            // 构造函数，接受 InsertSqlNode
+            explicit ParsedSqlNode(InsertSqlNode* insertion) : type_(SqlCommandType::INSERT) {
+                sqlNode_.insert_ = insertion;
+            }
+
+            // 构造函数，接受 DeleteSqlNode
+            explicit ParsedSqlNode(DeleteSqlNode* deletion) : type_(SqlCommandType::DELETE) {
+                sqlNode_.delete_ = deletion;
+            }
+
+            // 构造函数，接受 UpdateSqlNode
+            explicit ParsedSqlNode(UpdateSqlNode* update) : type_(SqlCommandType::UPDATE) {
+                sqlNode_.update_ = update;
+            }
+
+            // 构造函数，接受 CreateTableSqlNode
+            explicit ParsedSqlNode(CreateTableSqlNode* createTable) : type_(SqlCommandType::CREATE_TABLE) {
+                sqlNode_.createTable_ = createTable;
+            }
+
+            // 构造函数，接受 DropTableSqlNode
+            explicit ParsedSqlNode(DropTableSqlNode* dropTable) : type_(SqlCommandType::DROP_TABLE) {
+                sqlNode_.dropTable_ = dropTable;
+            }
+
+            // 构造函数，接受 CreateIndexSqlNode
+            explicit ParsedSqlNode(CreateIndexSqlNode* createIndex) : type_(SqlCommandType::CREATE_INDEX) {
+                sqlNode_.createIndex_ = createIndex;
+            }
+
+            // 构造函数，接受 DropIndexSqlNode
+            explicit ParsedSqlNode(DropIndexSqlNode* dropIndex) : type_(SqlCommandType::DROP_INDEX) {
+                sqlNode_.dropIndex_ = dropIndex;
+            }
+
+            // 构造函数，接受 DescTableSqlNode
+            explicit ParsedSqlNode(DescTableSqlNode* descTable) : type_(SqlCommandType::DESC_TABLE) {
+                sqlNode_.descTable_ = descTable;
+            }
+
+            // 构造函数，接受 LoadDataSqlNode
+            explicit ParsedSqlNode(LoadDataSqlNode* loadData) : type_(SqlCommandType::LOAD_DATA) {
+                sqlNode_.loadData_ = loadData;
+            }
+
+            // 构造函数，接受 ExplainSqlNode
+            explicit ParsedSqlNode(ExplainSqlNode* explain) : type_(SqlCommandType::EXPLAIN) {
+                sqlNode_.explain_ = explain;
+            }
+
+            // 构造函数，接受 SetVariableSqlNode
+            explicit ParsedSqlNode(SetVariableSqlNode* setVariable) : type_(SqlCommandType::SET_VARIABLE) {
+                sqlNode_.setVariable_ = setVariable;
+            }
+            
+            explicit ParsedSqlNode(CalculateSqlNode* calculateSqlNode):type_(SqlCommandType::CALC){
+                sqlNode_.calculate_=calculateSqlNode;
+            }
+
+            // 析构函数
+            ~ParsedSqlNode() {
+                // 根据 type_ 释放相应的内存
+                switch (type_) {
+                    case ERROR: delete sqlNode_.error_; break;
+                    case SELECT: delete sqlNode_.select_; break;
+                    case INSERT: delete sqlNode_.insert_; break;
+                    case DELETE: delete sqlNode_.delete_; break;
+                    case UPDATE: delete sqlNode_.update_; break;
+                    case CREATE_TABLE: delete sqlNode_.createTable_; break;
+                    case DROP_TABLE: delete sqlNode_.dropTable_; break;
+                    case CREATE_INDEX: delete sqlNode_.createIndex_; break;
+                    case DROP_INDEX: delete sqlNode_.dropIndex_; break;
+                    case DESC_TABLE: delete sqlNode_.descTable_; break;
+                    case LOAD_DATA: delete sqlNode_.loadData_; break;
+                    case EXPLAIN: delete sqlNode_.explain_; break;
+                    case SET_VARIABLE: delete sqlNode_.setVariable_; break;
+                    default: break;
+                }
+            }
         };
     }
 }

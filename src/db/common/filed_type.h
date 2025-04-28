@@ -8,6 +8,7 @@ namespace wa{
             CHARS,
             FLOAT,
             DOUBLE,
+            VECTOR,
             CHAR,
             VARCHAR,
             DATE,
