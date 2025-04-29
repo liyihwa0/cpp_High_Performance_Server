@@ -1,7 +1,12 @@
 namespace wa{
     namespace db{
-        enum CompareOperator
+        enum class ArithmeticType
         {
+            ADD,
+            SUB,
+            MUL,
+            DIV,
+            NEGATIVE,
             EQUAL,
             LESS_EQUAL,
             NOT_EQUAL,
@@ -11,8 +16,7 @@ namespace wa{
             IS,
             IS_NOT,
             LIKE,
-            NOT_LIKE,
-            NO_OP
+            NOT_LIKE
         };
     }
 }

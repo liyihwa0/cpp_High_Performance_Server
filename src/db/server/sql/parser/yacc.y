@@ -6,14 +6,12 @@
 #include "./sql_node.h"
 #include "./lex.h"
 #include "./yacc.hpp"
-#include "../../../common/compare_operator.h"
+#include "../../../common/arithmetic_type.h"
+#include "../../expression/expression.h"
 
 using namespace std;
-
-
-namespace wa{
-namespace db{
-
+using namespace wa;
+using namespace wa::db;
 string token_name(const char *sql_string, YYLTYPE *llocp){
     return string(sql_string + llocp->first_column, llocp->last_column - llocp->first_column + 1);
 }
@@ -99,26 +97,25 @@ string token_name(const char *sql_string, YYLTYPE *llocp){
 
 /* union 中定义各种数据类型，真实生成的代码也是union类型，所以不能有非POD类型的数据*/
 %union{
-    ParsedSqlNode *                             parsedSqlNode_;
-    Expression *                                expression_;
-    Vector<UP<Expression>> *                    expressions_;
-    enum CompareOperator                        compareOperator_;
-
-    FieldSqlNode*                               field_;
-    Vector<UP<FieldSqlNode>>*                   fields_;
-
-    FieldDefNode*                               fieldDef_;
-    Vector<UP<FieldDefNode>>*                   fieldDefs_;
+    wa::db::ParsedSqlNode *                             parsedSqlNode_;
+    wa::db::Expression *                                expression_;
+    Vector<wa::UP<wa::db::Expression>> *                    expressions_;
+    wa::db::ArithmeticType                         arithmeticType_;
     
-    AssignmentNode*                             assignment_;
-    Vector<UP<AssignmentNode>>*                 assignments_;
+    wa::db::FieldNode*                               field_;
+    Vector<wa::UP<wa::db::FieldNode>>*                   fields_;
+    
+    wa::db::FieldDefNode*                               fieldDef_;
+    Vector<wa::UP<wa::db::FieldDefNode>>*                   fieldDefs_;
 
-    Value*                                      value_;
-    Float                                       float_;
-    Int                                         int_;
-    String*                                     string_;
-    Vector<UP<String>>                          strings_;   
-    FieldType                                   type_;
+    wa::db::AssignmentNode*                             assignment_;
+    Vector<wa::UP<wa::db::AssignmentNode>>*                 assignments_;
+
+    F64                                               float_;
+    Int                                                 int_;
+    String*                                             string_;
+    Vector<wa::UP<String>>*                                  strings_;   
+    wa::db::FieldType                                   type_;
 }
 
 
@@ -126,7 +123,7 @@ string token_name(const char *sql_string, YYLTYPE *llocp){
 /*type union中的类型          规则名*/
 %type   <type_>                         type
 %type   <value_>                        value
-%type   <compareOperator_>              compareOperator
+%type   <arithmeticType_>               arithmeticType
 %type   <expression_>                   expression
 %type   <expressions_>                  expressions  
 %type   <expressions_>                  nonEmptyExpressions
@@ -295,12 +292,7 @@ storageStmt:
 deleteStmt:    /*  delete 语句的语法解析树*/
     DELETE FROM ID whereStmt
     {
-      $$ = new ParsedSqlNode(SqlCommandType::DELETE);
-      $$->deletion.relation_name = $3;
-      if ($4 != NULLPTR) {
-        $$->deletion.conditions.swap(*$4);
-        delete $4;
-      }
+      $$ = new ParsedSqlNode(new DeleteSqlNode($3,$4));
     }
     ;
 updateStmt:      /*  update 语句的语法解析树*/
@@ -314,13 +306,13 @@ selectStmt:        /*  select 语句的语法解析树*/
       $$ = new ParsedSqlNode(new SelectSqlNode($4,$2,$5,$6));
     };
 calcStmt:
-    CALC nonEmptyExpressions
+    CALC expression
     {
       $$ = new ParsedSqlNode(new CalculateSqlNode($2));
     };
       
 setVariableStmt:
-    SET ID EQ nonEmptyExpressions
+    SET ID EQ expression
     {
         $$ = new ParsedSqlNode(new SetVariableSqlNode($2,$4));
     };      
@@ -347,13 +339,13 @@ whereStmt:
 assignmentStmts:
     assignmentStmt
     {
-        $$ = new Vector<UP<AssignmentNode>> ();
-        $$.emplace_back($1);
+        $$ = new Vector<wa::UP<AssignmentNode>> ();
+        $$->emplace_back($1);
     }|
     fieldDef COMMA fieldDefs
     {
-        $$ = $3
-        $$.emplace_back($1);
+        $$ = $3;
+        $$->emplace_back($1);
     }
 assignmentStmt:
     ID EQ expression
@@ -428,17 +420,25 @@ value:
     }
     ;
 
-compareOperator:
-    EQ { $$ = CompareOperator::EQUAL; }
-    | LE { $$ = CompareOperator::LESS_EQUAL; }
-    | NE { $$ = CompareOperator::NOT_EQUAL; }
-    | LT { $$ = CompareOperator::LESS_THAN; }
-    | GE { $$ = CompareOperator::GREAT_EQUAL; }
-    | GT { $$ = CompareOperator::GREAT_THAN; }
-    | IS { $$ = CompareOperator::IS; }
-    | IS NOT { $$ = CompareOperator::IS_NOT; }
-    | LIKE { $$ = CompareOperator::LIKE; }
-    | NOT LIKE { $$ = CompareOperator::NOT_LIKE; }
+arithmeticType:
+    /* 算术运算符 */
+    ADD { $$ = ArithmeticType::ADD; }
+    | SUB { $$ = ArithmeticType::SUB; }
+    | MUL { $$ = ArithmeticType::MUL; }
+    | DIV { $$ = ArithmeticType::DIV; }
+    /* 比较运算符 */
+    | EQ { $$ = ArithmeticType::EQUAL; }
+    | LE { $$ = ArithmeticType::LESS_EQUAL; }
+    | NE { $$ = ArithmeticType::NOT_EQUAL; }
+    | LT { $$ = ArithmeticType::LESS_THAN; }
+    | GE { $$ = ArithmeticType::GREAT_EQUAL; }
+    | GT { $$ = ArithmeticType::GREAT_THAN; }
+    /* IS 运算符 */
+    | IS { $$ = ArithmeticType::IS; }
+    | IS NOT { $$ = ArithmeticType::IS_NOT; }
+    /* LIKE 运算符 */
+    | LIKE { $$ = ArithmeticType::LIKE; }
+    | NOT LIKE { $$ = ArithmeticType::NOT_LIKE; }
     ;
     
 nonEmptyExpressions:
@@ -450,11 +450,11 @@ nonEmptyExpressions:
     | nonEmptyExpressions COMMA expression
     {
         if ($1 != NULLPTR) {
-            $$ = $3;
+            $$ = $1;
         } else {
             $$ = new Vector<UP<Expression>>;
         }
-        $$->emplace($1);
+        $$->emplace_back($3);
     };
 expressions:
     /* empty */
@@ -464,43 +464,28 @@ expressions:
     | expressions COMMA expression
     {
         if ($1 != NULLPTR) {
-            $$ = $3;
+            $$ = $1;
         } else {
             $$ = new Vector<UP<Expression>>;
         }
-        $$->emplace_back($1);
+        $$->emplace_back($3);
     };
     
 expression:
-    expression ADD expression {
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::ADD, $1, $3, sql_string, &@$);
-    }
-    | expression SUB expression {
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::SUB, $1, $3, sql_string, &@$);
-    }
-    | expression MUL expression {
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::MUL, $1, $3, sql_string, &@$);
-    }
-    | expression DIV expression {
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::DIV, $1, $3, sql_string, &@$);
-    }
-    | expression compareOperator expression{
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::DIV, $1, $3, sql_string, &@$);
+    expression arithmeticType expression{
+      $$ = ArithmeticExpression($1,$2,$3);
     }
     | LBRACE expression RBRACE {
       $$ = $2;
-      $$->set_name(token_name(sql_string, &@$));
     }
     | SUB expression %prec UMINUS {
-      $$ = create_arithmetic_expression(ArithmeticExpr::Type::NEGATIVE, $2, NULLPTR, sql_string, &@$);
+      $$ = new ArithmeticExpression(NULLPTR,ArighmeticType::NEGATIVE,$2);
     }
     | ID {
-      FieldRefNode *node = $1;
-      $$ = new UnboundFieldExpression(node);
-      $$->set_name(token_name(sql_string, &@$));
+      $$ = new UnboundedExpression($1);
     }
     | MUL {
-      $$ = new StarExpr();
+      $$ = new StarExpression();
     }
     ;
 
@@ -510,23 +495,23 @@ table:
     };
 tables:
     table {
-      $$ = new Vector<string>();
-      $$->push_back($1);
+      $$ = new Vector<UP<String>>();
+      $$->emplace_back($1);
     }
     | tables COMMA table {
-      if ($3 != NULLPTR) {
-        $$ = $3;
+      if ($1 != NULLPTR) {
+        $$ = $1;
       } else {
-        $$ = new vector<string>;
+        $$ = new Vector<UP<String>>;
       }
-
-      $$->insert($$->begin(), $1);
+      
+      $$->emplace_back($3);
     };
 
 
 
 %%
-extern void wa::db::ScanString(const char *str, yyscan_t scanner);
+extern void ScanString(const char *str, yyscan_t scanner);
 
 int YyParseSql(const char *s, ParsedSqlResult *sql_result) {
   yyscan_t scanner;
@@ -543,5 +528,3 @@ int YyParseSql(const char *s, ParsedSqlResult *sql_result) {
   yylex_destroy(scanner);
   return result;
 }
-    };   
-};

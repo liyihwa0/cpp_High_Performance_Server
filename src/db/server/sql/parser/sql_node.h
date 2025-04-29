@@ -125,10 +125,10 @@ namespace wa{
          */
         struct CreateTableSqlNode{
             UP<String>                              tableName_;
-            Vector<UP<FieldDefNode>>             fieldDefs_;
+            UP<Vector<UP<FieldDefNode>>>             fieldDefs_;
             UP<String>                              storageFormat_;
-            CreateTableSqlNode(String* tableName, FieldDefNode* fieldDef, Vector<UP<FieldDefNode>> fieldDefs, String* storageFormat)
-                    : tableName_(tableName), fieldDefs_(std::move(fieldDefs)), storageFormat_(storageFormat) {
+            CreateTableSqlNode(String* tableName, FieldDefNode* fieldDef, Vector<UP<FieldDefNode>>* fieldDefs, String* storageFormat)
+                    : tableName_(tableName), fieldDefs_(fieldDefs), storageFormat_(storageFormat) {
                 fieldDefs_.emplace_back(fieldDef);
                 reverse(fieldDefs_.begin(),fieldDefs_.end());
             }
