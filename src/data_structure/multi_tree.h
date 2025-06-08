@@ -6,7 +6,7 @@
 
 namespace wa {
     // 多叉树类
-    // 目前被用于存放日志
+    // 目前被用于存放配置
     /*
      * 1. 允许添加MultiTree作为子节点
      * 2. 允许merge两个MultiTree
@@ -20,7 +20,7 @@ namespace wa {
         struct TreeNode;
         struct LeafNode {
             V value_;
-            LeafNode(V value):value_(std::move(value)){}
+            explicit LeafNode(V value):value_(std::move(value)){}
             ~LeafNode()= default;
         };
         struct NonLeafNode {
@@ -34,7 +34,7 @@ namespace wa {
             SP<NonLeafNode> nonLeaf_;   //todo:这里是一个不优雅的解决方案
             explicit TreeNode(V value) : isLeaf_(TRUE),leaf_(new LeafNode(std::move(value))) {}
             explicit TreeNode() : isLeaf_(FALSE),nonLeaf_(new NonLeafNode()){}
-            explicit TreeNode(SP<NonLeafNode> nonLeafNode):nonLeaf_(std::move(nonLeafNode)){}
+            explicit TreeNode(SP<NonLeafNode> nonLeafNode):nonLeaf_(std::move(nonLeafNode)),isLeaf_(FALSE){}
             ~TreeNode()=default;
         };
 
@@ -46,6 +46,7 @@ namespace wa {
                 return;
             }
 
+            // 叶子节点无法合并
             if (a->isLeaf_ && b->isLeaf_) {
                 a->leaf_=b->leaf_;  //增加引用计数
             } else if (!a->isLeaf_ && !b->isLeaf_) {
@@ -65,7 +66,7 @@ namespace wa {
                         merge(it->second, std::move(bSubtree));
                     } else {
                         // 如果不存在，直接添加
-                        aNonLeafNode->children_.emplace(key,std::move(bSubtree));// = std::move(bSubtree); // 直接添加 b 的子节点
+                        aNonLeafNode->children_.emplace(key,std::move(bSubtree)); // 直接添加 b 的子节点
                     }
                 }
             } else {

@@ -6,6 +6,8 @@
 #include "../data_structure/multi_tree.h"
 #include "../util/helper.h"
 #include "../util/caster.h"
+#include "src/locker/locker.h"
+
 namespace wa{
     namespace config{
         enum ConfigFileType{
@@ -79,6 +81,7 @@ namespace wa{
                 String getString(const Vector<String>& path,const String& defaultValue)const{
                     return values_.getValue(path,defaultValue);
                 }
+
                 Bool hasValue(const Vector<String>& path) const{
                     return values_.hasLeaf(path);
                 }
@@ -94,34 +97,40 @@ namespace wa{
                 ConfigValues values_;
                 ConfigDefinitions definitions_;
                 SP<ConfigValues> parsedValues_;
+                ReadWriteLock lock_;
             public:
                 Config()= default;
+
                 void mergeValues(const Vector<String>& path,ConfigValues& values){
-                    parsedValues_.reset();
+                    ScopedWriteLock l(lock_);
                     values_.merge(path,values);
                 }
+
                 void mergeDefinitions(const Vector<String>& path,ConfigDefinitions& definitions){
-                    parsedValues_.reset();
+                     ScopedWriteLock l(lock_);
                     definitions_.merge(path,definitions);
                 }
         
                 void parseCommand(){
-                    parsedValues_.reset();
-        
+                    auto l=AsScopedLock(lock_);
+                    //todo
                 }
         
                 // 实现ini读取
                 void parseFile(String filename,ConfigFileType fileType){
-                    parsedValues_.reset();
-        
-        
+                    ScopedWriteLock l(lock_);
+                    //todo
                 }
         
                 SP<ConfigValues> parsedValues() {
+                    lock_.lockRead();
                     if (parsedValues_.get()) {
-                        return parsedValues_;
+                        SP<ConfigValues> res=parsedValues_;
+                        lock_.unlock();
+                        return res;
                     }
-        
+
+                    ScopedWriteLock l(lock_);
                     // 创建一个新的 ConfigValues 对象
                     parsedValues_.reset(new ConfigValues());
                     // 遍历definitions_,找到不存在于values_中的,而存在于definitions_的defaultValue中的变量,将其添加到parsedValues设置为defaultValue
